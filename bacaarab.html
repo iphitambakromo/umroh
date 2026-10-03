@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Belajar Baca Arab  — Metode Praktis dari Teks Hadis</title>
+<style>
+:root{
+  --bg:#f6f2e9; --paper:#fffdf8; --ink:#1c2b25; --soft:#5b6b63;
+  --line:#e2dbc9; --brand:#12564a; --brand2:#0d4239; --gold:#b8862b;
+  --ok:#1e7a4d; --no:#b3352c; --chip:#eef3f0;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.65; font-size:16px;
+}
+.ar{font-family:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic","Geeza Pro","Arabic Typesetting",serif;
+   direction:rtl; line-height:2.1; unicode-bidi:isolate}
+button{font-family:inherit}
+a{color:var(--brand)}
+
+/* ---------- layout ---------- */
+.topbar{
+  position:sticky; top:0; z-index:50; background:var(--brand2); color:#f4efe3;
+  padding:12px 18px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  box-shadow:0 2px 12px rgba(0,0,0,.18);
+}
+.topbar h1{font-size:1.02rem; margin:0; font-weight:700; letter-spacing:.2px}
+.topbar .sub{font-size:.78rem; opacity:.72; margin-left:2px}
+.spacer{flex:1}
+.tbtn{
+  background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.22);
+  padding:7px 13px; border-radius:999px; cursor:pointer; font-size:.82rem; transition:.15s;
+}
+.tbtn:hover{background:rgba(255,255,255,.24)}
+.wrap{display:flex; align-items:flex-start; max-width:1280px; margin:0 auto; gap:0}
+nav.side{
+  width:236px; flex:none; position:sticky; top:57px; padding:18px 10px 40px 14px;
+  max-height:calc(100vh - 57px); overflow:auto;
+}
+nav.side button{
+  display:flex; align-items:center; gap:10px; width:100%; text-align:left;
+  background:none; border:0; padding:10px 12px; border-radius:10px; cursor:pointer;
+  color:var(--soft); font-size:.9rem; transition:.14s;
+}
+nav.side button:hover{background:#ece5d5; color:var(--ink)}
+nav.side button.on{background:var(--brand); color:#fff; font-weight:600}
+nav.side .n{
+  width:22px;height:22px;flex:none;border-radius:6px;background:#e3dccb;color:var(--brand);
+  display:grid;place-items:center;font-size:.72rem;font-weight:700}
+nav.side button.on .n{background:rgba(255,255,255,.2);color:#fff}
+main{flex:1; min-width:0; padding:24px 22px 90px}
+section{display:none; animation:fade .25s ease}
+section.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- generic blocks ---------- */
+.card{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; margin-bottom:18px}
+.card h2{margin:0 0 4px; font-size:1.32rem; color:var(--brand2)}
+.card h3{font-size:1.03rem; margin:26px 0 8px; color:var(--brand2); border-bottom:1px solid var(--line); padding-bottom:5px}
+.card h4{font-size:.95rem; margin:18px 0 6px; color:var(--ink)}
+.lead{color:var(--soft); margin:0 0 18px; font-size:.95rem}
+.kicker{display:inline-block;background:#e8f0ec;color:var(--brand);font-size:.72rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:10px 0}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f0ebe0;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+tr:hover td{background:#faf7ef}
+td.ar,th.ar{text-align:right;font-size:1.22rem;white-space:nowrap}
+.tip{background:#f0f6f2;border-left:4px solid var(--brand);padding:12px 15px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.92rem}
+.warn{background:#fdf3ec;border-left:4px solid var(--gold);padding:12px 15px;border-radius:0 10px 10px 0;margin:14px 0;font-size:.92rem}
+.bad{background:#fdefed;border-left:4px solid var(--no);padding:10px 14px;border-radius:0 10px 10px 0;margin:12px 0;font-size:.9rem}
+.good{background:#eef7f1;border-left:4px solid var(--ok);padding:10px 14px;border-radius:0 10px 10px 0;margin:12px 0;font-size:.9rem}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.mini{background:#fbf8f1;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.mini .big{font-size:1.5rem;color:var(--brand);font-weight:700}
+code{background:#f0ebe0;padding:1px 6px;border-radius:5px;font-size:.85em}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.74rem;font-weight:600}
+.p-jar{background:#e7f0fb;color:#1d5b96}
+.p-mud{background:#f3e9fa;color:#6b2fa0}
+.p-fi{background:#e7f5ec;color:#1e7a4d}
+.p-is{background:#fdf0dc;color:#96601d}
+.p-tet{background:#f0ece4;color:#6b5f4a}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(135deg,#12564a,#0b3c33);color:#f3eee1;border-radius:var(--r);padding:34px 30px;margin-bottom:20px}
+.hero h2{color:#fff;font-size:1.8rem;margin:0 0 8px;line-height:1.25}
+.hero p{margin:0 0 20px;opacity:.86;max-width:62ch}
+.hero .btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{background:var(--gold);color:#231a06;border:0;padding:11px 20px;border-radius:10px;font-weight:700;cursor:pointer;font-size:.92rem;transition:.15s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn.ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn.line{background:#fff;color:var(--brand);border:1px solid var(--line)}
+.btn.line:hover{background:#f2ede2}
+.btn.sm{padding:7px 13px;font-size:.82rem}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+.stats div{font-size:.82rem;opacity:.8}
+.stats b{display:block;font-size:1.5rem;opacity:1;color:#f0c874}
+
+/* ---------- kamus ---------- */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+input[type=search],input[type=text]{
+  padding:10px 14px;border:1px solid var(--line);border-radius:10px;font-size:.92rem;
+  background:#fff;flex:1;min-width:180px;color:var(--ink)
+}
+input:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:transparent}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{background:var(--chip);border:1px solid transparent;padding:6px 13px;border-radius:999px;cursor:pointer;font-size:.82rem;color:var(--soft)}
+.chip.on{background:var(--brand);color:#fff;font-weight:600}
+.vlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:10px}
+.v{background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 13px;display:flex;gap:12px;align-items:flex-start;transition:.14s}
+.v:hover{border-color:var(--brand);box-shadow:0 2px 10px rgba(18,86,74,.08)}
+.v .a{font-size:1.4rem;min-width:74px;text-align:right;color:var(--brand2)}
+.v .t{font-size:.86rem}
+.v .t b{display:block;color:var(--ink)}
+.v .t i{color:var(--soft);font-style:normal;font-size:.8rem}
+.v .note{font-size:.76rem;color:var(--gold);display:block;margin-top:2px}
+.count{font-size:.8rem;color:var(--soft);margin:6px 2px 12px}
+
+/* ---------- detektif ---------- */
+.det{background:#fbf8f1;border:1px solid var(--line);border-radius:12px;padding:16px}
+.det .in{display:flex;gap:9px;flex-wrap:wrap}
+.det input{font-size:1.3rem;text-align:right;direction:rtl;flex:1;min-width:150px;font-family:inherit}
+.det .out{margin-top:14px;font-size:.9rem}
+.det .hit{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-top:8px}
+.det .hit b{color:var(--brand)}
+.det .try{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.det .try span{background:#eee7d7;padding:4px 11px;border-radius:999px;font-size:1.15rem;cursor:pointer;font-family:"Amiri","Noto Naskh Arabic",serif}
+.det .try span:hover{background:var(--brand);color:#fff}
+
+/* ---------- hadis ---------- */
+.hsel{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.htext{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px}
+.htext .arline{font-size:1.72rem;text-align:right;direction:rtl;line-height:2.3;color:#123}
+.hmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.hmeta .ref{font-size:.82rem;color:var(--soft)}
+.prog{height:6px;background:#eae4d6;border-radius:99px;overflow:hidden;flex:1;min-width:120px;max-width:260px}
+.prog i{display:block;height:100%;background:var(--gold);width:0;transition:.3s}
+.words{display:flex;flex-wrap:wrap;gap:7px;direction:rtl;justify-content:flex-end;margin-top:6px}
+.w{
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 13px;cursor:pointer;
+  font-family:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic",serif;
+  font-size:1.5rem;direction:rtl;color:#22303a;transition:.14s;line-height:1.6;
+}
+.w:hover{border-color:var(--brand);background:#f4faf7;transform:translateY(-1px)}
+.w.sel{background:var(--brand);color:#fff;border-color:var(--brand)}
+.w.seen{background:#f2f7f4;border-color:#bcd4ca}
+.w.sel.seen{background:var(--brand);border-color:var(--brand)}
+.ana{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:16px 18px;margin-top:12px;display:none}
+.ana.on{display:block}
+.ana .big{font-size:1.9rem;text-align:right;direction:rtl;color:var(--brand2);margin-bottom:2px}
+.ana .tr{font-size:1rem;color:var(--gold);font-weight:600;letter-spacing:.2px}
+.ana .mn{font-size:.95rem;margin:6px 0 10px}
+.ana .rl{background:#f7f3e9;border-radius:9px;padding:10px 13px;font-size:.87rem;color:#4a4433}
+.ana .rl b{color:var(--brand2)}
+.trans{font-size:.9rem;color:var(--soft);background:#f7f4ec;padding:12px 15px;border-radius:10px;margin-top:12px;display:none}
+.trans.on{display:block}
+
+/* ---------- latihan ---------- */
+.ex{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.ex .q{font-size:1.75rem;text-align:right;direction:rtl;color:#123;margin-bottom:6px;font-family:"Amiri","Noto Naskh Arabic",serif;line-height:2}
+.ex .hint{font-size:.82rem;color:var(--soft);margin-bottom:9px}
+.ex .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ex .row input{flex:1;min-width:190px}
+.ex .res{margin-top:9px;font-size:.9rem;display:none}
+.ex .res.on{display:block}
+.ex.done{border-color:#bcd8c8;background:#fbfefc}
+
+/* ---------- kuis ---------- */
+.qz{background:#fff;border:1px solid var(--line);border-radius:12px;padding:17px 19px;margin-bottom:12px}
+.qz .qq{font-weight:600;margin-bottom:11px}
+.qz .qq .ar{font-size:1.6rem;color:var(--brand2);display:block;margin-top:5px}
+.opt{display:block;width:100%;text-align:left;background:#faf7f0;border:1px solid var(--line);
+  padding:10px 14px;border-radius:9px;margin-bottom:7px;cursor:pointer;font-size:.92rem;transition:.13s}
+.opt:hover:not(:disabled){border-color:var(--brand);background:#f2f8f5}
+.opt:disabled{cursor:default;opacity:.92}
+.opt.right{background:#e9f6ee;border-color:var(--ok);color:#14563a;font-weight:600}
+.opt.wrong{background:#fdeeed;border-color:var(--no);color:#8f2a22}
+.qz .why{display:none;margin-top:9px;font-size:.87rem;background:#f7f3e9;padding:10px 13px;border-radius:9px}
+.qz .why.on{display:block}
+.score{position:sticky;top:70px;z-index:20;background:var(--brand2);color:#fff;padding:10px 16px;border-radius:11px;
+  display:flex;align-items:center;gap:14px;margin-bottom:16px;font-size:.9rem;box-shadow:0 3px 12px rgba(0,0,0,.16)}
+.score b{font-size:1.15rem;color:#f0c874}
+
+/* ---------- footer / nav bawah ---------- */
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px}
+.menuBtn{display:none}
+@media(max-width:860px){
+  nav.side{position:fixed;left:0;top:57px;bottom:0;width:250px;background:var(--paper);z-index:40;
+    transform:translateX(-100%);transition:.25s;box-shadow:4px 0 24px rgba(0,0,0,.14);max-height:none}
+  nav.side.open{transform:none}
+  .menuBtn{display:inline-block}
+  main{padding:18px 14px 80px}
+  .hero{padding:26px 20px}
+  .hero h2{font-size:1.4rem}
+  .htext .arline{font-size:1.45rem}
+  .w{font-size:1.3rem;padding:6px 10px}
+}
+mark{background:#fbe9b8;padding:0 3px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="tbtn menuBtn" id="menuBtn">☰</button>
+  <div>
+    <h1>Belajar Baca Arab Gundul</h1>
+    <span class="sub">Metode praktis dari teks hadis · tanpa harokat</span>
+  </div>
+  <div class="spacer"></div>
+  <button class="tbtn" id="revealTop">👁 Harokat semua hadis</button>
+  <button class="tbtn" id="resetTop">↺ Reset progres</button>
+</div>
+
+<div class="wrap">
+<nav class="side" id="side">
+  <button data-go="mulai" class="on"><span class="n">0</span>Mulai di sini</button>
+  <button data-go="prinsip"><span class="n">1</span>7 Prinsip Kunci</button>
+  <button data-go="kamus"><span class="n">2</span>Kamus Mini Hadis</button>
+  <button data-go="bengkel"><span class="n">3</span>Bengkel Wazan</button>
+  <button data-go="hadis"><span class="n">4</span>Bedah Hadis</button>
+  <button data-go="latihan"><span class="n">5</span>Latihan Mandiri</button>
+  <button data-go="kuis"><span class="n">6</span>Uji Kemampuan</button>
+  <button data-go="ambigu"><span class="n">7</span>Kata Ambigu</button>
+  <button data-go="jadwal"><span class="n">8</span>Jadwal 30 Hari</button>
+</nav>
+
+<main>
+
+<!-- ============ 0. MULAI ============ -->
+<section id="mulai" class="on">
+  <div class="hero">
+    <h2>Harokat itu bukan tebak-tebakan.<br>Ia ditentukan aturan.</h2>
+    <p>Bunyi <b>a</b>, <b>u</b>, <b>i</b> pada kata Arab ditentukan oleh tiga hal: identitas katanya (fi'il atau isim), wazan (pola cetakannya), dan i'rab (jabatannya dalam kalimat). Situs ini mengajarkan ketiganya lewat teks hadis asli yang bisa Anda klik kata per kata.</p>
+    <div class="btns">
+      <button class="btn" data-go="hadis">Mulai bedah hadis →</button>
+      <button class="btn ghost" data-go="prinsip">Baca 7 prinsip dulu</button>
+    </div>
+    <div class="stats">
+      <div><b id="sKamus">–</b> entri kamus mini</div>
+      <div><b id="sHadis">8</b> hadis dibedah kata per kata</div>
+      <div><b id="sLatih">12</b> soal latihan</div>
+      <div><b id="sKuis">22</b> soal uji kemampuan</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="kicker">Pertanyaan yang dijawab situs ini</span>
+    <h2>"Kapan huruf itu berbunyi a, u, atau i?"</h2>
+    <p class="lead">Jawaban singkatnya: hampir selalu bisa dipastikan. Yang benar-benar bebas hanya <b>satu</b> posisi — harokat tengah pada fi'il mudhari'. Selebihnya mengikuti aturan yang bisa dipelajari.</p>
+
+    <div class="grid g3">
+      <div class="mini">
+        <div class="big">1</div>
+        <b>Identitas kata</b>
+        <p style="margin:5px 0 0;font-size:.86rem;color:var(--soft)">Fi'il (kerja) atau isim (benda/sifat)? Ini menentukan pola mana yang dipakai.</p>
+      </div>
+      <div class="mini">
+        <div class="big">2</div>
+        <b>Wazan (pola)</b>
+        <p style="margin:5px 0 0;font-size:.86rem;color:var(--soft)">Tiap kata Arab dicetak dari pola tetap. <span class="ar">تَعَلَّمَ</span> pasti <i>ta'allama</i>, tidak mungkin lain.</p>
+      </div>
+      <div class="mini">
+        <div class="big">3</div>
+        <b>I'rab (jabatan)</b>
+        <p style="margin:5px 0 0;font-size:.86rem;color:var(--soft)">Subjek → <b>u</b>, objek → <b>a</b>, setelah huruf jar → <b>i</b>. Ini bagian paling matematis.</p>
+      </div>
+    </div>
+
+    <h3>Contoh langsung: dari 9 kata, cuma 3 yang perlu dihafal</h3>
+    <p style="font-size:.92rem;margin:0 0 10px">Ambil hadis niat (HR. Bukhari 1). Versi gundulnya:</p>
+    <div class="htext" style="margin-bottom:10px">
+      <div class="arline">انما الاعمال بالنيات وانما لكل امرئ ما نوى</div>
+    </div>
+    <table>
+      <tr><th class="ar">Kata</th><th>Baca</th><th>Dari mana bunyinya?</th></tr>
+      <tr><td class="ar">انما</td><td><b>innamā</b></td><td><span class="pill p-tet">hafalan</span> kata tugas, bunyinya tetap</td></tr>
+      <tr><td class="ar">الاعمال</td><td><b>al-a'mālu</b></td><td><span class="pill p-is">aturan</span> ال selalu "al" + fa'il → dhammah</td></tr>
+      <tr><td class="ar">بالنيات</td><td><b>bin-niyāti</b></td><td><span class="pill p-jar">jar</span> huruf jar بـ memaksa kasrah</td></tr>
+      <tr><td class="ar">لكل</td><td><b>li-kulli</b></td><td><span class="pill p-jar">jar</span> + <span class="pill p-mud">mudhaf</span> → kasrah tanpa tanwin</td></tr>
+      <tr><td class="ar">امرئ</td><td><b>imri'in</b></td><td><span class="pill p-tet">hafalan</span> bentuknya khusus</td></tr>
+      <tr><td class="ar">ما</td><td><b>mā</b></td><td><span class="pill p-tet">hafalan</span> kata tugas</td></tr>
+      <tr><td class="ar">نوى</td><td><b>nawā</b></td><td><span class="pill p-tet">hafalan</span> fi'il bentuk khusus</td></tr>
+    </table>
+    <div class="tip">Sisanya (<code>و</code>, <code>انما</code> yang kedua) murni pengulangan. <b>Artinya: dalam satu baris hadis, lebih dari separuh bisa dibaca dengan aturan — tanpa menghafal apa pun.</b></div>
+  </div>
+
+  <div class="card">
+    <h2>Alur belajar yang disarankan</h2>
+    <table>
+      <tr><th style="width:44px">Hari</th><th>Lakukan ini</th><th>Bagian</th></tr>
+      <tr><td>1–2</td><td>Baca 7 prinsip sampai paham <i>kenapa</i>-nya, bukan hafalannya</td><td><button class="btn line sm" data-go="prinsip">Prinsip</button></td></tr>
+      <tr><td>3–7</td><td>Hafalkan kamus mini 10–15 kata per hari. Ini menyumbang ±40% teks hadis</td><td><button class="btn line sm" data-go="kamus">Kamus</button></td></tr>
+      <tr><td>8–12</td><td>Pelajari wazan, lalu pakai Detektif Kata untuk mengecek tebakan Anda</td><td><button class="btn line sm" data-go="bengkel">Bengkel</button></td></tr>
+      <tr><td>13–20</td><td>Bedah 8 hadis, klik setiap kata, baca aturan di baliknya</td><td><button class="btn line sm" data-go="hadis">Bedah</button></td></tr>
+      <tr><td>21–26</td><td>Kerjakan latihan mandiri tanpa melihat kunci</td><td><button class="btn line sm" data-go="latihan">Latihan</button></td></tr>
+      <tr><td>27–30</td><td>Uji kemampuan, ulang bagian yang salah</td><td><button class="btn line sm" data-go="kuis">Kuis</button></td></tr>
+    </table>
+    <div class="warn"><b>Realistis:</b> aturan di atas mempercepat, tapi yang membuat lancar adalah jam terbang. Target yang masuk akal: 1 hadis berharokat per hari selama 3 bulan, lalu bandingkan dengan versi gundulnya.</div>
+  </div>
+</section>
+
+<!-- ============ 1. PRINSIP ============ -->
+<section id="prinsip">
+  <div class="card">
+    <span class="kicker">Bagian 1</span>
+    <h2>7 Prinsip Kunci</h2>
+    <p class="lead">Urut dari yang paling sering menyelamatkan Anda. Kalau waktu terbatas, hafalkan prinsip 1–3 saja — itu sudah menyelesaikan sebagian besar masalah.</p>
+
+    <h3>1. Huruf jar memaksa kasrah. Titik.</h3>
+    <p>Setiap isim yang datang <b>sesudah</b> huruf jar berharokat <b>kasrah</b>. Tidak ada pengecualian. Ini aturan paling produktif karena huruf jar muncul puluhan kali dalam satu hadis.</p>
+    <table>
+      <tr><th class="ar">Huruf jar</th><th>Bunyi</th><th class="ar">Contoh dalam hadis</th><th>Baca</th></tr>
+      <tr><td class="ar">مِنْ</td><td>min (dari)</td><td class="ar">مِنْ كُرَبِ الدُّنْيَا</td><td>min <b>kurabi</b> dun-yā</td></tr>
+      <tr><td class="ar">فِي</td><td>fī (di dalam)</td><td class="ar">فِيهِ عِلْمًا</td><td><b>fīhi</b> 'ilman</td></tr>
+      <tr><td class="ar">عَلَى</td><td>'alā (atas)</td><td class="ar">عَلَى مَا يَنْفَعُكَ</td><td>'alā mā yanfa'uka</td></tr>
+      <tr><td class="ar">إِلَى</td><td>ilā (kepada)</td><td class="ar">إِلَى الْجَنَّةِ</td><td>ilal-<b>jannati</b></td></tr>
+      <tr><td class="ar">بِ</td><td>bi (dengan)</td><td class="ar">بِالنِّيَّاتِ</td><td><b>bin-niyāti</b></td></tr>
+      <tr><td class="ar">لِ</td><td>li (untuk)</td><td class="ar">لِكُلِّ امْرِئٍ</td><td><b>li-kulli</b> imri'in</td></tr>
+      <tr><td class="ar">عَنْ</td><td>'an (dari)</td><td class="ar">عَنْهُ عَمَلُهُ</td><td>'anhu 'amaluhu</td></tr>
+    </table>
+    <div class="bad"><b>Sering salah:</b> <span class="ar">عن</span> dibaca "‘in". Yang benar <b>‘an</b> — huruf ع berharokat fathah.</div>
+
+    <h3>2. Kata diikuti isim lain = mudhaf = kasrah, tanpa tanwin</h3>
+    <p>Kalau sebuah isim <b>langsung diikuti isim lain</b> tanpa penghubung, dia berposisi <i>mudhaf</i> → berharokat <b>kasrah</b> dan <b>tidak</b> boleh tanwin. Ini pola paling sering muncul di teks hadis.</p>
+    <table>
+      <tr><th class="ar">Gundul</th><th>Baca</th><th>Kenapa</th></tr>
+      <tr><td class="ar">رسول الله</td><td><b>rasūlullāhi</b></td><td>bukan rasūlun Allāh — mudhaf + mudhaf ilaih</td></tr>
+      <tr><td class="ar">يوم القيامة</td><td><b>yawmil-qiyāmah</b></td><td>mudhaf</td></tr>
+      <tr><td class="ar">طالب العلم</td><td><b>thālibil-'ilmi</b></td><td>mudhaf + mudhaf ilaih majrur</td></tr>
+      <tr><td class="ar">لِكُلِّ امْرِئٍ</td><td><b>li-kulli imri'in</b></td><td>كُلِّ kasrah (mudhaf), امْرِئٍ tanwin kasrah (nakirah)</td></tr>
+    </table>
+    <div class="tip"><b>Bedakan:</b> mudhaf berharokat kasrah <b>tanpa</b> tanwin (ـِ). Isim nakirah majrur berharokat kasrah <b>dengan</b> tanwin (ـٍ). Kalau ada <span class="ar">ال</span> di depannya, sudah pasti tanpa tanwin.</div>
+
+    <h3>3. ال selalu berbunyi "al" — dan huruf syamsiyah meleburnya</h3>
+    <p>Tidak ada satu pun kasus di mana <span class="ar">ال</span> dibaca selain "al". Yang berbeda hanya <i>cara</i> membacanya:</p>
+    <div class="grid g2">
+      <div class="mini">
+        <b>Qamariyah (14 huruf)</b><br>
+        <span class="ar" style="font-size:1.2rem">ا ب ج ح خ ع غ ف ق ك م و ه ي</span>
+        <p style="font-size:.85rem;color:var(--soft);margin:7px 0 0">Lam diucapkan <b>jelas</b>.<br>
+        <span class="ar">القمر</span> = <b>al-qamaru</b><br>
+        <span class="ar">العلم</span> = <b>al-'ilmu</b></p>
+      </div>
+      <div class="mini">
+        <b>Syamsiyah (14 huruf)</b><br>
+        <span class="ar" style="font-size:1.2rem">ت ث د ذ ر ز س ش ص ض ط ظ ل ن</span>
+        <p style="font-size:.85rem;color:var(--soft);margin:7px 0 0">Lam <b>lebur</b>, huruf sesudahnya bertasydid.<br>
+        <span class="ar">الناس</span> = <b>an-nāsu</b> (bukan al-nās)<br>
+        <span class="ar">الرجال</span> = <b>ar-rijālu</b><br>
+        <span class="ar">الصلاة</span> = <b>ash-shalātu</b><br>
+        <span class="ar">الدين</span> = <b>ad-dīnu</b></p>
+      </div>
+    </div>
+    <div class="warn">Dalam teks gundul, <b>tasydid sering hilang saat dicetak</b>. Jadi <span class="ar">الناس</span> dan <span class="ar">الناس</span> terlihat sama — tapi bacanya tetap <i>an-nāsu</i>. Jangan pernah baca "al-nās".</div>
+
+    <h3>4. Huruf pertama kata kerja menentukan: madhi atau mudhari'</h3>
+    <p>Fi'il mudhari' <b>selalu</b> diawali salah satu dari empat huruf <b>أ ن ي ت</b> (disingkat <i>anaitu</i>). Fi'il madhi tidak pernah diawali huruf-huruf itu sebagai awalan subjek.</p>
+    <table>
+      <tr><th>Awalan</th><th>Untuk</th><th class="ar">Contoh</th><th>Baca</th></tr>
+      <tr><td><b>أَ</b></td><td>aku</td><td class="ar">أَقُولُ</td><td>aqūlu</td></tr>
+      <tr><td><b>نَ</b></td><td>kami</td><td class="ar">نَقُولُ</td><td>naqūlu</td></tr>
+      <tr><td><b>يَ</b></td><td>dia (lk.) / mereka</td><td class="ar">يَقُولُ · يَنْصُرُونَ</td><td>yaqūlu · yanshurūna</td></tr>
+      <tr><td><b>تَ</b></td><td>dia (pr.) / kamu / kalian</td><td class="ar">تَقُولُ · تَقُولُونَ</td><td>taqūlu · taqūlūna</td></tr>
+    </table>
+    <div class="tip"><b>Aturan bunyi awalan:</b> selalu <b>fathah</b> — kecuali dua kasus: <span class="ar">أَفْعَلُ</span> (aku, wazan if'āl) dan <span class="ar">نُفْعِلُ / نُفَعِّلُ</span> (kami, wazan if'āl/taf'īl) yang berharokat <b>dhammah</b>.</div>
+    <div class="bad"><b>Jebakan:</b> <span class="ar">أكرم</span> bisa <b>akrama</b> (madhi, أَفْعَلَ) atau <b>ukrimu</b> (mudhari', أُفْعِلُ). Pembedanya hanya harokat — jadi kalau ragu, cek konteks dan sumber berharokat.</div>
+
+    <h3>5. Huruf terakhir kata kerja = kunci bunyinya</h3>
+    <h4>Fi'il madhi — lihat akhirannya</h4>
+    <table>
+      <tr><th class="ar">Akhiran</th><th>Bunyi</th><th>Untuk</th><th class="ar">Contoh</th></tr>
+      <tr><td class="ar">ـْتُ</td><td><b>‑tu</b></td><td>aku</td><td class="ar">كَتَبْتُ katabtu</td></tr>
+      <tr><td class="ar">ـْتَ</td><td><b>‑ta</b></td><td>kamu (lk.)</td><td class="ar">كَتَبْتَ katabta</td></tr>
+      <tr><td class="ar">ـْتِ</td><td><b>‑ti</b></td><td>kamu (pr.)</td><td class="ar">كَتَبْتِ katabti</td></tr>
+      <tr><td class="ar">ـْنَا</td><td><b>‑nā</b></td><td>kami</td><td class="ar">قُلْنَا qulnā</td></tr>
+      <tr><td class="ar">ـَا</td><td><b>‑ā</b></td><td>mereka berdua</td><td class="ar">كَتَبَا katabā</td></tr>
+      <tr><td class="ar">ـُوا</td><td><b>‑ū</b></td><td>mereka (lk.)</td><td class="ar">قَالُوا qālū</td></tr>
+      <tr><td class="ar">ـَتَا</td><td><b>‑tā</b></td><td>mereka berdua (pr.)</td><td class="ar">كَتَبَتَا katabatā</td></tr>
+      <tr><td class="ar">ـْنَ</td><td><b>‑na</b></td><td>mereka (pr.)</td><td class="ar">كَتَبْنَ katabna</td></tr>
+      <tr><td class="ar">ـَتْ</td><td><b>‑at</b></td><td>dia (pr.)</td><td class="ar">كَانَتْ kānat</td></tr>
+      <tr><td>tanpa akhiran</td><td><b>‑a</b></td><td>dia (lk.)</td><td class="ar">قَالَ qāla</td></tr>
+    </table>
+    <div class="good"><b>Ini persis pertanyaan "kapan ـت berbunyi a, u, atau i?"</b><br>
+    Jawabannya: <b>lihat huruf sesudahnya.</b><br>
+    • <span class="ar">كتبـت</span> di ujung kalimat → <b>katab‑tu</b> (dhammah, "aku")<br>
+    • <span class="ar">كتبـتَ</span> bicara ke laki-laki → <b>katab‑ta</b> (fathah)<br>
+    • <span class="ar">كتبـتِ</span> bicara ke perempuan → <b>katab‑ti</b> (kasrah)<br>
+    <span style="color:var(--soft);font-size:.88rem">Di teks hadis, yang paling sering muncul justru <b>‑tu</b> dan <b>‑nā</b> (perawi bicara soal dirinya). Bentuk ‑ta/‑ti jarang, karena yang jadi subjek biasanya Nabi ﷺ, bukan lawan bicara.</span></div>
+
+    <h4>Fi'il mudhari' — lihat akhirannya</h4>
+    <table>
+      <tr><th class="ar">Akhiran</th><th>Bunyi</th><th class="ar">Contoh</th></tr>
+      <tr><td>tanpa akhiran</td><td><b>‑u</b> (dhammah)</td><td class="ar">يَنْصُرُ yanshuru</td></tr>
+      <tr><td class="ar">ـَانِ</td><td><b>‑āni</b></td><td class="ar">يَنْصُرَانِ yanshurāni</td></tr>
+      <tr><td class="ar">ـُونَ</td><td><b>‑ūna</b></td><td class="ar">يَنْصُرُونَ yanshurūna</td></tr>
+      <tr><td class="ar">ـِينَ</td><td><b>‑īna</b> (kamu pr.) / <b>‑na</b> (mereka pr.)</td><td class="ar">تَنْصُرِينَ · يَنْصُرْنَ</td></tr>
+    </table>
+
+    <h3>6. Jabatan dalam kalimat menentukan harokat terakhir isim (i'rab)</h3>
+    <table>
+      <tr><th>Jabatan</th><th>Harokat akhir</th><th>Petunjuk dalam teks gundul</th></tr>
+      <tr><td>Subjek (fa'il, mubtada')</td><td><b>‑u</b> dhammah</td><td>letak di awal klausa / sesudah fi'il</td></tr>
+      <tr><td>Objek (maf'ul bih, khabar inna)</td><td><b>‑a</b> fathah</td><td>sering ada <b>alif di akhir</b>: <span class="ar">طريقا · علما · كتابا</span></td></tr>
+      <tr><td>Majrur (sesudah jar, mudhaf ilaih)</td><td><b>‑i</b> kasrah</td><td>ada huruf jar di depannya</td></tr>
+      <tr><td>Waqaf (akhir kalimat)</td><td><b>mati</b>, tanpa bunyi</td><td><span class="ar">الأعمالُ</span> → di akhir kalimat dibaca <i>al-a'māl</i></td></tr>
+    </table>
+    <div class="tip"><b>Petunjuk paling kuat:</b> ada <b>alif kecil di akhir kata</b> dalam teks gundul → hampir pasti itu <b>tanwin fathah (‑an)</b> → kata itu berposisi objek atau sesudah huruf jar. Contoh: <span class="ar">طريقا</span> = tharīq<b>an</b>, <span class="ar">علما</span> = 'ilm<b>an</b>, <span class="ar">امرأة</span> sesudah إلى = imra'<b>atin</b>.</div>
+    <p style="font-size:.9rem;color:var(--soft)">Kata yang sama bisa berbunyi u / a / i tergantung posisinya: <span class="ar">العلم</span> → <b>al-'ilmu</b> (subjek) · <b>al-'ilma</b> (objek) · <b>al-'ilmi</b> (sesudah jar).</p>
+
+    <h3>7. Kalau mentok, tebak wazan yang paling sering — lalu verifikasi</h3>
+    <p>Untuk fi'il madhi, wazan <b>فَعَلَ</b> (fa'ala) jauh paling dominan. Untuk mudhari', <b>يَفْعُلُ</b> dan <b>يَفْعَلُ</b> paling sering. Tebak itu dulu, lalu cek ke sumber berharokat.</p>
+    <div class="warn"><b>Memverifikasi bukan menyerah.</b> Penuntut ilmu dari dulu bekerja begini: baca sendiri, lalu bandingkan dengan kitab berharokat atau tanyakan guru. Yang dihindari adalah membaca tanpa pernah mengecek — karena kesalahan yang diulang jadi kebiasaan.</div>
+
+    <h3>Rangkuman: 7 langkah membaca satu baris gundul</h3>
+    <ol style="font-size:.93rem;padding-left:20px">
+      <li><b>Lewati yang belum dikenal.</b> Baca yang sudah hafal dulu — biasanya 40–60% teks.</li>
+      <li><b>Cari huruf jar.</b> Tiap kata sesudahnya = kasrah. Ini langsung menyelesaikan banyak kata.</li>
+      <li><b>Cek huruf pertama kata kerja.</b> Ada أ/ن/ي/ت di depan kata 3+ huruf? → hampir pasti mudhari'.</li>
+      <li><b>Cek huruf terakhir kata kerja.</b> ـوا → ū · ـنا → nā · ـت → tu/ta/ti · ـا → ā.</li>
+      <li><b>Cek ال.</b> Selalu "al"; huruf syamsiyah sesudahnya bertasydid.</li>
+      <li><b>Cek mudhaf.</b> Kata diikuti isim → kasrah, tanpa tanwin.</li>
+      <li><b>Kalau masih ragu, tebak فَعَلَ / يَفْعُلُ</b> — lalu verifikasi ke sumber berharokat.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 2. KAMUS ============ -->
+<section id="kamus">
+  <div class="card">
+    <span class="kicker">Bagian 2</span>
+    <h2>Kamus Mini Hadis</h2>
+    <p class="lead">Struktur teks hadis sangat repetitif. Kata-kata di bawah muncul di hampir setiap hadis dan bentuknya selalu sama. Hafalkan ini dulu — langsung terasa bedanya.</p>
+    <div class="toolbar">
+      <input type="search" id="vq" placeholder="Cari: ketik arab, latin, atau artinya… (mis. 'niat', 'qala', 'علم')">
+      <div class="chips" id="vchips"></div>
+    </div>
+    <div class="count" id="vcount"></div>
+    <div class="vlist" id="vlist"></div>
+  </div>
+</section>
+
+<!-- ============ 3. BENGKEL ============ -->
+<section id="bengkel">
+  <div class="card">
+    <span class="kicker">Bagian 3</span>
+    <h2>Bengkel Wazan</h2>
+    <p class="lead">Setiap kata Arab dicetak dari pola (wazan) yang bunyinya sudah tetap. Kenali polanya, bunyinya ikut.</p>
+
+    <h3>Detektif Kata — cek tebakan Anda</h3>
+    <p style="font-size:.9rem;color:var(--soft);margin-top:-4px">Ketik kata Arab (gundul atau berharokat). Alat ini mencocokkannya dengan pola wazan dan memberi tahu kemungkinan bacaannya.</p>
+    <div class="det">
+      <div class="in">
+        <input type="text" id="detIn" placeholder="اكتب كلمة هنا" autocomplete="off">
+        <button class="btn line" id="detBtn">Periksa</button>
+      </div>
+      <div class="try" id="detTry"></div>
+      <div class="out" id="detOut"></div>
+    </div>
+
+    <h3>Fi'il Madhi — 3 pola dasar + 7 pola tambahan</h3>
+    <h4>Pola dasar 3 huruf (bunyi huruf tengahnya hanya 3 kemungkinan)</h4>
+    <table>
+      <tr><th>Wazan</th><th class="ar">Contoh</th><th>Baca</th><th>Arti</th></tr>
+      <tr><td><b>فَعَلَ</b></td><td class="ar">نَصَرَ · ذَهَبَ · سَمِعَ</td><td>nashara · dzahaba · sami'a</td><td>menolong · pergi · mendengar</td></tr>
+      <tr><td><b>فَعِلَ</b></td><td class="ar">عَلِمَ · حَمِدَ · فَرِحَ</td><td>'alima · hamida · fariha</td><td>mengetahui · memuji · gembira</td></tr>
+      <tr><td><b>فَعُلَ</b></td><td class="ar">كَرُمَ · عَظُمَ · حَسُنَ</td><td>karuma · 'azhuma · hasuna</td><td>mulia · agung · baik</td></tr>
+    </table>
+    <div class="warn">Jujur: dari gundul saja, <span class="ar">نصر</span> bisa nashara / nashira / nashura. <b>Ini satu-satunya bagian yang butuh hafalan kosakata atau kamus.</b> Kabar baiknya: dalam hadis, wazan فَعَلَ paling dominan dan kata-katanya itu-itu saja.</div>
+
+    <h4>Pola tambahan — sangat sering muncul di hadis</h4>
+    <table>
+      <tr><th>Wazan</th><th>Ciri tulisan</th><th>Bunyi</th><th class="ar">Contoh</th></tr>
+      <tr><td><b>أَفْعَلَ</b></td><td>diawali alif, 4 huruf</td><td>a-f-'a-la</td><td class="ar">أَكْرَمَ akrama</td></tr>
+      <tr><td><b>فَعَّلَ</b></td><td>tasydid di huruf ke-2</td><td>fa-'-'a-la</td><td class="ar">عَلَّمَ 'allama · سَهَّلَ sahhala</td></tr>
+      <tr><td><b>فَاعَلَ</b></td><td>alif di tengah</td><td>fā-'a-la</td><td class="ar">هَاجَرَ hājara · قَاتَلَ qātala</td></tr>
+      <tr><td><b>تَفَعَّلَ</b></td><td>ta + tasydid</td><td>ta-fa-'-'a-la</td><td class="ar">تَعَلَّمَ ta'allama</td></tr>
+      <tr><td><b>تَفَاعَلَ</b></td><td>ta + alif</td><td>ta-fā-'a-la</td><td class="ar">تَبَارَكَ tabāraka</td></tr>
+      <tr><td><b>انْفَعَلَ</b></td><td>alif + nun</td><td>in-fa-'a-la</td><td class="ar">انْقَطَعَ inqatha'a</td></tr>
+      <tr><td><b>افْتَعَلَ</b></td><td>alif + ت di posisi 3</td><td>if-ta-'a-la</td><td class="ar">اجْتَمَعَ ijtama'a · يَلْتَمِسُ yaltamisu</td></tr>
+      <tr><td><b>اسْتَفْعَلَ</b></td><td>alif + sin + ta</td><td>is-taf-'a-la</td><td class="ar">اسْتَغْفَرَ istaghfara · اسْتَعِنْ ista'in</td></tr>
+    </table>
+    <div class="tip"><b>Tasydid dan alif adalah "harokat tersembunyi".</b> Kadang hilang saat dicetak, tapi bunyinya wajib ada. <span class="ar">سَهَّلَ</span> (sahhala) bukan <i>sahala</i>; <span class="ar">تَعَلَّمَ</span> (ta'allama) bukan <i>ta'alam</i>.</div>
+
+    <h3>Fi'il Mudhari' — bunyi huruf tengahnya</h3>
+    <table>
+      <tr><th>Wazan</th><th>Bunyi tengah</th><th class="ar">Contoh</th><th>Arti</th></tr>
+      <tr><td><b>يَفْعَلُ</b></td><td><b>a</b> fathah</td><td class="ar">يَذْهَبُ yadzhabu</td><td>pergi</td></tr>
+      <tr><td><b>يَفْعُلُ</b></td><td><b>u</b> dhammah</td><td class="ar">يَنْصُرُ yanshuru</td><td>menolong</td></tr>
+      <tr><td><b>يَفْعِلُ</b></td><td><b>i</b> kasrah</td><td class="ar">يَضْرِبُ yadhribu</td><td>memukul</td></tr>
+      <tr><td><b>يَفْتَعِلُ</b></td><td>sukun di ت, lalu <b>i</b></td><td class="ar">يَلْتَمِسُ yaltamisu</td><td>mencari</td></tr>
+      <tr><td><b>يَتَفَعَّلُ</b></td><td>ta sukun, tasydid, lalu <b>a</b></td><td class="ar">يَتَعَلَّمُ yata'allamu</td><td>belajar</td></tr>
+      <tr><td><b>يَسْتَفْعِلُ</b></td><td>sin-ta sukun, lalu <b>i</b></td><td class="ar">يَسْتَغْفِرُ yastaghfiru</td><td>memohon ampun</td></tr>
+    </table>
+    <div class="bad"><b>Aktif vs pasif tulisannya IDENTIK.</b> <span class="ar">ينكح</span> bisa <b>yankihu</b> (menikahi, aktif) atau <b>yunkahu</b> (dinikahi, pasif). Pembedanya hanya harokat + konteks. Dalam hadis <span class="ar">تنكح المراة</span> maknanya pasif: "perempuan <i>dinikahi</i> karena empat hal".</div>
+
+    <h3>Fi'il Amr (perintah) — bunyinya khas</h3>
+    <table>
+      <tr><th class="ar">Gundul</th><th>Baca</th><th>Pola</th><th>Arti</th></tr>
+      <tr><td class="ar">فاظفر</td><td><b>fazhfar</b></td><td>افْعَلْ (tengah sukun)</td><td>maka pilihlah / raihlah</td></tr>
+      <tr><td class="ar">احرص</td><td><b>ih-rish</b></td><td>افْعِلْ (hamzah kasrah)</td><td>bersemangatlah</td></tr>
+      <tr><td class="ar">واستعن</td><td><b>was-ta'in</b></td><td>اسْتَفْعِلْ (hamzah washal gugur)</td><td>dan mohonlah pertolongan</td></tr>
+      <tr><td class="ar">قل</td><td><b>qul</b></td><td>فُعْلَ → amr فُلْ</td><td>katakanlah</td></tr>
+    </table>
+
+    <h3>Dhamir muttashil (kata ganti sambung)</h3>
+    <table>
+      <tr><th class="ar">Akhiran</th><th>Bunyi</th><th>Arti</th><th class="ar">Contoh</th></tr>
+      <tr><td class="ar">ـهُ</td><td>‑hu / ‑hi</td><td>‑nya (lk.)</td><td class="ar">عَمَلُهُ 'amaluhu · إِلَيْهِ ilaihi</td></tr>
+      <tr><td class="ar">ـهَا</td><td>‑hā</td><td>‑nya (pr.)</td><td class="ar">يُصِيبُهَا yushībihā</td></tr>
+      <tr><td class="ar">ـهُم</td><td>‑hum</td><td>mereka</td><td class="ar">عَامَّتِهِمْ 'āmmatihim</td></tr>
+      <tr><td class="ar">ـكُمْ</td><td>‑kum</td><td>kalian</td><td class="ar">خَيْرُكُمْ khairukum</td></tr>
+      <tr><td class="ar">ـكَ</td><td>‑ka</td><td>‑mu (lk.)</td><td class="ar">يَنْفَعُكَ yanfa'uka</td></tr>
+      <tr><td class="ar">ـنَا</td><td>‑nā</td><td>kami</td><td class="ar">حَدَّثَنَا haddatsanā</td></tr>
+      <tr><td class="ar">ـنِي</td><td>‑nī</td><td>aku (objek)</td><td class="ar">حَدَّثَنِي haddatsanī</td></tr>
+    </table>
+    <div class="tip"><b>هُ berbunyi "hi" kalau didahului kasrah atau ya' sukun.</b> <span class="ar">إليه</span> = ilai<b>hi</b>, <span class="ar">به</span> = bi<b>hi</b>, <span class="ar">عمله</span> = 'amalu<b>hu</b>.</div>
+  </div>
+</section>
+
+<!-- ============ 4. BEDAH HADIS ============ -->
+<section id="hadis">
+  <div class="card">
+    <span class="kicker">Bagian 4 · inti latihan</span>
+    <h2>Bedah Hadis Kata per Kata</h2>
+    <p class="lead">Klik kata mana pun pada teks gundul di bawah. Coba baca sendiri dulu, baru klik untuk melihat jawaban dan <b>alasan</b> bunyinya.</p>
+    <div class="hsel" id="hsel"></div>
+    <div class="hmeta">
+      <div class="ref" id="href"></div>
+      <div class="prog"><i id="hprog"></i></div>
+      <div style="display:flex;gap:7px">
+        <button class="btn line sm" id="hReveal">👁 Harokat</button>
+        <button class="btn line sm" id="hTrans">🌐 Terjemah</button>
+      </div>
+    </div>
+    <div class="htext">
+      <div class="arline" id="harLine" style="display:none"></div>
+      <div class="words" id="hwords"></div>
+    </div>
+    <div class="trans" id="htransBox"></div>
+    <div class="ana" id="hana"></div>
+  </div>
+</section>
+
+<!-- ============ 5. LATIHAN ============ -->
+<section id="latihan">
+  <div class="card">
+    <span class="kicker">Bagian 5</span>
+    <h2>Latihan Mandiri</h2>
+    <p class="lead">Baca dulu dalam hati, tulis transliterasinya, baru periksa. <b>Yang salah, catat alasannya — bukan cuma bunyinya.</b> Itu yang bikin cepat lancar.</p>
+    <div class="tip">Tidak perlu persis sama dengan kunci. Yang penting: harokatnya benar, panjang-pendeknya masuk akal. Penulisan latin itu cuma alat bantu.</div>
+    <div id="exList"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:6px">
+      <button class="btn line sm" id="exAll">👁 Tampilkan semua jawaban</button>
+      <button class="btn line sm" id="exReset">↺ Ulangi semua</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. KUIS ============ -->
+<section id="kuis">
+  <div class="card">
+    <span class="kicker">Bagian 6</span>
+    <h2>Uji Kemampuan</h2>
+    <p class="lead">22 soal pilihan ganda. Jawaban langsung dinilai, dan tiap soal ada penjelasan alasannya.</p>
+    <div class="score">
+      <span>Skor: <b id="qScore">0</b> / <span id="qTotal">22</span></span>
+      <span style="opacity:.7">Dijawab: <b id="qDone">0</b></span>
+      <div class="spacer"></div>
+      <button class="tbtn" id="qReset">↺ Ulangi kuis</button>
+    </div>
+    <div id="qList"></div>
+  </div>
+</section>
+
+<!-- ============ 7. AMBIGU ============ -->
+<section id="ambigu">
+  <div class="card">
+    <span class="kicker">Bagian 7</span>
+    <h2>Kata yang Benar-Benar Ambigu</h2>
+    <p class="lead">Jujur saja: ada kata yang tulisan gundulnya identik tapi bacaan dan maknanya beda. Ini bukan kekurangan Anda — teks Arabnya memang begitu. Yang penting: tahu cara memutuskannya.</p>
+    <table>
+      <tr><th class="ar">Gundul</th><th>Kemungkinan</th><th>Cara memutuskan</th></tr>
+      <tr><td class="ar">علم</td><td><b>عَلِمَ</b> 'alima (mengetahui)<br><b>عَلَّمَ</b> 'allama (mengajar)<br><b>عِلْمٌ</b> 'ilmun (ilmu)<br><b>تَعَلَّمَ</b> ta'allama (belajar)</td><td>Ada ت di depan? → ta'allama. Ada tasydid di ع? → 'allama. Didahului huruf jar (في/من/ب)? → 'ilm. Ada objek orang sesudahnya? → 'allama.</td></tr>
+      <tr><td class="ar">كتب</td><td><b>كَتَبَ</b> kataba (menulis)<br><b>كُتُبٌ</b> kutubun (kitab-kitab)<br><b>كُتِبَ</b> kutiba (diwajibkan)</td><td>Sesudah jar → kutub. Diikuti <span class="ar">عليكم</span> atau <span class="ar">على</span> → kutiba. Selain itu → kataba.</td></tr>
+      <tr><td class="ar">رحمة</td><td><b>رَحْمَةٌ</b> rahmatun (kasih sayang)<br><b>رَحِمَ</b> rahima (menyayangi)</td><td>Ada ال, jadi subjek/objek, atau ada sifat sesudahnya → isim. Diikuti objek langsung → fi'il.</td></tr>
+      <tr><td class="ar">كلم</td><td><b>كَلَّمَ</b> kallama (berbicara dg)<br><b>كَلِمَةٌ</b> kalimatun (kata)<br><b>كَلِمٌ</b> kalimun</td><td>Ada ta' marbuthah atau tanwin → isim. Ada objek orang → kallama.</td></tr>
+      <tr><td class="ar">سلم</td><td><b>سَلَّمَ</b> sallama (mengucapkan salam)<br><b>سَلِمَ</b> salima (selamat)<br><b>سَلْمٌ</b> salmun</td><td>Objek orang sesudahnya → sallama. Diikuti <span class="ar">من</span> → salima.</td></tr>
+      <tr><td class="ar">حسن</td><td><b>حَسُنَ</b> hasuna (baik)<br><b>حَسَنٌ</b> hasanun (bagus)<br><b>حَسَّنَ</b> hassana (memperbagus)</td><td>Posisi dalam kalimat + ada/tidaknya tasydid.</td></tr>
+      <tr><td class="ar">ينكح</td><td><b>يَنْكِحُ</b> yankihu (menikahi)<br><b>يُنْكَحُ</b> yunkahu (dinikahi)</td><td>Aktif vs pasif. Kalau subjeknya perempuan yang "dinikahi" → pasif. Hanya konteks yang bisa memutus.</td></tr>
+      <tr><td class="ar">اكرم</td><td><b>أَكْرَمَ</b> akrama (memuliakan)<br><b>أُكْرِمُ</b> ukrimu (aku memuliakan)<br><b>أَكْرَمُ</b> akramu (lebih mulia)</td><td>Awal kalimat + objek → akrama. Ada subjek "aku" → ukrimu. Diikuti <span class="ar">من</span> → akramu (isim tafdhil).</td></tr>
+      <tr><td class="ar">الناس</td><td>tulisan sama, tapi: <b>an-nāsu</b> (subjek)<br><b>an-nāsa</b> (objek)<br><b>an-nāsi</b> (majrur)</td><td>Selalu "an-nās" untuk ال (ن syamsiyah). Harokat akhirnya ikut jabatan — lihat kata sebelumnya.</td></tr>
+      <tr><td class="ar">ما</td><td><b>مَا</b> mā (apa / yang / tidak)<br><b>مَا</b> mā + fi'il = "selama"</td><td>Diikuti isim → "apa/yang". Diikuti fi'il → bisa "selama".</td></tr>
+      <tr><td class="ar">من</td><td><b>مَنْ</b> man (siapa)<br><b>مِنْ</b> min (dari)</td><td>Diikuti fi'il atau jadi syarat → man. Diikuti isim → min.</td></tr>
+      <tr><td class="ar">ان</td><td><b>أَنْ</b> an (bahwa)<br><b>إِنَّ</b> inna (sesungguhnya)<br><b>إِنْ</b> in (jika)</td><td>Di awal kalimat penegas → inna. Sebelum fi'il mudhari' → an. Di awal syarat → in.</td></tr>
+    </table>
+
+    <h3>3 penentu yang selalu bisa dipakai</h3>
+    <div class="grid g3">
+      <div class="mini"><b>1. Lihat kata sebelum &amp; sesudahnya</b><p style="font-size:.85rem;color:var(--soft);margin:6px 0 0">Huruf jar memaksa kasrah. إِنَّ memaksa objek fathah. Kata yang diikuti isim = mudhaf = kasrah.</p></div>
+      <div class="mini"><b>2. Coba baca sebagai fi'il dulu</b><p style="font-size:.85rem;color:var(--soft);margin:6px 0 0">Hadis isinya mayoritas fi'il + fa'il + maf'ul. Kalau maknanya masuk akal sebagai perbuatan, ambil fi'il.</p></div>
+      <div class="mini"><b>3. Kalau mentok, cek sumber berharokat</b><p style="font-size:.85rem;color:var(--soft);margin:6px 0 0">sunnah.com, shamela.ws, atau tanyakan guru. Ini cara kerja penuntut ilmu, bukan tanda gagal.</p></div>
+    </div>
+
+    <h3>Alat bantu</h3>
+    <table>
+      <tr><th>Alat</th><th>Kegunaan</th></tr>
+      <tr><td><b>sunnah.com</b></td><td>Teks hadis berharokat lengkap + nomor riwayat. Salin kata gundulnya ke kolom pencarian.</td></tr>
+      <tr><td><b>shamela.ws · dorar.net</b></td><td>Perpustakaan kitab; banyak versi berharokat dan syarah.</td></tr>
+      <tr><td><b>almaany.com</b></td><td>Kamus: cari wazan, bentuk fi'il, dan jamaknya.</td></tr>
+      <tr><td><b>Nahwu Wadhih · Jurumiyah</b></td><td>Untuk i'rab. Ini yang membuat Anda bisa membaca teks <i>apa pun</i>, bukan cuma yang sudah dihafal.</td></tr>
+      <tr><td><b>Audio hadis (YouTube)</b></td><td>Dengarkan, jangan cuma baca. Telinga yang terbiasa akan mengoreksi mata.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 8. JADWAL ============ -->
+<section id="jadwal">
+  <div class="card">
+    <span class="kicker">Bagian 8</span>
+    <h2>Jadwal 30 Hari</h2>
+    <p class="lead">Rencana realistis: ±20 menit per hari. Yang penting konsisten, bukan lama.</p>
+    <table>
+      <tr><th style="width:80px">Hari</th><th>Kegiatan</th><th style="width:110px">Target</th></tr>
+      <tr><td><b>1–2</b></td><td>Baca 7 Prinsip. Jangan dihafal — pahami <i>kenapa</i>. Tutup dengan menulis ulang rangkuman 7 langkah dari ingatan.</td><td>Paham alur</td></tr>
+      <tr><td><b>3–7</b></td><td>Kamus Mini: 12 kata/hari. Tulis tangan, ucapkan bersuara. Ulangi hari sebelumnya tiap pagi 3 menit.</td><td>60 kata</td></tr>
+      <tr><td><b>8</b></td><td>Ulangi semua 60 kata tanpa melihat. Yang salah, tandai — itu yang diulang besok.</td><td>≥80% benar</td></tr>
+      <tr><td><b>9–12</b></td><td>Bengkel Wazan. Pakai Detektif Kata: ambil 10 kata dari hadis, tebak wazannya, cek.</td><td>Kenali 10 wazan</td></tr>
+      <tr><td><b>13–20</b></td><td>Bedah Hadis: 1 hadis/hari. Klik <b>semua</b> kata, baca alasannya. Lalu besok paginya baca ulang versi gundulnya tanpa klik.</td><td>8 hadis</td></tr>
+      <tr><td><b>21–26</b></td><td>Latihan Mandiri. Kerjakan tanpa melihat kunci. Catat alasan tiap kesalahan di buku.</td><td>≥70% benar</td></tr>
+      <tr><td><b>27</b></td><td>Uji Kemampuan. Target: ≥18/22.</td><td>Skor</td></tr>
+      <tr><td><b>28–30</b></td><td>Ambil 1 hadis <b>baru</b> dari sunnah.com tiap hari. Salin gundulnya, baca sendiri, baru bandingkan.</td><td>Mandiri</td></tr>
+    </table>
+
+    <h3>Setelah 30 hari</h3>
+    <p style="font-size:.93rem">Ulangi siklus dengan bahan baru. Urutan yang biasanya paling efektif:</p>
+    <ol style="font-size:.93rem">
+      <li><b>Arbain Nawawi</b> (42 hadis) — pendek, padat, bahasanya bersih. Selesai ±2 bulan.</li>
+      <li><b>Riyadhus Shalihin</b> — bab per bab, pilih bab akhlak dulu karena bahasanya paling sederhana.</li>
+      <li><b>Bulughul Maram</b> — mulai menantang; banyak istilah fiqih.</li>
+      <li><b>Kitab kuning tanpa harokat</b> — tujuan akhirnya. Jangan ke sini sebelum tiga di atas lancar.</li>
+    </ol>
+    <div class="warn"><b>Yang paling sering menggagalkan:</b> membaca gundul terus tanpa pernah mengecek. Kesalahan yang diulang 20 kali jadi kebiasaan yang sulit dibongkar. Lebih baik lambat tapi terverifikasi.</div>
+    <div class="good"><b>Yang paling mempercepat:</b> membaca <b>bersuara</b>. Mata bisa menipu, telinga tidak. Kalau bacaan Anda terdengar janggal, biasanya memang salah.</div>
+  </div>
+
+  <div class="card" style="text-align:center;background:var(--brand2);color:#f0ebe0;border:0">
+    <p style="margin:0 0 4px;font-size:1.05rem">Semoga bermanfaat. Kalau ada bagian yang masih membingungkan, tanyakan saja —</p>
+    <p style="margin:0;font-size:.9rem;opacity:.75">semua teks hadis di situs ini diverifikasi dari sunnah.com beserta nomor riwayatnya.</p>
+  </div>
+</section>
+
+<div class="pager">
+  <button class="btn line" id="prevBtn">← Sebelumnya</button>
+  <button class="btn line" id="nextBtn">Berikutnya →</button>
+</div>
+
+</main>
+</div>
+
+<script>
+/* =====================================================================
+   DATA
+   ===================================================================== */
+
+/* ---------- KAMUS MINI ---------- */
+const KAMUS = [
+/* --- sanad --- */
+["حدثنا","haddatsanā","telah menceritakan kepada kami","sanad","Fi'il فَعَّلَ + نَا. Selalu berbunyi begini."],
+["حدثني","haddatsanī","telah menceritakan kepadaku","sanad",""],
+["اخبرنا","akhbaranā","telah mengabarkan kepada kami","sanad","Wazan أَفْعَلَ"],
+["اخبرني","akhbaranī","telah mengabarkan kepadaku","sanad",""],
+["سمع","sami'a","mendengar","sanad","Fi'il فَعِلَ — kasrah di huruf tengah"],
+["سمعت","sami'tu","aku mendengar","sanad",""],
+["عن","'an","dari","sanad","Bukan 'in! ع berharokat fathah."],
+["قال","qāla","dia berkata","sanad","Fi'il madhi فَعَلَ"],
+["قالوا","qālū","mereka berkata","sanad","ـُوا = ū"],
+["قلنا","qulnā","kami berkata","sanad","Dhammah di ق: qulnā, bukan qalnā"],
+["قلت","qultu","aku berkata","sanad","Dhammah di ق"],
+["قال رسول الله صلى الله عليه وسلم","qāla rasūlullāhi shallallāhu 'alaihi wa sallam","Rasulullah ﷺ bersabda","sanad","Rangkaian tetap — hafal mati"],
+["عن النبي","'anin-nabiyyi","dari Nabi","sanad","ن syamsiyah → 'anin-n"],
+["رواه","rawāhu","meriwayatkannya","sanad",""],
+["متفق عليه","muttafaqun 'alaih","disepakati (Bukhari-Muslim)","sanad",""],
+["يبلغ","yuballighu","menyampaikan","sanad","Mudhari' فَعَّلَ → awalan دhammah"],
+["بلغ","ballagha","menyampaikan","sanad","Fi'il amr: بَلِّغْ balligh"],
+
+/* --- huruf --- */
+["ان","inna / an / in","sesungguhnya / bahwa / jika","huruf","Beda harokat awal: إِنَّ (tasydid) vs إِنْ"],
+["انما","innamā","sesungguhnya hanyalah","huruf","إِنَّ + مَا"],
+["كان","kāna","adalah / dahulu","huruf","Fi'il madhi naqish"],
+["ليس","laisa","bukan / tidak ada","huruf",""],
+["لا","lā","tidak / jangan","huruf","لَا + mudhari' = larangan (jazm)"],
+["لم","lam","belum / tidak (lampau)","huruf","Memaksa mudhari' berharokat sukun"],
+["لن","lan","tidak akan","huruf","Memaksa mudhari' berharokat fathah"],
+["ما","mā","apa / yang / tidak","huruf",""],
+["من","man / min","siapa / dari","huruf","Diikuti isim = min; diikuti fi'il = man"],
+["الى","ilā","kepada","huruf","Huruf jar → kata sesudahnya kasrah"],
+["على","'alā","atas","huruf","Huruf jar"],
+["في","fī","di dalam","huruf","Huruf jar"],
+["عند","'inda","di sisi","huruf",""],
+["حتى","hattā","hingga","huruf",""],
+["ثم","tsumma","kemudian","huruf","ث bertasydid: tsum-ma"],
+["او","aw","atau","huruf",""],
+["و","wa","dan","huruf","Selalu fathah, tanpa harokat di و"],
+["ف","fa","maka","huruf",""],
+["بل","bal","bahkan","huruf",""],
+["قد","qad","sungguh / telah","huruf",""],
+["كل","kullu","setiap / semua","huruf","Sering jadi mudhaf: لِكُلِّ"],
+["بعد","ba'da","sesudah","huruf","Sering mudhaf"],
+["قبل","qabla","sebelum","huruf","Sering mudhaf"],
+["بين","bayna","antara","huruf",""],
+["لكن","lākin","tetapi","huruf",""],
+["اذا","idzā","apabila","huruf",""],
+["لو","law","seandainya","huruf",""],
+["يا","yā","wahai","huruf",""],
+["هذا","hādzā","ini (lk.)","huruf",""],
+["هذه","hādzihi","ini (pr.)","huruf",""],
+["ذلك","dzālika","itu","huruf",""],
+["الذي","alladzī","yang (lk.)","huruf",""],
+["التي","allatī","yang (pr.)","huruf",""],
+["الا","illā","kecuali","huruf",""],
+["ام","am","atau (pilihan)","huruf",""],
+["اى","ay","yaitu","huruf",""],
+["نعم","na'am","ya","huruf",""],
+
+/* --- isim --- */
+["الله","Allāh","Allah","isim","Lafzhul Jalalah; majrur = لِلَّهِ lillāhi"],
+["رسول","rasūl","rasul / utusan","isim","Sering mudhaf: رَسُولُ اللهِ"],
+["نبي","nabiyy","nabi","isim",""],
+["مؤمن","mu'min","orang mukmin","isim",""],
+["مسلم","muslim","orang muslim","isim",""],
+["عبد","'abd","hamba","isim","Jamak: عِبَاد 'ibād"],
+["انسان","insān","manusia","isim",""],
+["رجل","rajul","laki-laki","isim",""],
+["امراة","imra'ah","perempuan","isim","Ta' marbuthah dibaca -ah saat waqaf"],
+["يوم","yawm","hari","isim",""],
+["يوم القيامة","yawmul-qiyāmah","hari kiamat","isim","Mudhaf → kasrah tanpa tanwin"],
+["دنيا","dun-yā","dunia","isim",""],
+["اخرة","ākhirah","akhirat","isim",""],
+["جنة","jannah","surga","isim",""],
+["نار","nār","neraka","isim",""],
+["قلب","qalb","hati","isim",""],
+["لسان","lisān","lisan","isim",""],
+["يد","yad","tangan","isim","Tatsniyah: يَدَا yadā"],
+["وجه","wajh","wajah","isim",""],
+["طريق","tharīq","jalan","isim",""],
+["علم","'ilm","ilmu","isim","Bisa juga عَلِمَ/عَلَّمَ — lihat konteks"],
+["عمل","'amal","amal","isim","Bisa juga عَمِلَ 'amila"],
+["نية","niyyah","niat","isim","Jamak: نِيَّات niyyāt"],
+["خير","khair","kebaikan / sebaik-baik","isim",""],
+["شر","syarr","keburukan","isim",""],
+["حق","haqq","hak / benar","isim",""],
+["ايمان","īmān","iman","isim",""],
+["اسلام","islām","Islam","isim",""],
+["احسان","ihsān","ihsan","isim",""],
+["صلاة","shalāh","shalat","isim",""],
+["زكاة","zakāh","zakat","isim",""],
+["صوم","shaum","puasa","isim",""],
+["حج","hajj","haji","isim","ح bertasydid"],
+["مال","māl","harta","isim",""],
+["ولد","walad","anak","isim",""],
+["جار","jār","tetangga","isim",""],
+["امة","ummah","umat","isim",""],
+["كتاب","kitāb","kitab","isim",""],
+["سنة","sunnah","sunnah","isim",""],
+["دين","dīn","agama","isim",""],
+["نصيحة","nashīhah","nasihat / ketulusan","isim",""],
+["قوي","qawiyy","kuat","isim","ي bertasydid"],
+["ضعيف","dha'īf","lemah","isim",""],
+["قوة","quwwah","kekuatan","isim",""],
+["عجز","'ajz","kelemahan / putus asa","isim",""],
+["شيء","syai'","sesuatu","isim",""],
+["امر","amr","perkara / perintah","isim","Beda dengan أَمَرَ amara (memerintahkan)"],
+["ناس","nās","manusia","isim","Dengan ال: النَّاس an-nāsu"],
+["قوم","qawm","kaum","isim",""],
+["بيت","bayt","rumah","isim",""],
+["اخ","akh","saudara","isim","Dari أَخِيْهِ akhīhi"],
+["ثواب","tsawāb","pahala","isim",""],
+["اجل","ajal","waktu / ajal","isim",""],
+["موت","mawt","kematian","isim",""],
+
+/* --- fi'il --- */
+["جاء","jā'a","datang","fiil",""],
+["ذهب","dzahaba","pergi","fiil","فَعَلَ"],
+["راى","ra'ā","melihat","fiil","Bentuk khusus"],
+["فعل","fa'ala","melakukan","fiil","فَعَلَ"],
+["عمل","'amila","beramal / mengerjakan","fiil","فَعِلَ — kasrah di tengah"],
+["وجد","wajada","mendapati","fiil",""],
+["اراد","arāda","menginginkan","fiil","أَفْعَلَ"],
+["احب","ahabba","mencintai","fiil","فَعَّلَ"],
+["ابغض","abghadha","membenci","fiil","أَفْعَلَ"],
+["ترك","taraka","meninggalkan","fiil",""],
+["امر","amara","memerintahkan","fiil","فَعَلَ"],
+["نهى","nahā","melarang","fiil",""],
+["سال","sa'ala","bertanya","fiil",""],
+["اجاب","ajāba","menjawab","fiil","أَفْعَلَ"],
+["دخل","dakhala","masuk","fiil",""],
+["خرج","kharaja","keluar","fiil",""],
+["اكل","akala","makan","fiil",""],
+["شرب","syariba","minum","fiil","فَعِلَ"],
+["علم","'allama","mengajar","fiil","فَعَّلَ — ada tasydid"],
+["تعلم","ta'allama","belajar","fiil","تَفَعَّلَ"],
+["نصح","nashaha","menasihati","fiil",""],
+["هاجر","hājara","berhijrah","fiil","فَاعَلَ — alif di tengah"],
+["سلك","salaka","menempuh","fiil",""],
+["نكح","nakaha","menikahi","fiil","Pasifnya: يُنْكَحُ yunkahu"],
+["يصيب","yushību","menimpa / mendapat","fiil","Mudhari' يَفْعِلُ"],
+["ينكح","yankihu","menikahi","fiil","Mudhari' يَفْعِلُ"],
+["ينفع","yanfa'u","memberi manfaat","fiil","Mudhari' يَفْعَلُ"],
+["يلتمس","yaltamisu","mencari","fiil","Mudhari' يَفْتَعِلُ"],
+["يدعو","yad'ū","mendoakan / menyeru","fiil","Mudhari' — alif = tanda dhammah"],
+["ينقطع","yanqathi'u","terputus","fiil","Mudhari' انْفَعَلَ"],
+["احرص","ih-rish","bersemangatlah","fiil","Fi'il amr افْعِلْ"],
+["استعن","ista'in","mohonlah pertolongan","fiil","Fi'il amr اسْتَفْعِلْ"],
+["اظفر","izhfar / fazhfar","raihlah / pilihlah","fiil","Fi'il amr"],
+["يسر","yassara","memudahkan","fiil","فَعَّلَ"],
+["ستر","satara","menutupi","fiil",""],
+["نفس","naffasa","melapangkan","fiil","فَعَّلَ"],
+["مات","māta","mati","fiil","فَعَلَ dengan alif"],
+["يسال","yas'alu","bertanya","fiil","Mudhari'"],
+["يقول","yaqūlu","berkata","fiil","Mudhari' — alif = wāw berharokat dhammah"],
+["يسمع","yasma'u","mendengar","fiil","Mudhari' يَفْعَلُ"],
+["يفعل","yaf'alu","melakukan","fiil","Mudhari'"],
+["يعمل","ya'malu","mengerjakan","fiil","Mudhari'"],
+["يحب","yuhibbu","mencintai","fiil","Mudhari' يَفْعِلُ + tasydid"],
+["يكره","yakrahu","membenci","fiil","Mudhari' يَفْعَلُ"],
+["يفتح","yaftahu","membuka","fiil","Mudhari' يَفْعَلُ"],
+["شاء","syā'a","berkehendak","fiil","فَاعَلَ"],
+["قدر","qaddara","menetapkan","fiil","فَعَّلَ"],
+["يبطى","yubthi'u","memperlambat","fiil","Mudhari'"],
+["يسرع","yusri'u","mempercepat","fiil","Mudhari' أُفْعِلُ"]
+];
+const KATEGORI = [
+  ["all","Semua"],["sanad","Pembuka/Sanad"],["huruf","Kata Tugas"],
+  ["isim","Isim (Kata Benda)"],["fiil","Fi'il (Kata Kerja)"]
+];
+
+/* ---------- HADIS ---------- */
+const HADIS = [
+{
+ id:"h1", label:"1 · Niat", ref:"HR. Bukhari no. 1 · Muslim no. 1907",
+ teks:"إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا، فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ",
+ terjemah:"Sesungguhnya amal itu tergantung niatnya, dan setiap orang mendapat apa yang dia niatkan. Barangsiapa hijrahnya karena dunia yang ingin ia peroleh, atau karena perempuan yang ingin ia nikahi, maka hijrahnya hanyalah kepada apa yang ia tuju.",
+ kata:[
+  ["إِنَّمَا","innamā","sesungguhnya hanyalah","HURUF — bunyinya tetap, dihafal. إنَّ (sesungguhnya) + مَا (yang/hanyalah).","","tetap"],
+  ["الْأَعْمَالُ","al-a'mālu","amal-amal itu","ISIM — jadi <b>fa'il</b> (subjek) dari إنَّ → berharokat <b>dhammah</b>. Alif-lam dibaca \"al\", dan hamzah pada الأَ adalah <i>hamzah washal</i> yang tidak dibaca karena didahului إنَّ.","isim"],
+  ["بِالنِّيَّاتِ","bin-niyāti","dengan/dengan sebab niat","ISIM — didahului <b>huruf jar بِ</b> → wajib <b>kasrah</b>. Karena ن huruf <b>syamsiyah</b>, lam-nya lebur: <b>bin-ni</b>, bukan <i>bil-ni</i>.","jar"],
+  ["وَإِنَّمَا","wa-innamā","dan sesungguhnya hanyalah","HURUF — و (wa = dan) + إنَّمَا. Bunyinya tidak pernah berubah.","tetap"],
+  ["لِكُلِّ","li-kulli","bagi setiap","ISIM — didahului <b>huruf jar لِ</b> → <b>kasrah</b>. Karena diikuti isim lain, dia jadi <b>mudhaf</b> → kasrah <b>tanpa tanwin</b>. Kalau tidak ada isim sesudahnya, bunyinya <i>kullun</i>.","jar"],
+  ["امْرِئٍ","imri'in","seseorang","ISIM — jadi <b>mudhaf ilaih</b> dari كُلِّ → <b>kasrah</b>. Karena <b>nakirah</b> (tanpa ال), dapat <b>tanwin kasrah</b> = bunyi <b>-in</b>. Bentuk kata ini khusus, perlu dihafal.","isim"],
+  ["مَا","mā","apa yang","HURUF — kata sambung bermakna \"apa/sesuatu yang\". Bunyinya tetap.","tetap"],
+  ["نَوَى","nawā","dia niatkan","FI'IL MADHI — pola فَعَلَ (fathah-sukun-fathah). Fa'il-nya adalah مَا yang sebelumnya. Bentuk kata ini khusus, perlu dihafal.","fiil"],
+  ["فَمَنْ","fa-man","maka barangsiapa","HURUF — ف (fa = maka) + مَنْ (man = barangsiapa). مَن berharokat fathah karena jadi kata syarat.","tetap"],
+  ["كَانَتْ","kānat","adalah","FI'IL MADHI — tanda <b>ـت</b> di akhir = <b>dia (perempuan)</b> → dibaca <b>-at</b>. Fa'il-nya adalah هِجْرَةُ yang datang sesudahnya.","fiil"],
+  ["هِجْرَتُهُ","hijratuhu","hijrahnya","ISIM — <b>mudhaf</b> (diikuti dhamir) → berharokat <b>dhammah</b> karena jadi fa'il dari كانَتْ. Ditambah dhamir هُ = \"-nya\", dibaca <b>-hu</b> karena huruf sebelumnya berharokat fathah.","isim"],
+  ["إِلَى","ilā","kepada","HURUF JAR — bunyinya tetap, dan kata sesudahnya <b>wajib kasrah</b>.","tetap"],
+  ["دُنْيَا","dun-yā","dunia","ISIM — sesudah huruf jar إِلَى → berharokat <b>kasrah</b>. Tidak ada tanwin karena isim ghoiru munsharif (berakhiri alif maqshurah).","jar"],
+  ["يُصِيبُهَا","yushībihā","yang ia peroleh","FI'IL MUDHARI' — diawali <b>ي</b> → sudah pasti mudhari'. Polanya يَفْعِلُ → huruf tengah berharokat <b>kasrah</b>. Ditambah dhamir هَا.","fiil"],
+  ["أَوْ","aw","atau","HURUF — bunyinya tetap.","tetap"],
+  ["امْرَأَةٍ","imra'atin","seorang perempuan","ISIM — sesudah huruf jar إِلَى → <b>kasrah</b>. Karena <b>nakirah</b>, dapat <b>tanwin kasrah</b> = bunyi <b>-in</b>. Dalam teks gundul, tanda tanwin ini sering terlihat sebagai alif kecil di akhir.","jar"],
+  ["يَنْكِحُهَا","yankihuhā","yang ia nikahi","FI'IL MUDHARI' — diawali <b>ي</b>. Polanya يَفْعِلُ → huruf tengah <b>kasrah</b>. Catatan: يَنْكِحُ (aktif, menikahi) dan يُنْكَحُ (pasif, dinikahi) tulisannya <b>identik</b> dalam teks gundul.","fiil"],
+  ["فَهِجْرَتُهُ","fa-hijratuhu","maka hijrahnya","ISIM — ف + هِجْرَتُهُ. Berharokat dhammah karena jadi <b>mubtada'</b> (subjek) dari kalimat baru.","isim"],
+  ["إِلَى","ilā","kepada","HURUF JAR — kata sesudahnya wajib kasrah.","tetap"],
+  ["مَا","mā","apa yang","HURUF — bunyinya tetap.","tetap"],
+  ["هَاجَرَ","hājara","ia berhijrah","FI'IL MADHI — polanya <b>فَاعَلَ</b>, ditandai <b>alif di tengah</b> → dibaca <b>fā-'a-la</b>, panjang di huruf pertama. Bukan <i>hajara</i>.","fiil"],
+  ["إِلَيْهِ","ilai-hi","kepadanya","HURUF JAR + dhamir. Karena هُ didahului <b>ya' sukun</b>, bunyinya berubah menjadi <b>-hi</b>, bukan -hu.","jar"]
+ ]
+},
+{
+ id:"h2", label:"2 · Empat perkara nikah", ref:"HR. Bukhari no. 5097 · Muslim no. 1466",
+ teks:"تُنْكَحُ الْمَرْأَةُ لِأَرْبَعٍ: لِمَالِهَا وَلِحَسَبِهَا وَجَمَالِهَا وَلِدِينِهَا، فَظَفِرَ بِذَاتِ الدِّينِ تَرِبَتْ يَدَاكَ",
+ terjemah:"Perempuan dinikahi karena empat hal: hartanya, keturunannya, kecantikannya, dan agamanya. Maka pilihlah yang beragama, niscaya engkau beruntung.",
+ kata:[
+  ["تُنْكَحُ","tunkahu","(perempuan) dinikahi","FI'IL MUDHARI' <b>MAJHUL (pasif)</b> — diawali ت. Perhatikan: huruf pertama <b>dhammah</b> dan huruf kedua <b>fathah</b> adalah tanda pasif. Aktifnya يَنْكِحُ (yankihu). Dalam teks gundul, tulisannya <b>identik</b> — hanya konteks yang bisa membedakan.","fiil"],
+  ["الْمَرْأَةُ","al-mar'atu","perempuan itu","ISIM — jadi <b>na'ib fa'il</b> (pengganti subjek pada kalimat pasif) → berharokat <b>dhammah</b>. Alif-lam dibaca \"al\", م huruf qamariyah.","isim"],
+  ["لِأَرْبَعٍ","li-arba'in","karena empat (hal)","ISIM — didahului <b>huruf jar لِ</b> → <b>kasrah</b>. Karena <b>nakirah</b>, dapat <b>tanwin kasrah</b> = bunyi <b>-in</b>. Hamzah di awal berharokat fathah.","jar"],
+  ["لِمَالِهَا","li-mālihā","karena hartanya","ISIM — huruf jar لِ → <b>kasrah</b>. Diikuti dhamir, jadi <b>mudhaf</b> → kasrah <b>tanpa tanwin</b>. Dhamir هَا = \"-nya (perempuan)\".","jar"],
+  ["وَلِحَسَبِهَا","wa-li-hasabihā","dan karena keturunannya","ISIM — sama polanya: وَ + لِ + mudhaf + هَا. Semua isim sesudah huruf jar berharokat <b>kasrah</b>.","jar"],
+  ["وَجَمَالِهَا","wa-jamālihā","dan kecantikannya","ISIM — di-'athaf-kan (disambungkan) pada rangkaian sebelumnya, jadi ikut <b>kasrah</b>. Ini contoh kenapa mengenali rantai huruf jar itu penting: satu jar bisa menguasai beberapa kata sekaligus.","jar"],
+  ["وَلِدِينِهَا","wa-li-dīnihā","dan agamanya","ISIM — وَ + لِ + mudhaf + هَا → <b>kasrah</b>.","jar"],
+  ["فَظَفِرَ","fa-zhfir / fa-zhfar","maka raihlah","FI'IL — di sini bermakna <b>perintah</b>. Bentuk perintahnya فَظْفَرْ (fa-zhfar), pola افْعَلْ: huruf tengah <b>sukun</b>, huruf akhir <b>sukun</b>.","fiil"],
+  ["بِذَاتِ","bi-dzāti","yang memiliki","ISIM — didahului <b>huruf jar بِ</b> → <b>kasrah</b>. Karena diikuti isim (الدِّينِ), dia jadi <b>mudhaf</b> → kasrah tanpa tanwin.","jar"],
+  ["الدِّينِ","ad-dīni","agama","ISIM — <b>mudhaf ilaih</b> dari ذَاتِ → <b>kasrah</b>. Ada ال di depan, jadi <b>tanpa tanwin</b>. د huruf <b>syamsiyah</b> → lam lebur: <b>ad-dīn</b>, bukan al-dīn.","jar"],
+  ["تَرِبَتْ","taribat","(semoga) engkau beruntung","FI'IL MADHI — tanda <b>ـت</b> di akhir = dia (perempuan) → <b>-at</b>. Polanya <b>فَعِلَ</b> → huruf tengah berharokat <b>kasrah</b>: ta-ri-bat. Ini idiom Arab, makna harfiahnya \"tangannya berdebu\".","fiil"],
+  ["يَدَاكَ","yadāka","kedua tanganmu","ISIM — bentuk <b>tatsniyah</b> (dual), ditandai alif sebelum كَ. Fa'il dari تَرِبَتْ → berharokat <b>fathah</b> (karena tatsniyah, tanda i'rabnya alif, bukan harokat). Ditambah dhamir كَ = \"-mu\".","isim"]
+ ]
+},
+{
+ id:"h3", label:"3 · Belajar Al-Qur'an", ref:"HR. Bukhari no. 5027",
+ teks:"خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ",
+ terjemah:"Sebaik-baik kalian adalah orang yang belajar Al-Qur'an dan mengajarkannya.",
+ kata:[
+  ["خَيْرُكُمْ","khairukum","sebaik-baik kalian","ISIM — <b>mubtada'</b> → berharokat <b>dhammah</b>. Karena diikuti dhamir, dia <b>mudhaf</b> → tanpa tanwin. Dhamir كُمْ berharokat <b>kasrah</b> di ك.","isim"],
+  ["مَنْ","man","orang yang","HURUF — isim maushul bermakna \"orang yang\". مَن berharokat fathah.","tetap"],
+  ["تَعَلَّمَ","ta'allama","dia belajar","FI'IL MADHI — polanya <b>تَفَعَّلَ</b>, ditandai <b>ta di depan + tasydid</b> di huruf kedua. Semua huruf berharokat <b>fathah</b> kecuali ت pertama yang sukun: ta-'al-la-ma.","fiil"],
+  ["الْقُرْآنَ","al-qur'āna","Al-Qur'an","ISIM — jadi <b>maf'ul bih</b> (objek) dari تَعَلَّمَ → berharokat <b>fathah</b>. Dalam teks gundul sering ada alif kecil di akhir sebagai tanda tanwin; di sini berharokat fathah biasa karena ada ال.","isim"],
+  ["وَعَلَّمَهُ","wa-'allamahu","dan dia mengajarkannya","FI'IL MADHI — polanya <b>فَعَّلَ</b>, ditandai <b>tasydid</b> di huruf kedua → 'al-la-ma. <b>Bukan</b> <i>'alama</i>. Ditambah dhamir هُ.","fiil"]
+ ]
+},
+{
+ id:"h4", label:"4 · Amal yang terus mengalir", ref:"HR. Muslim no. 1631",
+ teks:"إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلَّا مِنْ ثَلَاثَةٍ: مِنْ صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ",
+ terjemah:"Apabila manusia meninggal, terputuslah amalnya kecuali tiga perkara: sedekah jariyah, ilmu yang bermanfaat, atau anak saleh yang mendoakannya.",
+ kata:[
+  ["إِذَا","idzā","apabila","HURUF — kata syarat bermakna waktu. Bunyinya tetap.","tetap"],
+  ["مَاتَ","māta","dia meninggal","FI'IL MADHI — pola فَعَلَ, tapi huruf tengahnya berupa <b>alif</b> (asalnya و atau ي yang berubah) → dibaca panjang: mā-ta.","fiil"],
+  ["الْإِنْسَانُ","al-insānu","manusia itu","ISIM — jadi <b>fa'il</b> dari مَاتَ → berharokat <b>dhammah</b>. Alif-lam dibaca \"al\"; hamzah pada الْإِ adalah hamzah washal, tapi karena didahului kata lain ia tetap dibaca sebagai hamzah qath' di sini.","isim"],
+  ["انْقَطَعَ","inqatha'a","terputus","FI'IL MADHI — polanya <b>انْفَعَلَ</b>, ditandai <b>alif + nun</b> di depan. Bunyinya: in-qa-tha-'a. Hamzah di akhir berasal dari ع asli.","fiil"],
+  ["عَنْهُ","'anhu","darinya","HURUF JAR + dhamir. عَنْ berharokat fathah (bukan 'in). Dhamir هُ berharokat <b>dhammah</b> karena huruf sebelumnya berharokat fathah.","jar"],
+  ["عَمَلُهُ","'amaluhu","amalnya","ISIM — <b>fa'il</b> dari انْقَطَعَ → <b>dhammah</b>. Mudhaf + dhamir هُ.","isim"],
+  ["إِلَّا","illā","kecuali","HURUF — bunyinya tetap.","tetap"],
+  ["مِنْ","min","dari","HURUF JAR — kata sesudahnya <b>wajib kasrah</b>.","jar"],
+  ["ثَلَاثَةٍ","tsalātsatin","tiga (perkara)","ISIM — sesudah huruf jar مِنْ → <b>kasrah</b> + <b>tanwin</b> = bunyi <b>-in</b>. ث bertasydid: tsa-lā-tsa-tin.","jar"],
+  ["مِنْ","min","dari / berupa","HURUF JAR — mengulang pola yang sama. Mengenali pengulangan begini mempercepat bacaan.","jar"],
+  ["صَدَقَةٍ","shadaqatin","sedekah","ISIM — sesudah huruf jar → <b>kasrah + tanwin</b> = <b>-in</b>.","jar"],
+  ["جَارِيَةٍ","jāriyatin","yang mengalir","SIFAT (na'at) — mengikuti isim yang disifatinya. Karena صَدَقَةٍ berharokat kasrah + tanwin, sifatnya <b>ikut kasrah + tanwin</b>. Ini aturan penting: <b>sifat selalu mengikuti bunyi akhirnya</b>.","isim"],
+  ["أَوْ","aw","atau","HURUF — bunyinya tetap.","tetap"],
+  ["عِلْمٍ","'ilmin","ilmu","ISIM — di-'athaf-kan pada صَدَقَةٍ yang majrur → ikut <b>kasrah + tanwin</b> = <b>-in</b>. Perhatikan: di sini عِلْم adalah <b>isim</b>, bukan fi'il عَلِمَ atau عَلَّمَ.","jar"],
+  ["يُنْتَفَعُ","yuntafa'u","yang diambil manfaat","FI'IL MUDHARI' <b>MAJHUL (pasif)</b> — diawali ي, huruf pertama <b>dhammah</b>, lalu tasydid. Aktifnya يَنْتَفِعُ (yantafi'u). Artinya \"diambil manfaat darinya\".","fiil"],
+  ["بِهِ","bihi","dengannya / darinya","HURUF JAR + dhamir. Karena هُ didahului <b>kasrah</b>, bunyinya menjadi <b>-hi</b>, bukan -hu.","jar"],
+  ["أَوْ","aw","atau","HURUF — bunyinya tetap.","tetap"],
+  ["وَلَدٍ","waladin","anak","ISIM — ikut rangkaian majrur → <b>kasrah + tanwin</b> = <b>-in</b>.","jar"],
+  ["صَالِحٍ","shālihin","yang saleh","SIFAT — mengikuti وَلَدٍ → ikut <b>kasrah + tanwin</b>. Ingat: sifat selalu ikut harokat akhir isim yang disifatinya.","isim"],
+  ["يَدْعُو","yad'ū","dia mendoakan","FI'IL MUDHARI' — diawali ي. Huruf terakhir berupa <b>alif</b> yang sebenarnya menandai <b>wāw berharokat dhammah</b>: yad-'ū. Fa'il-nya tersirat (dia = anak itu).","fiil"],
+  ["لَهُ","lahū","untuknya","HURUF JAR + dhamir. هُ berharokat <b>dhammah</b> → dibaca <b>-hū</b> (panjang).","jar"]
+ ]
+},
+{
+ id:"h5", label:"5 · Agama adalah nasihat", ref:"HR. Muslim no. 55a",
+ teks:"الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ؟ قَالَ: لِلَّهِ وَلِكِتَابِهِ وَلِرَسُولِهِ وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ",
+ terjemah:"Agama adalah nasihat. Kami bertanya: Untuk siapa? Beliau menjawab: Untuk Allah, kitab-Nya, rasul-Nya, para pemimpin kaum muslimin, dan seluruh kaum muslimin.",
+ kata:[
+  ["الدِّينُ","ad-dīnu","agama itu","ISIM — <b>mubtada'</b> (subjek) → berharokat <b>dhammah</b>. د huruf <b>syamsiyah</b> → lam lebur: <b>ad-dīn</b>, bukan al-dīn.","isim"],
+  ["النَّصِيحَةُ","an-nashīhatu","nasihat / ketulusan","ISIM — <b>khabar</b> (predikat) → berharokat <b>dhammah</b>. ن huruf <b>syamsiyah</b> → lam lebur: <b>an-nashīhah</b>. Ta' marbuthah dibaca -ah saat berhenti.","isim"],
+  ["قُلْنَا","qulnā","kami berkata","FI'IL MADHI — tanda <b>ـنَا</b> di akhir = <b>-nā</b> (kami). Perhatikan: ق berharokat <b>dhammah</b>, jadi <b>qulnā</b>, bukan <i>qalnā</i>. Ini bentuk khusus dari قَالَ.","fiil"],
+  ["لِمَنْ","li-man","untuk siapa","HURUF JAR لِ + مَنْ (siapa). Kata tanya sesudah jar tetap berharokat fathah: <b>man</b>, bukan min.","jar"],
+  ["قَالَ","qāla","beliau berkata","FI'IL MADHI — pola فَعَلَ. Bentuk khusus: ق + alif + ل → qā-la (panjang).","fiil"],
+  ["لِلَّهِ","lillāhi","untuk Allah","ISIM — didahului <b>dua huruf jar</b> (لِ + لِ) → berharokat <b>kasrah</b>: lillāh<i>i</i>. Dalam teks gundul, kedua lam itu terlihat menyatu.","jar"],
+  ["وَلِكِتَابِهِ","wa-li-kitābihi","dan untuk kitab-Nya","ISIM — وَ + jar لِ → <b>kasrah</b>. Mudhaf + dhamir هِ. Karena هُ didahului <b>kasrah</b>, bunyinya <b>-hi</b>.","jar"],
+  ["وَلِرَسُولِهِ","wa-li-rasūlihi","dan untuk rasul-Nya","ISIM — pola identik: jar → <b>kasrah</b>, lalu dhamir <b>-hi</b>. Mengenali pola berulang begini yang membuat bacaan jadi cepat.","jar"],
+  ["وَلِأَئِمَّةِ","wa-li-a'immati","dan untuk para pemimpin","ISIM — jar لِ → <b>kasrah</b>. Karena diikuti isim (الْمُسْلِمِينَ), dia <b>mudhaf</b> → kasrah tanpa tanwin. Hamzah kedua adalah hamzah washal dari bentuk jamak.","jar"],
+  ["الْمُسْلِمِينَ","al-muslimīna","kaum muslimin","ISIM — <b>mudhaf ilaih</b> → berharokat <b>kasrah</b>. Bentuk jamak mudzakkar salim: tanda i'rabnya bukan harokat biasa, tapi <b>ya' + nun</b> (ـِينَ).","jar"],
+  ["وَعَامَّتِهِمْ","wa-'āmmatihim","dan seluruh (kaum) mereka","ISIM — di-'athaf-kan pada rangkaian majrur → ikut <b>kasrah</b>. Ditambah dhamir هُمْ; karena didahului kasrah, bunyinya <b>-him</b>.","jar"]
+ ]
+},
+{
+ id:"h6", label:"6 · Mencari ilmu", ref:"HR. Muslim no. 2699a",
+ teks:"مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ",
+ terjemah:"Barangsiapa menempuh jalan untuk mencari ilmu, Allah akan mudahkan baginya jalan menuju surga.",
+ kata:[
+  ["مَنْ","man","barangsiapa","HURUF — kata syarat. مَن berharokat fathah. Diikuti fi'il (سَلَكَ), jadi yang benar <b>man</b>, bukan min.","tetap"],
+  ["سَلَكَ","salaka","dia menempuh","FI'IL MADHI — pola فَعَلَ: fathah-fathah-fathah.","fiil"],
+  ["طَرِيقًا","tharīqan","jalan","ISIM — <b>maf'ul bih</b> (objek) dari سَلَكَ → berharokat <b>fathah</b>. Alif di akhir menandakan <b>tanwin fathah</b> = bunyi <b>-an</b>. Karena nakirah, tanwinnya ada.","isim"],
+  ["يَلْتَمِسُ","yaltamisu","yang dia cari","FI'IL MUDHARI' — diawali ي. Polanya <b>يَفْتَعِلُ</b>, ditandai alif + ت: huruf ت berharokat <b>sukun</b>, lalu huruf tengah berharokat <b>kasrah</b>, akhir <b>dhammah</b>. Fa'ilnya tersirat (dia).","fiil"],
+  ["فِيهِ","fīhi","di dalamnya","HURUF JAR فِي + dhamir. Karena هُ didahului <b>ya' sukun</b>, bunyinya <b>-hi</b>, bukan -hu.","jar"],
+  ["عِلْمًا","'ilman","ilmu","ISIM — <b>maf'ul bih</b> dari يَلْتَمِسُ → <b>fathah</b>. Alif di akhir = <b>tanwin fathah</b> = bunyi <b>-an</b>. Perhatikan: di sini عِلْم adalah isim, bukan fi'il.","isim"],
+  ["سَهَّلَ","sahhala","Allah mudahkan","FI'IL MADHI — polanya <b>فَعَّلَ</b>, ditandai <b>tasydid</b> di huruf kedua: sa-hha-la. <b>Bukan</b> <i>sahala</i>. Tasydid ini sering hilang di teks gundul, tapi bunyinya wajib.","fiil"],
+  ["اللَّهُ","Allāhu","Allah","ISIM — <b>fa'il</b> dari سَهَّلَ → berharokat <b>dhammah</b>. Lafzhul Jalalah.","isim"],
+  ["لَهُ","lahū","baginya","HURUF JAR لِ + dhamir. هُ berharokat <b>dhammah</b> → dibaca panjang <b>-hū</b>.","jar"],
+  ["بِهِ","bihi","dengannya / karenanya","HURUF JAR بِ + dhamir. Karena هُ didahului <b>kasrah</b>, bunyinya <b>-hi</b>.","jar"],
+  ["طَرِيقًا","tharīqan","jalan","ISIM — <b>maf'ul bih</b> dari سَهَّلَ → <b>fathah + tanwin</b> = <b>-an</b>. Kata yang sama dengan sebelumnya, tapi jabatannya sama-sama objek.","isim"],
+  ["إِلَى","ilā","menuju","HURUF JAR — kata sesudahnya <b>wajib kasrah</b>.","jar"],
+  ["الْجَنَّةِ","al-jannati","surga","ISIM — <b>majrur</b> karena sesudah huruf jar إِلَى → berharokat <b>kasrah</b>. ج huruf <b>qamariyah</b>, jadi lam diucapkan jelas: <b>al-jannah</b>.","jar"]
+ ]
+},
+{
+ id:"h7", label:"7 · Mukmin kuat", ref:"HR. Muslim no. 2664",
+ teks:"الْمُؤْمِنُ الْقَوِيُّ خَيْرٌ وَأَحَبُّ إِلَى اللَّهِ مِنَ الْمُؤْمِنِ الضَّعِيفِ وَفِي كُلٍّ خَيْرٌ احْرِصْ عَلَى مَا يَنْفَعُكَ وَاسْتَعِنْ بِاللَّهِ وَلَا تَعْجِزْ",
+ terjemah:"Mukmin yang kuat lebih baik dan lebih dicintai Allah daripada mukmin yang lemah, dan pada masing-masing ada kebaikan. Bersemangatlah atas apa yang bermanfaat bagimu, mohonlah pertolongan kepada Allah, dan janganlah engkau lemah.",
+ kata:[
+  ["الْمُؤْمِنُ","al-mu'minu","mukmin itu","ISIM — <b>mubtada'</b> (subjek) → berharokat <b>dhammah</b>. م huruf qamariyah → lam diucapkan jelas.","isim"],
+  ["الْقَوِيُّ","al-qawiyyu","yang kuat","SIFAT — mengikuti الْمُؤْمِنُ, jadi ikut <b>dhammah</b>. ي terakhir <b>bertasydid</b>: qa-wi-y-yu. Aturan penting: <b>sifat selalu mengikuti harokat akhir isim yang disifatinya</b>.","isim"],
+  ["خَيْرٌ","khairun","lebih baik","ISIM — <b>khabar</b> (predikat) → berharokat <b>dhammah</b>. Karena <b>nakirah</b>, dapat <b>tanwin dhammah</b> = bunyi <b>-un</b>. Ini isim tafdhil (perbandingan).","isim"],
+  ["وَأَحَبُّ","wa-ahabbu","dan lebih dicintai","ISIM — di-'athaf-kan pada خَيْرٌ yang berharokat dhammah → ikut <b>dhammah + tanwin</b>. ح bertasydid: a-hab-bu.","isim"],
+  ["إِلَى","ilā","kepada","HURUF JAR — kata sesudahnya <b>wajib kasrah</b>.","jar"],
+  ["اللَّهِ","Allāhi","Allah","ISIM — <b>majrur</b> karena sesudah huruf jar → berharokat <b>kasrah</b>: Allāh<i>i</i>. Perhatikan perbedaannya dengan اللَّهُ (dhammah) di hadis no. 6 — kata yang sama, bunyi beda karena jabatan beda.","jar"],
+  ["مِنَ","mina","daripada","HURUF JAR — bentuk asal مِنْ; berharokat fathah karena bertemu hamzah washal pada kata berikutnya. Kata sesudahnya tetap <b>kasrah</b>.","jar"],
+  ["الْمُؤْمِنِ","al-mu'mini","mukmin","ISIM — <b>majrur</b> sesudah مِنْ → berharokat <b>kasrah</b>. Bandingkan dengan الْمُؤْمِنُ di awal kalimat: kata sama, bunyi beda, karena jabatan beda.","jar"],
+  ["الضَّعِيفِ","ad-dha'īfi","yang lemah","SIFAT — mengikuti الْمُؤْمِنِ yang berharokat kasrah → ikut <b>kasrah</b>. ض huruf <b>syamsiyah</b> → lam lebur: <b>ad-dha'īf</b>.","jar"],
+  ["وَفِي","wa-fī","dan pada","HURUF JAR — kata sesudahnya <b>wajib kasrah</b>.","jar"],
+  ["كُلٍّ","kullin","masing-masing","ISIM — sesudah huruf jar فِي → <b>kasrah</b>. Karena <b>nakirah</b>, dapat <b>tanwin kasrah</b> = bunyi <b>-in</b>. Bandingkan dengan لِكُلِّ di hadis no. 1 yang <b>tanpa</b> tanwin karena jadi mudhaf.","jar"],
+  ["خَيْرٌ","khairun","kebaikan","ISIM — <b>mubtada' mu'akkhar</b> (subjek yang diakhirkan) → <b>dhammah + tanwin</b> = <b>-un</b>.","isim"],
+  ["احْرِصْ","ih-rish","bersemangatlah","FI'IL AMR (perintah) — polanya <b>افْعِلْ</b>: hamzah berharokat <b>kasrah</b>, huruf tengah <b>sukun</b>. Ini ciri khas fi'il amr dari wazan فَعِلَ.","fiil"],
+  ["عَلَى","'alā","atas","HURUF JAR — kata sesudahnya kasrah, tapi di sini diikuti مَا (huruf), jadi tidak ada perubahan bunyi.","jar"],
+  ["مَا","mā","apa yang","HURUF — isim maushul. Bunyinya tetap.","tetap"],
+  ["يَنْفَعُكَ","yanfa'uka","bermanfaat bagimu","FI'IL MUDHARI' — diawali ي. Polanya <b>يَفْعَلُ</b> → huruf tengah berharokat <b>fathah</b>. Ditambah dhamir كَ (objek).","fiil"],
+  ["وَاسْتَعِنْ","was-ta'in","dan mohonlah pertolongan","FI'IL AMR — polanya <b>اسْتَفْعِلْ</b>. Hamzah di awal adalah <b>hamzah washal</b> yang <b>gugur</b> karena didahului وَ, jadi langsung dibaca <b>was-ta'in</b>, bukan <i>wa-ista'in</i>.","fiil"],
+  ["بِاللَّهِ","billāhi","kepada Allah","ISIM — didahului <b>huruf jar بِ</b> → berharokat <b>kasrah</b>: billāh<i>i</i>.","jar"],
+  ["وَلَا","wa-lā","dan jangan","HURUF — لَا nahi (larangan). Sesudahnya, fi'il mudhari' berharokat <b>sukun</b> (jazm).","tetap"],
+  ["تَعْجِزْ","ta'jaz","engkau lemah / putus asa","FI'IL MUDHARI' — diawali ت, dan berharokat <b>sukun di akhir</b> karena didahului لَا nahi (jazm). Tanpa لَا, bunyinya ta'jizu.","fiil"]
+ ]
+},
+{
+ id:"h8", label:"8 · Jangan berkata 'seandainya'", ref:"HR. Muslim no. 2664",
+ teks:"وَإِنْ أَصَابَكَ شَيْءٌ فَلَا تَقُلْ لَوْ أَنِّي فَعَلْتُ كَانَ كَذَا وَكَذَا، وَلَكِنْ قُلْ قَدَرُ اللَّهِ وَمَا شَاءَ فَعَلَ",
+ terjemah:"Dan jika sesuatu menimpamu, janganlah engkau berkata: 'Seandainya aku melakukan ini, tentu begini dan begitu.' Tetapi katakanlah: 'Ini takdir Allah, dan apa yang Dia kehendaki pasti Dia lakukan.'",
+ kata:[
+  ["وَإِنْ","wa-in","dan jika","HURUF — إِنْ syarat (jika), berharokat <b>kasrah</b> dan <b>tanpa tasydid</b>. Bedakan dengan إِنَّ (inna, sesungguhnya) yang bertasydid.","tetap"],
+  ["أَصَابَكَ","ashābaka","menimpamu","FI'IL MADHI — polanya <b>أَفْعَلَ</b>, ditandai <b>alif di depan</b>: a-shā-ba. Ditambah dhamir كَ sebagai objek.","fiil"],
+  ["شَيْءٌ","syai'un","sesuatu","ISIM — <b>fa'il</b> dari أَصَابَ → berharokat <b>dhammah</b> + <b>tanwin</b> = bunyi <b>-un</b>. Bentuk kata ini khusus, perlu dihafal.","isim"],
+  ["فَلَا","fa-lā","maka jangan","HURUF — ف + لَا nahi. Sesudahnya, fi'il mudhari' berharokat <b>sukun</b>.","tetap"],
+  ["تَقُلْ","taqul","engkau berkata","FI'IL MUDHARI' — diawali ت. Berharokat <b>sukun di akhir</b> karena didahului لَا nahi (jazm). Tanpa لَا, bunyinya <i>taqūlu</i>. Perhatikan huruf tengah tetap <b>dhammah</b>: ta-qul.","fiil"],
+  ["لَوْ","law","seandainya","HURUF — kata syarat untuk hal yang tidak terjadi. Bunyinya tetap.","tetap"],
+  ["أَنِّي","annī","bahwa aku","HURUF + dhamir — أَنَّ (bahwa) + ي (aku). Bunyinya tetap.","tetap"],
+  ["فَعَلْتُ","fa'altu","aku telah melakukan","FI'IL MADHI — tanda <b>ـتُ</b> di akhir = <b>-tu</b> (aku), berharokat <b>dhammah</b>. Inilah jawaban untuk pertanyaan \"kapan ـت berbunyi tu\": kalau dia di <b>ujung kata</b> tanpa huruf lain sesudahnya.","fiil"],
+  ["كَانَ","kāna","adalah / terjadi","FI'IL MADHI — pola فَعَلَ. Di sini khabar-nya dibuang, maknanya \"terjadilah demikian\".","fiil"],
+  ["كَذَا","kadzā","begini","HURUF/KATA — isim isyarah bermakna \"begini/begitu\". Bunyinya tetap, tidak berubah.","tetap"],
+  ["وَكَذَا","wa-kadzā","dan begitu","HURUF/KATA — وَ + كَذَا. Pengulangan untuk penekanan.","tetap"],
+  ["وَلَكِنْ","wa-lākin","tetapi","HURUF — bunyinya tetap.","tetap"],
+  ["قُلْ","qul","katakanlah","FI'IL AMR — dari akar قَالَ. Polanya فُلْ: ق berharokat <b>dhammah</b>, ل berharokat <b>sukun</b>. Fi'il amr selalu berakhir sukun (kecuali yang bersambung dhamir).","fiil"],
+  ["قَدَرُ","qadaru","takdir / ketetapan","ISIM — <b>mubtada'</b> → berharokat <b>dhammah</b>. Karena diikuti Lafzhul Jalalah, dia <b>mudhaf</b> → dhammah <b>tanpa tanwin</b>.","isim"],
+  ["اللَّهِ","Allāhi","Allah","ISIM — <b>mudhaf ilaih</b> dari قَدَرُ → berharokat <b>kasrah</b>. Ada ال di depan → tanpa tanwin.","jar"],
+  ["وَمَا","wa-mā","dan apa yang","HURUF — وَ + مَا maushul. Bunyinya tetap.","tetap"],
+  ["شَاءَ","syā'a","Dia kehendaki","FI'IL MADHI — polanya <b>فَاعَلَ</b>, ditandai <b>alif di tengah</b>: syā-'a. Fa'ilnya tersirat (Dia). Bentuk kata ini khusus, perlu dihafal.","fiil"],
+  ["فَعَلَ","fa'ala","Dia lakukan","FI'IL MADHI — pola فَعَلَ: fathah-fathah-fathah. Fa'ilnya tersirat (Dia).","fiil"]
+ ]
+}
+];
+
+/* ---------- LATIHAN ---------- */
+const LATIHAN = [
+ {q:"قال", hint:"Fi'il madhi, pola فَعَلَ.", a:["qala","qāla","qaala"], ex:"قال = <b>qāla</b>. Fi'il madhi wazan فَعَلَ: fathah – alif – fathah."},
+ {q:"عن", hint:"Huruf jar. Hati-hati, ini yang paling sering salah.", a:["'an","an","‘an"], ex:"عن = <b>'an</b> (ع berharokat fathah). Bukan 'in."},
+ {q:"رسول الله", hint:"Dua isim berurutan tanpa penghubung.", a:["rasulullahi","rasūlullāhi","rasulullah"], ex:"رسول الله = <b>rasūlullāhi</b>. Kata diikuti isim → <b>mudhaf</b> → kasrah tanpa tanwin. Bukan <i>rasūlun Allāh</i>."},
+ {q:"الاعمال", hint:"Ada ال di depan; kata ini jadi subjek.", a:["al-a'malu","alamalu","al a'malu","ala'malu"], ex:"الْأَعْمَالُ = <b>al-a'mālu</b>. ال selalu \"al\", dan karena jadi <b>fa'il</b> → berharokat dhammah."},
+ {q:"بالنيات", hint:"Ada huruf jar بـ di depan, dan ن huruf syamsiyah.", a:["binniyati","bin-niyāti","binniyat"], ex:"بِالنِّيَّاتِ = <b>bin-niyāti</b>. Huruf jar بـ memaksa <b>kasrah</b>; ن syamsiyah membuat lam lebur jadi <b>bin-ni</b>."},
+ {q:"الناس", hint:"ن termasuk huruf syamsiyah.", a:["annasu","an-nāsu","annas"], ex:"النَّاسُ = <b>an-nāsu</b>. ن syamsiyah → lam lebur. <b>Jangan pernah baca \"al-nās\".</b>"},
+ {q:"طريقا", hint:"Ada alif kecil di akhir kata.", a:["thariqan","tharīqan","tariqan"], ex:"طَرِيقًا = <b>tharīqan</b>. Alif di akhir menandakan <b>tanwin fathah</b> = bunyi <b>-an</b>, tanda kata itu jadi objek atau sesudah huruf jar."},
+ {q:"تعلم", hint:"Ada ت di depan dan tasydid di huruf kedua.", a:["ta'allama","taallama","ta allama"], ex:"تَعَلَّمَ = <b>ta'allama</b>. Wazan <b>تَفَعَّلَ</b>: ت sukun, lalu semua fathah dengan tasydid."},
+ {q:"يلتمس", hint:"Mudhari' (diawali ي) dengan pola يَفْتَعِلُ.", a:["yaltamisu","yal tamisu","yaltamisu"], ex:"يَلْتَمِسُ = <b>yaltamisu</b>. Wazan <b>يَفْتَعِلُ</b>: ت berharokat sukun, lalu huruf tengah <b>kasrah</b>, akhir <b>dhammah</b>."},
+ {q:"تنكح المراة", hint:"Hati-hati: ini bukan kalimat aktif.", a:["tunkahul-mar'atu","tunkahu almar'atu","tunkahul mar atu"], ex:"تُنْكَحُ الْمَرْأَةُ = <b>tunkahul-mar'atu</b> — \"perempuan <b>dinikahi</b>\". Ini <b>fi'il majhul (pasif)</b>: huruf pertama dhammah, kedua fathah. Tulisannya identik dengan bentuk aktif!"},
+ {q:"لكل امرئ", hint:"Ada huruf jar لِ, lalu dua isim berurutan.", a:["likulli imri'in","likulliimriin","li kulli imri in"], ex:"لِكُلِّ امْرِئٍ = <b>li-kulli imri'in</b>. Jar لِ → kasrah; كُلِّ jadi <b>mudhaf</b> → kasrah tanpa tanwin; امْرِئٍ <b>nakirah</b> → tanwin kasrah (<b>-in</b>)."},
+ {q:"سهل الله", hint:"Perhatikan huruf kedua — ada tasydid yang sering hilang di cetak.", a:["sahhallallahu","sahhala allah","sahhalallah"], ex:"سَهَّلَ اللَّهُ = <b>sahhallallāhu</b>. سَهَّلَ wazan <b>فَعَّلَ</b> (tasydid di huruf kedua) — <b>bukan</b> <i>sahala</i>. Lalu اللَّهُ jadi fa'il → dhammah."}
+];
+
+/* ---------- KUIS ---------- */
+const KUIS = [
+ {q:"Bagaimana membaca <span class='ar'>قال</span>?", o:["qāla","qala'a","qālu","qil"], r:0, w:"Fi'il madhi wazan <b>فَعَلَ</b>: fathah – alif – fathah. Bentuk khusus dari akar ق-و-ل."},
+ {q:"Bagaimana membaca huruf jar <span class='ar'>عن</span>?", o:["'an","'in","'un","'ān"], r:0, w:"ع berharokat <b>fathah</b> → <b>'an</b>. Ini kesalahan yang paling sering terjadi."},
+ {q:"Dalam <span class='ar'>رسول الله</span>, kata pertama berharokat apa?", o:["kasrah (rasūlillāhi)","dhammah (rasūlullāhu)","fathah (rasūlallāha)","tanwin dhammah (rasūlun)"], r:0, w:"Kata yang <b>diikuti isim lain</b> tanpa penghubung berposisi <b>mudhaf</b> → berharokat <b>kasrah</b> dan <b>tanpa tanwin</b>."},
+ {q:"Kapan akhiran <span class='ar'>ـت</span> pada fi'il madhi berbunyi <b>‑ti</b>?", o:["ketika subjeknya 'kamu perempuan'","ketika subjeknya 'aku'","ketika subjeknya 'dia perempuan'","ketika subjeknya 'mereka'"], r:0, w:"ـتِ = <b>kamu (perempuan)</b>. Bandingkan: ـتُ = aku (dhammah), ـتَ = kamu laki-laki (fathah), ـتْ = dia perempuan (sukun)."},
+ {q:"Bagaimana membaca <span class='ar'>الناس</span>?", o:["an-nāsu","al-nāsu","an-nāsi saja","al-nās"], r:0, w:"ن termasuk <b>huruf syamsiyah</b>, jadi lam-nya <b>lebur</b> dan ن bertasydid: <b>an-nāsu</b>. Tidak pernah \"al-nās\"."},
+ {q:"Apa wazan <span class='ar'>تَعَلَّمَ</span>?", o:["تَفَعَّلَ","تَفَاعَلَ","أَفْعَلَ","فَعَّلَ"], r:0, w:"Ciri <b>تَفَعَّلَ</b>: huruf ت di depan + <b>tasydid</b> di huruf kedua. Dibaca ta-'al-la-ma."},
+ {q:"Fi'il mudhari' selalu diawali huruf…", o:["أ ن ي ت","ب ت ث ج","ا و ي","م ن ل ه"], r:0, w:"Disingkat <b>أنيتُ (anaitu)</b>. Fi'il madhi tidak pernah diawali huruf-huruf itu sebagai awalan subjek."},
+ {q:"Kata sesudah huruf jar berharokat…", o:["kasrah","fathah","dhammah","sukun"], r:0, w:"Ini aturan paling produktif: <b>setiap</b> isim sesudah huruf jar berharokat <b>kasrah</b>, tanpa pengecualian."},
+ {q:"Alif kecil di akhir kata dalam teks gundul biasanya menandakan…", o:["tanwin fathah (‑an)","dhammah","alif maqshurah","waqaf"], r:0, w:"Alif itu tanda <b>tanwin fathah</b>, artinya kata tersebut berposisi <b>objek</b> atau <b>majrur</b>. Contoh: <span class='ar'>طريقا</span> = tharīq<b>an</b>."},
+ {q:"Bagaimana membaca <span class='ar'>قلنا</span>?", o:["qulnā","qalnā","qilanā","qālnā"], r:0, w:"ق berharokat <b>dhammah</b> → <b>qulnā</b>. Ini bentuk khusus dari قَالَ ketika bertemu dhamir نَا."},
+ {q:"Dalam <span class='ar'>إِلَيْهِ</span>, dhamir ه dibaca…", o:["-hi","-hu","-hū","-hā"], r:0, w:"Karena هُ didahului <b>ya' sukun</b>, bunyinya berubah jadi <b>-hi</b>. Sama halnya: <span class='ar'>بِهِ</span> = bi<b>hi</b> (didahului kasrah)."},
+ {q:"<span class='ar'>هَاجَرَ</span> berwazan apa?", o:["فَاعَلَ","فَعَّلَ","فَعَلَ","أَفْعَلَ"], r:0, w:"Ciri <b>فَاعَلَ</b>: ada <b>alif di tengah</b> (setelah huruf pertama). Dibaca panjang: hā-ja-ra. Bukan <i>hajara</i>."},
+ {q:"Apa bunyi huruf tengah pada wazan mudhari' <span class='ar'>يَفْعِلُ</span>?", o:["kasrah (i)","fathah (a)","dhammah (u)","sukun"], r:0, w:"يَفْعِلُ → huruf tengah <b>kasrah</b>. Contoh: <span class='ar'>يَضْرِبُ</span> yadhribu, <span class='ar'>يَنْكِحُ</span> yankihu."},
+ {q:"<span class='ar'>سَهَّلَ</span> dibaca…", o:["sahhala","sahala","sāhala","suhhila"], r:0, w:"Wazan <b>فَعَّلَ</b> — ada <b>tasydid</b> di huruf kedua: sa-hha-la. Tasydid sering hilang di teks gundul, tapi bunyinya wajib ada."},
+ {q:"Mengapa <span class='ar'>امْرِئٍ</span> dibaca <b>imri'in</b>?", o:["karena nakirah + majrur, jadi tanwin kasrah","karena ada alif-lam","karena jadi mubtada'","karena di akhir kalimat"], r:0, w:"Isim <b>nakirah</b> (tanpa ال) yang berposisi <b>majrur</b> mendapat <b>tanwin kasrah</b> = bunyi <b>-in</b>. Di sini dia jadi mudhaf ilaih dari <span class='ar'>لِكُلِّ</span>."},
+ {q:"<span class='ar'>يَلْتَمِسُ</span> berwazan…", o:["يَفْتَعِلُ","يَفْتَعَلُ","يَتَفَعَّلُ","يَسْتَفْعِلُ"], r:0, w:"Ciri <b>يَفْتَعِلُ</b>: alif + ت setelah huruf pertama, ت berharokat sukun, lalu huruf tengah <b>kasrah</b>."},
+ {q:"Dalam <span class='ar'>تُنْكَحُ الْمَرْأَةُ</span>, kata pertama bermakna…", o:["dinikahi (pasif)","menikahi (aktif)","menikahlah (perintah)","pernikahan (isim)"], r:0, w:"Huruf pertama <b>dhammah</b> + huruf kedua <b>fathah</b> adalah tanda <b>fi'il majhul (pasif)</b>. Aktifnya يَنْكِحُ (yankihu). Dalam teks gundul keduanya <b>identik</b>."},
+ {q:"<span class='ar'>يَدَاكَ</span> menunjukkan bentuk…", o:["tatsniyah (dual)","jamak","mufrad (tunggal)","mudhaf ilaih"], r:0, w:"Ada <b>alif sebelum دhamir كَ</b> — itu tanda <b>tatsniyah</b> (dua). Maknanya \"kedua tanganmu\". Bentuk jamak mudzakkar pakai ـُونَ."},
+ {q:"Sifat (na'at) berharokat akhir…", o:["mengikuti isim yang disifatinya","selalu dhammah","selalu kasrah","selalu fathah"], r:0, w:"Sifat <b>selalu ikut</b> bunyi akhir isimnya. <span class='ar'>صَدَقَةٍ جَارِيَةٍ</span> — keduanya kasrah + tanwin. <span class='ar'>الْمُؤْمِنِ الضَّعِيفِ</span> — keduanya kasrah."},
+ {q:"<span class='ar'>احْرِصْ</span> adalah…", o:["fi'il amr berwazan افْعِلْ","fi'il madhi","fi'il mudhari'","isim"], r:0, w:"Ciri <b>fi'il amr</b>: berakhir <b>sukun</b>. Wazan <b>افْعِلْ</b> ditandai hamzah berharokat <b>kasrah</b>."},
+ {q:"<span class='ar'>اللَّهُ</span> dan <span class='ar'>اللَّهِ</span> — kata yang sama, bunyi beda. Kenapa?", o:["karena jabatannya dalam kalimat berbeda","karena salah satunya salah tulis","karena yang satu isim, yang satu fi'il","karena dibaca di awal vs akhir kalimat"], r:0, w:"Persis sama, tapi <b>i'rab-nya</b> beda: اللَّهُ berharokat dhammah ketika jadi <b>fa'il/mubtada'</b>; اللَّهِ berharokat kasrah ketika <b>majrur</b> (sesudah huruf jar) atau jadi <b>mudhaf ilaih</b>."},
+ {q:"<span class='ar'>قُلْ</span> dibaca dengan ق berharokat…", o:["dhammah","fathah","kasrah","sukun"], r:0, w:"Fi'il amr dari قَالَ berwazan <b>فُلْ</b>: ق berharokat <b>dhammah</b>, ل berharokat <b>sukun</b> → <b>qul</b>."}
+];
+
+/* =====================================================================
+   POLA WAZAN untuk Detektif Kata
+   ===================================================================== */
+const D = "\\u064B-\\u065F\\u0670\\u0640"; // rentang harokat
+const stripH = s => s.replace(/[\u064B-\u065F\u0670\u0640]/g,"");
+const L = s => [...stripH(s)]; // array huruf
+
+const POLA = [
+ {re:/^است..+$/, n:"اسْتَفْعَلَ / يَسْتَفْعِلُ", ket:"Fi'il 6 huruf atau lebih. Awalan alif-sin-ta. Contoh: اِسْتَغْفَرَ, اِسْتَعَانَ.", b:"Madhi: <b>is-taf-'a-la</b> (istaghfara). Mudhari': <b>yas-taf-'i-lu</b> (yastaghfiru). Amr: <b>is-taf-'il</b> (ista'in) — hamzah washal-nya gugur bila didahului huruf lain, jadi <i>was-ta'in</i>."},
+ {re:/^ان..+$/, n:"انْفَعَلَ", ket:"Fi'il 5 huruf atau lebih. Awalan alif-nun. Contoh: اِنْقَطَعَ, اِنْطَلَقَ.", b:"Madhi: <b>in-fa-'a-la</b> (inqatha'a). Mudhari': <b>yan-fa-'i-lu</b> (yanqathi'u). Maknanya sering refleksif atau pasif."},
+ {re:/^ا.ت..+$/, n:"افْتَعَلَ", ket:"Fi'il 5 huruf atau lebih. Polanya: alif + [huruf akar ke-1] + ت + sisa. Contoh: اِجْتَمَعَ, اِرْتَفَعَ.", b:"Madhi: <b>if-ta-'a-la</b> (ijtama'a). Mudhari'-nya berwazan <b>يَفْتَعِلُ</b> → يَلْتَمِسُ (yaltamisu), dengan ت berharokat <b>sukun</b>."},
+ {re:/^[ين].ت..+$/, n:"يَفْتَعِلُ / يَسْتَفْعِلُ", ket:"Fi'il mudhari' yang punya ت (atau ت-س) di tengah. Contoh: يَلْتَمِسُ, يَرْتَفِعُ, يَسْتَعِينُ.", b:"Huruf ت berharokat <b>sukun</b>; huruf sesudahnya berharokat <b>kasrah</b>; huruf terakhir <b>dhammah</b>. Contoh: يَلْتَمِسُ = yal-ta-mi-su."},
+ {re:/^ت.ا.+$/, n:"تَفَاعَلَ", ket:"Fi'il 6 huruf atau lebih. Ta di depan + alif di posisi ketiga (huruf akarnya bebas). Contoh: تَبَارَكَ, تَعَاوَنَ.", b:"Madhi: <b>ta-fā-'a-la</b> (tabāraka) — panjang di huruf ketiga. Mudhari': <b>ya-tā-fa-'a-lu</b>. Maknanya saling / resiprokal."},
+ {re:/^ت..+$/, n:"تَفَعَّلَ", ket:"Fi'il 5 huruf atau lebih. Ta di depan + tasydid di huruf ketiga (huruf akarnya bebas). Contoh: تَعَلَّمَ, تَقَدَّمَ.", b:"Madhi: <b>ta-fa-'-'a-la</b> (ta'allama). Mudhari': <b>ya-ta-fa-'-'a-lu</b> (yata'allamu) — semua berharokat fathah. Tasydid ini sering hilang di teks gundul, tapi bunyinya wajib ada."},
+ {re:/^ا...+$/, n:"أَفْعَلَ (kemungkinan)", ket:"Fi'il 4 huruf atau lebih yang diawali hamzah/alif. Contoh: أَكْرَمَ, أَرَادَ, أَصَابَ.", b:"Madhi: <b>a-f-'a-la</b> (akrama). Mudhari': <b>yu-f-'i-lu</b> (yukrimu). <b>Waspada:</b> أُفْعِلُ (mudhari') juga diawali hamzah tapi berharokat dhammah, dan أَفْعَلُ bisa juga isim tafdhil yang bermakna &laquo;lebih ...&raquo;."},
+ {re:/^فعل.+$/, n:"فَعَّلَ (kemungkinan)", ket:"Fi'il 4 huruf atau lebih dengan tasydid di huruf kedua — tasydid sering tidak terlihat di teks gundul. Contoh: عَلَّمَ, سَهَّلَ.", b:"Madhi: <b>fa-'-'a-la</b> ('allama, sahhala) — <b>bukan</b> <i>'alama</i> atau <i>sahala</i>. Mudhari': <b>yu-fa-'-'i-lu</b> (yu'allimu)."},
+ {re:/^[انيت]...+$/, n:"Fi'il mudhari' (awalan أَنْيَتُ)", ket:"Fi'il mudhari' selalu diawali أ / ن / ي / ت. Contoh: يَذْهَبُ, نَقُولُ, أَقُولُ, تَقُولُ.", b:"Awalan berharokat <b>fathah</b> — kecuali أَفْعَلُ dan نُفْعِلُ/نُفَعِّلُ yang berharokat <b>dhammah</b>. Huruf tengah bisa a/u/i tergantung wazan: يَفْعَلُ (a) · يَفْعُلُ (u) · يَفْعِلُ (i). Tanpa dhamir di akhir → huruf terakhir berharokat <b>dhammah</b>."},
+ {re:/^..+نا$/, n:"Fi'il madhi + نا", ket:"Akhiran نا menandai &laquo;kami&raquo;. Contoh: قُلْنَا, حَدَّثَنَا.", b:"Dibaca <b>-nā</b>. Perhatikan قُلْنَا = <b>qulnā</b> dengan dhammah di ق, bukan <i>qalnā</i>."},
+ {re:/^..+وا$/, n:"Fi'il madhi + وا", ket:"Akhiran وا menandai jamak &laquo;mereka&raquo;. Contoh: قَالُوا, ذَهَبُوا.", b:"Dibaca <b>-ū</b>: قَالُوا = qālū. Bila sesudahnya ada alif lagi, itu <i>alif fariqah</i> yang tidak dibaca."},
+ {re:/^.+ت$/, n:"Fi'il madhi + ت", ket:"Akhiran ت bisa empat macam — pembedanya harokatnya, yang justru hilang di teks gundul.", b:"<b>-tu</b> (aku, dhammah) · <b>-ta</b> (kamu lk., fathah) · <b>-ti</b> (kamu pr., kasrah) · <b>-at</b> (dia pr., sukun). Dalam hadis, yang paling sering muncul adalah <b>-tu</b> dan <b>-nā</b>."},
+ {re:/^.+ا[كه]$/, n:"Tatsniyah + dhamir", ket:"Ada alif tepat sebelum dhamir ك atau ه — itu tanda <b>tatsniyah</b> (dua). Contoh: يَدَاكَ, رِجْلَاهُ.", b:"Tatsniyah berharokat <b>fathah</b> saat jadi fa'il/mubtada' (يَدَاكَ = yadā<b>ka</b>), <b>kasrah</b> saat majrur (بِيَدَيْكَ = bi-yadai<b>ka</b>). Tanda i'rabnya alif, bukan harokat."},
+ {re:/^.+ا$/, n:"فَعَلَ dengan alif / tatsniyah", ket:"Alif bisa berupa huruf madhi (asli) atau tanda tatsniyah.", b:"Contoh: هَاجَرَ = hājara (alif = huruf madhi, wazan فَاعَلَ) · مَاتَ = māta · يَدَا = yadā (tatsniyah tanpa dhamir)."},
+ {re:/^ال..+$/, n:"Isim dengan ال", ket:"Alif-lam selalu berbunyi &laquo;al&raquo; — tanpa pengecualian.", b:"Huruf <b>qamariyah</b> (ا ب ج ح خ ع غ ف ق ك م و ه ي) → lam diucapkan jelas: <i>al-qamaru</i>. Huruf <b>syamsiyah</b> (ت ث د ذ ر ز س ش ص ض ط ظ ل ن) → lam lebur dan huruf sesudahnya bertasydid: <i>an-nāsu</i>, <i>ad-dīnu</i>, <i>ar-rijālu</i>."},
+ {re:/^...$/, n:"Fi'il madhi 3 huruf: فَعَلَ / فَعِلَ / فَعُلَ", ket:"Bunyi huruf tengahnya hanya punya tiga kemungkinan.", b:"<b>فَعَلَ</b> fa'ala (paling sering) · <b>فَعِلَ</b> fa'ila · <b>فَعُلَ</b> fa'ula. Dari teks gundul saja tidak bisa dipastikan — inilah satu-satunya bagian yang butuh hafalan kosakata atau kamus. Kalau ragu, tebak <b>فَعَلَ</b>."},
+ {re:/^....$/, n:"4 huruf: فَعَّلَ atau فَاعَلَ", ket:"Dua kemungkinan utama. Pembedanya: ada alif di posisi kedua atau tidak.", b:"Ada alif di posisi kedua → <b>فَاعَلَ</b> (fā-'a-la): هَاجَرَ, قَاتَلَ, سَالَمَ. Tanpa alif tapi huruf kedua bertasydid → <b>فَعَّلَ</b> (fa-'-'a-la): عَلَّمَ, سَهَّلَ. Kalau bukan fi'il, kemungkinan isim berwazan فَعْلٌ / فِعْلٌ / فَعَلٌ, atau fa'il seperti مُسْلِمٌ."},
+];
+
+/* =====================================================================
+   UTIL
+   ===================================================================== */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const norm = s => s.toLowerCase().normalize("NFD")
+  .replace(/[\u0300-\u036f]/g,"")
+  .replace(/[^a-z0-9]/g,"");
+
+const LS = {
+  get(k,d){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v);}catch(e){return d;} },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+};
+
+/* =====================================================================
+   NAVIGASI
+   ===================================================================== */
+const URUT = ["mulai","prinsip","kamus","bengkel","hadis","latihan","kuis","ambigu","jadwal"];
+let cur = "mulai";
+function go(id){
+  if(!URUT.includes(id)) return;
+  cur = id;
+  $$("section").forEach(s=>s.classList.toggle("on", s.id===id));
+  $$("#side button").forEach(b=>b.classList.toggle("on", b.dataset.go===id));
+  $("#side").classList.remove("open");
+  const i = URUT.indexOf(id);
+  $("#prevBtn").style.visibility = i>0 ? "visible":"hidden";
+  $("#nextBtn").style.visibility = i<URUT.length-1 ? "visible":"hidden";
+  $("#prevBtn").onclick = ()=>go(URUT[i-1]);
+  $("#nextBtn").onclick = ()=>go(URUT[i+1]);
+  if(window.scrollTo) window.scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("click", e=>{
+  const b = e.target.closest("[data-go]");
+  if(b) go(b.dataset.go);
+});
+$("#menuBtn").onclick = ()=> $("#side").classList.toggle("open");
+$("#prevBtn").onclick = ()=>go(URUT[Math.max(0,URUT.indexOf(cur)-1)]);
+$("#nextBtn").onclick = ()=>go(URUT[Math.min(URUT.length-1,URUT.indexOf(cur)+1)]);
+
+/* =====================================================================
+   KAMUS
+   ===================================================================== */
+let vKat = "all", vQ = "";
+function renderKamus(){
+  $("#vchips").innerHTML = KATEGORI.map(([k,l])=>
+    `<button class="chip ${vKat===k?'on':''}" data-kat="${k}">${l}</button>`).join("");
+  const q = vQ.trim();
+  const qn = norm(q);                       // versi latin (untuk cari transliterasi/arti)
+  const rows = KAMUS.filter(([a,t,m,k,note])=>{
+    if(vKat!=="all" && k!==vKat) return false;
+    if(!q) return true;
+    if(/[\u0600-\u06FF]/.test(q)) return a.includes(q);   // input Arab: cocokkan langsung
+    return norm(t).includes(qn) || norm(m).includes(qn) || norm(note||"").includes(qn) || norm(a).includes(qn);
+  });
+  $("#vcount").textContent = rows.length + " entri" + (vQ?` untuk "${vQ}"`:"") +
+    (vKat!=="all"?` · kategori ${KATEGORI.find(x=>x[0]===vKat)[1]}`:"");
+  $("#vlist").innerHTML = rows.length ? rows.map(([a,t,m,k,note])=>
+    `<div class="v"><div class="a ar">${esc(a)}</div>
+      <div class="t"><b>${esc(t)}</b><i>${esc(m)}</i>${note?`<span class="note">${note}</span>`:""}</div></div>`
+  ).join("") : `<div style="color:var(--soft);padding:20px">Tidak ditemukan. Coba kata lain — mis. "niat", "qala", atau tulis huruf Arabnya.</div>`;
+}
+$("#vchips").addEventListener("click", e=>{
+  const b = e.target.closest("[data-kat]");
+  if(!b) return;
+  vKat = b.dataset.kat; renderKamus();
+});
+$("#vq").addEventListener("input", e=>{ vQ = e.target.value; renderKamus(); });
+renderKamus();
+
+/* =====================================================================
+   DETEKTIF KATA
+   ===================================================================== */
+const TRY = ["تعلم","استغفر","انقطع","يلتمس","هاجر","سهل","الناس","كتب","قلنا","ينكح"];
+$("#detTry").innerHTML = TRY.map(w=>`<span data-w="${w}">${w}</span>`).join("");
+$("#detTry").addEventListener("click", e=>{
+  const s = e.target.closest("[data-w]");
+  if(!s) return;
+  $("#detIn").value = s.dataset.w; detRun();
+});
+$("#detBtn").onclick = detRun;
+$("#detIn").addEventListener("keydown", e=>{ if(e.key==="Enter") detRun(); });
+
+function detRun(){
+  const raw = $("#detIn").value.trim();
+  const out = $("#detOut");
+  if(!raw){ out.innerHTML = `<div class="hit">Ketik dulu satu kata Arab di kotak di atas.</div>`; return; }
+  const g = stripH(raw);
+  if(!g || !/[\u0621-\u064A\u0660-\u0669]/.test(g)){
+    out.innerHTML = `<div class="hit">Itu bukan huruf Arab. Ketik kata dalam aksara Arab — coba klik salah satu contoh di atas.</div>`;
+    return;
+  }
+  const n = g.length;
+  const hits = POLA.filter(p=>p.re.test(g));
+  let html = `<div class="hit" style="border-left:4px solid var(--brand)">
+      <div style="font-size:.85rem;color:var(--soft)">Kata yang diperiksa</div>
+      <div class="ar" style="font-size:1.9rem;text-align:right">${esc(raw)} <span style="font-size:.9rem;color:var(--soft);font-family:system-ui">→ gundul: ${esc(g)}</span></div>
+      <div style="font-size:.85rem;color:var(--soft)">Jumlah huruf (tanpa harokat): <b>${n}</b>${raw!==g ? ' · ada harokat terdeteksi' : ''}</div>
+    </div>`;
+  if(!hits.length){
+    html += `<div class="hit">Tidak cocok dengan pola umum. Kemungkinan isim dengan bentuk khusus, atau kata dengan dhamir sambung. Coba cek di <b>Kamus Mini</b> atau di <b>Bedah Hadis</b>.</div>`;
+  } else {
+    html += hits.map(h=>`<div class="hit">
+      <b>${h.n}</b><div style="font-size:.83rem;color:var(--soft);margin:3px 0 6px">${h.ket}</div>
+      <div style="font-size:.87rem">${h.b}</div></div>`).join("");
+  }
+  // cek kamus
+  const inKamus = KAMUS.filter(([a])=> stripH(a)===g || stripH(a).includes(g) && g.length>2);
+  if(inKamus.length){
+    html += `<div class="hit" style="border-left:4px solid var(--gold)">
+      <b style="color:var(--gold)">Ada di Kamus Mini:</b>
+      ${inKamus.slice(0,4).map(([a,t,m,,note])=>
+        `<div style="margin-top:5px;font-size:.88rem"><span class="ar" style="font-size:1.25rem">${esc(a)}</span> = <b>${esc(t)}</b> — ${esc(m)}${note?`<br><span style="color:var(--gold);font-size:.82rem">${note}</span>`:""}</div>`).join("")}
+    </div>`;
+  }
+  out.innerHTML = html;
+}
+
+/* =====================================================================
+   BEDAH HADIS
+   ===================================================================== */
+let hIdx = 0;
+const seen = LS.get("gundul.seen", {});
+function hId(){ return HADIS[hIdx].id; }
+function renderHSelect(){
+  $("#hsel").innerHTML = HADIS.map((h,i)=>{
+    const s = seen[h.id], tot = h.kata.length;
+    const pct = s? Math.round(s.length/tot*100) : 0;
+    return `<button class="chip ${i===hIdx?'on':''}" data-h="${i}">${h.label}${pct===100?" ✓":""}</button>`;
+  }).join("");
+}
+function renderHadis(){
+  const h = HADIS[hIdx];
+  renderHSelect();
+  $("#href").innerHTML = `<b>${esc(h.label)}</b> &nbsp;·&nbsp; ${esc(h.ref)}`;
+  $("#harLine").style.display = "none";
+  $("#harLine").textContent = h.teks;
+  $("#htransBox").classList.remove("on");
+  $("#htransBox").innerHTML = `<b>Terjemah:</b> ${esc(h.terjemah)}`;
+  $("#hana").classList.remove("on");
+  $("#hwords").innerHTML = h.kata.map((k,i)=>
+    `<button class="w ${isSeen(h.id,i)?'seen':''}" data-w="${i}">${esc(stripH(k[0]))}</button>`).join("");
+  updProg();
+}
+function isSeen(hid,i){ return (seen[hid]||[]).includes(i); }
+function markSeen(hid,i){
+  if(!seen[hid]) seen[hid]=[];
+  if(!seen[hid].includes(i)) seen[hid].push(i);
+  LS.set("gundul.seen", seen);
+}
+function updProg(){
+  const h = HADIS[hIdx];
+  const n = (seen[h.id]||[]).length;
+  $("#hprog").style.width = (n/h.kata.length*100)+"%";
+}
+const PILLS = {jar:"huruf jar",mud:"mudhaf",fiil:"fi'il",isim:"isim",tetap:"kata tetap"};
+$("#hwords").addEventListener("click", e=>{
+  const b = e.target.closest("[data-w]");
+  if(!b) return;
+  const i = +b.dataset.w, h = HADIS[hIdx], k = h.kata[i];
+  $$("#hwords .w").forEach(x=>x.classList.remove("sel"));
+  b.classList.add("sel"); b.classList.add("seen");
+  markSeen(h.id,i); updProg(); renderHSelect();
+  const a = $("#hana");
+  a.innerHTML = `
+    <div class="big ar">${esc(k[0])}</div>
+    <div class="tr">${esc(k[1])}</div>
+    <div class="mn"><b>${esc(k[2])}</b></div>
+    <div class="rl"><b>Kenapa dibaca begitu:</b> ${k[3]}</div>
+    ${k[4]?`<div style="margin-top:8px"><span class="pill p-${k[4]}">${PILLS[k[4]]||k[4]}</span></div>`:""}
+    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+      ${i>0?`<button class="btn line sm" data-nav="${i-1}">← Kata sebelumnya</button>`:""}
+      ${i<h.kata.length-1?`<button class="btn line sm" data-nav="${i+1}">Kata berikutnya →</button>`:""}
+    </div>`;
+  a.classList.add("on");
+});
+$("#hana").addEventListener("click", e=>{
+  const b = e.target.closest("[data-nav]");
+  if(!b) return;
+  const btn = $(`#hwords .w[data-w="${b.dataset.nav}"]`);
+  if(btn) btn.click();
+});
+$("#hsel").addEventListener("click", e=>{
+  const b = e.target.closest("[data-h]");
+  if(!b) return;
+  hIdx = +b.dataset.h; renderHadis();
+});
+$("#hReveal").onclick = ()=>{
+  const l = $("#harLine");
+  l.style.display = l.style.display==="none" ? "block":"none";
+};
+$("#hTrans").onclick = ()=> $("#htransBox").classList.toggle("on");
+$("#revealTop").onclick = ()=>{
+  go("hadis");
+  $("#harLine").style.display = "block";
+  $("#htransBox").classList.add("on");
+};
+renderHadis();
+
+/* =====================================================================
+   LATIHAN
+   ===================================================================== */
+const exDone = LS.get("gundul.ex", {});
+function renderLatihan(){
+  $("#exList").innerHTML = LATIHAN.map((e,i)=>`
+    <div class="ex ${exDone[i]?'done':''}" data-i="${i}">
+      <div class="q ar">${esc(e.q)}</div>
+      <div class="hint">${e.hint}</div>
+      <div class="row">
+        <input type="text" placeholder="Tulis transliterasi latinnya…" data-in="${i}" value="${exDone[i]?esc(exDone[i].v||""):""}">
+        <button class="btn line sm" data-cek="${i}">Periksa</button>
+        <button class="btn line sm" data-lihat="${i}">Lihat jawaban</button>
+      </div>
+      <div class="res ${exDone[i]?'on':''}" data-res="${i}">${exDone[i]?exDone[i].html:""}</div>
+    </div>`).join("");
+}
+function showRes(i, html){
+  const r = $(`.ex[data-i="${i}"] [data-res="${i}"]`);
+  r.innerHTML = html; r.classList.add("on");
+}
+function grade(i){
+  const e = LATIHAN[i];
+  const inp = $(`.ex[data-i="${i}"] [data-in="${i}"]`);
+  const v = inp.value.trim();
+  if(!v){ showRes(i, `<span style="color:var(--gold)">Tulis dulu jawabanmu.</span>`); return; }
+  const nv = norm(v);
+  const ok = e.a.some(x=>norm(x)===nv) || e.a.some(x=>{const nx=norm(x); return nx.length>4 && (nv.includes(nx)||nx.includes(nv));});
+  const html = ok
+    ? `<div class="good"><b>Benar.</b> ${e.ex}</div>`
+    : `<div class="bad"><b>Kurang tepat.</b> Jawabanmu: <i>${esc(v)}</i><br>${e.ex}</div>`;
+  showRes(i, html);
+  exDone[i] = {v, html, ok};
+  LS.set("gundul.ex", exDone);
+  $(`.ex[data-i="${i}"]`).classList.toggle("done", ok);
+}
+$("#exList").addEventListener("click", e=>{
+  const c = e.target.closest("[data-cek]");
+  if(c){ grade(+c.dataset.cek); return; }
+  const l = e.target.closest("[data-lihat]");
+  if(l){
+    const i = +l.dataset.lihat;
+    showRes(i, `<div class="warn"><b>Jawaban:</b> ${LATIHAN[i].a[0]}<br>${LATIHAN[i].ex}</div>`);
+  }
+});
+$("#exList").addEventListener("keydown", e=>{
+  if(e.key!=="Enter") return;
+  const inp = e.target.closest("[data-in]");
+  if(inp) grade(+inp.dataset.in);
+});
+$("#exAll").onclick = ()=>{
+  LATIHAN.forEach((_,i)=> showRes(i, `<div class="warn"><b>Jawaban:</b> ${LATIHAN[i].a[0]}<br>${LATIHAN[i].ex}</div>`));
+};
+$("#exReset").onclick = ()=>{
+  LATIHAN.forEach((_,i)=>{ delete exDone[i]; });
+  LS.set("gundul.ex", exDone);
+  renderLatihan();
+};
+renderLatihan();
+
+/* =====================================================================
+   KUIS
+   ===================================================================== */
+const qState = LS.get("gundul.kuis", {});
+function renderKuis(){
+  $("#qTotal").textContent = KUIS.length;
+  $("#qList").innerHTML = KUIS.map((q,i)=>{
+    const st = qState[i];
+    return `<div class="qz" data-q="${i}">
+      <div class="qq">${i+1}. ${q.q}</div>
+      ${q.o.map((o,j)=>{
+        let cls="";
+        if(st){ if(j===q.r) cls="right"; else if(j===st.pick) cls="wrong"; }
+        return `<button class="opt ${cls}" data-o="${j}" ${st?"disabled":""}>${String.fromCharCode(65+j)}. ${o}</button>`;
+      }).join("")}
+      <div class="why ${st?"on":""}">${st?`<b>${st.pick===q.r?"✓ Benar.":"✗ Belum tepat."}</b> ${q.w}`:""}</div>
+    </div>`;
+  }).join("");
+  updScore();
+}
+function updScore(){
+  const keys = Object.keys(qState);
+  const sc = keys.filter(k=>qState[k].pick===KUIS[k].r).length;
+  $("#qScore").textContent = sc;
+  $("#qDone").textContent = keys.length;
+}
+$("#qList").addEventListener("click", e=>{
+  const b = e.target.closest("[data-o]");
+  if(!b) return;
+  const qz = b.closest("[data-q]");
+  const i = +qz.dataset.q, pick = +b.dataset.o, q = KUIS[i];
+  if(qState[i]) return;
+  qState[i] = {pick};
+  LS.set("gundul.kuis", qState);
+  // perbarui soal ini saja — jangan re-render seluruh daftar (posisi scroll hilang)
+  qz.querySelectorAll(".opt").forEach((o,j)=>{
+    o.disabled = true;
+    if(j===q.r) o.classList.add("right");
+    else if(j===pick) o.classList.add("wrong");
+  });
+  const why = qz.querySelector(".why");
+  why.innerHTML = `<b>${pick===q.r?"✓ Benar.":"✗ Belum tepat."}</b> ${q.w}`;
+  why.classList.add("on");
+  updScore();
+  if(qz.scrollIntoView) qz.scrollIntoView({behavior:"smooth", block:"nearest"});
+});
+$("#qReset").onclick = ()=>{
+  Object.keys(qState).forEach(k=>delete qState[k]);
+  LS.set("gundul.kuis", qState);
+  renderKuis();
+};
+renderKuis();
+
+/* =====================================================================
+   RESET & INIT
+   ===================================================================== */
+$("#resetTop").onclick = ()=>{
+  if(!confirm("Hapus semua progres (kata yang sudah dibuka, latihan, dan kuis)?")) return;
+  Object.keys(seen).forEach(k=>delete seen[k]);
+  Object.keys(exDone).forEach(k=>delete exDone[k]);
+  Object.keys(qState).forEach(k=>delete qState[k]);
+  LS.set("gundul.seen",seen); LS.set("gundul.ex",exDone); LS.set("gundul.kuis",qState);
+  renderHadis(); renderLatihan(); renderKuis();
+  alert("Progres sudah direset.");
+};
+$("#sKamus").textContent = KAMUS.length;
+$("#sLatih").textContent = LATIHAN.length;
+$("#sKuis").textContent = KUIS.length;
+$("#sHadis").textContent = HADIS.length;
+go("mulai");
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a448363a9aaef892',t:'MTc5MDk5MTM0Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
