@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#214e3b">
-<meta name="description" content="Bimbingan Manasik Haji: adab, fadhilah, hikmah haji, tempat istimewa dan bersejarah, serta fiqih ibadah. Materi buku KBIHU IPHI Pati dalam ruang baca yang nyaman.">
+<meta name="description" content="Bimbingan Manasik Haji: adab, fadhilah, hikmah haji, tempat istimewa dan bersejarah, fiqih shalat, serta ibadah terkait haji dan umrah. Materi buku KBIHU IPHI Pati dalam ruang baca yang nyaman.">
 <title>Bimbingan Manasik Haji</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='13' fill='%23214e3b'/%3E%3Cpath d='M24 8l5 8 9 1-1 9-8 5-5 9-5-9-8-5-1-9 9-1z' fill='none' stroke='%23dfc497' stroke-width='1.8'/%3E%3C/svg%3E">
 <script>
@@ -34,6 +34,18 @@ document.documentElement.classList.add('js');
 
 .toc-table th{text-align:left;font-size:10px;font-weight:500;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--line)}.toc-table th:last-child{text-align:right}
 
+/* Bacaan niat dan doa dari dokumen lanjutan, tetap memakai font Arab tertanam. */
+.subtopic-heading{font-size:.94em;line-height:1.6;font-weight:600;color:var(--ink);margin:21px 0 12px}
+.prayer-card{border:1px solid var(--line);border-inline-start:3px solid var(--gold);border-radius:12px;background:var(--green-pale);padding:15px 21px;margin:16px 0 20px;min-width:0}
+.prayer-card .arabic{margin:0;overflow-wrap:anywhere}
+.inline-arabic{font-family:Amiri,'Traditional Arabic','Times New Roman',serif;font-size:1.2em;unicode-bidi:isolate}
+.lesson-list .letter-list{margin:14px 0 3px}
+.letter-list>li{padding-left:34px;padding-block:9px}
+.letter-list>li::before{width:23px;height:23px;line-height:23px;top:13px;background:transparent;color:var(--gold)}
+.letter-list>li:first-child::before{top:4px}
+@media(max-width:600px){.prayer-card{padding:12px 14px;margin:13px 0 17px;border-radius:10px}.letter-list>li{padding-left:29px}.letter-list>li::before{font-size:9px;top:13px}.letter-list>li:first-child::before{top:4px}.subtopic-heading{margin-top:18px}}
+@media print{.prayer-card{background:none;border-color:#ddd;break-inside:avoid;padding:12px 15px}.subtopic-heading{color:#000}.letter-list>li::before{color:#333}.inline-arabic{color:#000}}
+
 </style>
 <!--
 BIMBINGAN MANASIK HAJI — SATU FILE, TANPA CDN / BACKEND / PROSES BUILD.
@@ -42,12 +54,13 @@ Semua font, ikon, ilustrasi, CSS, dan JavaScript sudah ada di dalam file ini.
 
 CARA MENAMBAH MATERI / HALAMAN BERIKUTNYA:
 1. Cari komentar "MULAI MATERI BUKU" di bagian <main>.
-2. Tambahkan isi pada <article id="bab-3"> atau bab yang sesuai.
+2. Tambahkan isi pada <article id="bab-5"> atau bab yang sesuai.
+   Versi ini sudah memuat Bab I–IV (halaman buku 1–36).
 3. Setiap subbagian harus mempunyai ID unik, class="reading-section",
    data-label (huruf bagian), dan data-pages (nomor halaman buku, dipisah koma).
 4. Contoh struktur — tambahkan di dalam artikel bab, sebelum chapter-pager:
-   <section class="reading-section" id="shalat" data-label="B" data-pages="20,21">
-     <h3>Shalat</h3>
+   <section class="reading-section" id="bagian-baru" data-label="A" data-pages="37,38">
+     <h3>Judul bagian berikutnya</h3>
      <p>Isi hasil ketik ulang halaman berikutnya...</p>
      <ol class="lesson-list">
        <li data-number="01"><p>Poin pertama...</p></li>
@@ -126,8 +139,8 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <button class="outline-button requires-js" type="button" data-dialog="contentsDialog"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Jelajahi bab</button>
 </div>
 <div class="hero-meta">
-<span><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><b id="availableCount">3 bab</b> tersedia</span>
-<span><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><b id="sourcePageCount">12 halaman</b> sumber</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><b id="availableCount">4 bab</b> tersedia</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><b id="sourcePageCount">36 halaman</b> sumber</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Nyaman di setiap layar</span>
 </div>
 </div>
@@ -188,7 +201,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <button class="topic-link" type="button" data-jump="adab-haji"><span class="topic-icon"><svg class="icon"><use href="#i-leaf"/></svg></span><span><strong>Adab &amp; niat</strong><small>Awali dengan hati yang baik</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
 <button class="topic-link" type="button" data-jump="fadhilah-haji"><span class="topic-icon"><svg class="icon"><use href="#i-heart"/></svg></span><span><strong>Keutamaan haji</strong><small>Fadhilah dan hikmah ibadah</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
 <button class="topic-link" type="button" data-jump="tempat-bersejarah-makkah"><span class="topic-icon"><svg class="icon"><use href="#i-pin"/></svg></span><span><strong>Mengenal Tanah Suci</strong><small>Tempat istimewa &amp; sejarah</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
-<button class="topic-link" type="button" data-jump="thaharah"><span class="topic-icon"><svg class="icon"><use href="#i-book"/></svg></span><span><strong>Fiqih ibadah</strong><small>Awali dengan bersuci</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+<button class="topic-link" type="button" data-jump="thaharah"><span class="topic-icon"><svg class="icon"><use href="#i-book"/></svg></span><span><strong>Fiqih ibadah</strong><small>Bersuci &amp; tata cara shalat</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
 </nav>
 <section class="reader shell" id="ruang-baca" aria-labelledby="readerTitle">
 <div class="reader-heading">
@@ -201,11 +214,11 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <div class="reader-grid">
 <aside class="sidebar requires-js" aria-label="Navigasi buku">
 <div class="sidebar-card">
-<div class="sidebar-title"><span>Daftar bab</span><small id="chapterCounter">3 / 9</small></div>
+<div class="sidebar-title"><span>Daftar bab</span><small id="chapterCounter">4 / 9</small></div>
 <nav id="chapterNav" aria-label="Bab dan subbagian"></nav>
-<div class="sidebar-source"><div class="source-label"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><div><strong>KBIHU IPHI Pati</strong><span id="sidebarPageRange">Halaman buku 1–12</span></div></div><button class="text-button" type="button" data-dialog="sourceDialog">Tentang materi <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button></div>
+<div class="sidebar-source"><div class="source-label"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><div><strong>KBIHU IPHI Pati</strong><span id="sidebarPageRange">Halaman buku 1–36</span></div></div><button class="text-button" type="button" data-dialog="sourceDialog">Tentang materi <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button></div>
 </div>
-<div class="learning-progress"><div class="learning-progress-head"><span>Jejak belajar</span><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></div><div class="progress-track" role="progressbar" id="learningProgress" aria-label="Bagian yang sudah ditandai selesai" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="learningFill"></div></div><p id="learningLabel">0 dari 8 bagian sudah dibaca</p></div>
+<div class="learning-progress"><div class="learning-progress-head"><span>Jejak belajar</span><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></div><div class="progress-track" role="progressbar" id="learningProgress" aria-label="Bagian yang sudah ditandai selesai" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="learningFill"></div></div><p id="learningLabel">0 dari 16 bagian sudah dibaca</p></div>
 </aside>
 <div class="reading-column">
 <div class="reading-toolbar requires-js">
@@ -443,10 +456,10 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 </section>
 <div class="chapter-pager requires-js"></div></article>
 
-<article id="bab-3" class="chapter" data-roman="III" data-nav-title="Fiqih shalat" data-partial="true" hidden aria-labelledby="bab-3-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB III · HALAMAN 11–12</span><span class="chapter-indicator">Materi bertahap</span></div><h2 id="bab-3-title">Fiqih shalat</h2><p class="chapter-blurb">Bekal fiqih ibadah dimulai dari thaharah: bersuci, macam-macam air, serta najis dan cara menyucikannya.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<article id="bab-3" class="chapter" data-roman="III" data-nav-title="Fiqih shalat" hidden aria-labelledby="bab-3-title">
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB III · HALAMAN 11–26</span><span class="chapter-indicator">2 bagian</span></div><h2 id="bab-3-title">Fiqih shalat</h2><p class="chapter-blurb">Bekal bersuci dan shalat: thaharah, mandi wajib, wudhu, istinjak, serta syarat, rukun, sunnah dan tata tertib shalat.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
 <div class="source-strip"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Alih teks buku KBIHU IPHI Pati<span class="source-long"> · Ejaan mengikuti sumber, Arab tanpa harakat.</span></span><button class="text-button requires-js" type="button" data-dialog="sourceDialog">Catatan sumber ↗</button></div>
-<section class="reading-section" id="thaharah" data-label="A" data-pages="11,12"><h3>Thaharah</h3>
+<section class="reading-section" id="thaharah" data-label="A" data-pages="11,12,13,14,15,16,17,18,19,20"><h3>Thaharah</h3>
 <ol class="lesson-list" start="1">
 <li data-number="01"><p>Thaharah meliputi dua bagian ; yaitu Thaharah lahiriyah dan Thaharah hukmiyah.</p>
 <ul class="bullet-list">
@@ -489,39 +502,678 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <p>Cara menyucikannya adalah dibasuh tujuh kali, satu kali diantaranya hendaklah dibasuh dengan air yang dicampur dengan tanah</p>
 </li>
 <li data-number="02"><p>Najis mukhaffafah (najis ringan), yaitu kencing anak laki-laki yang belum memakan makanan lain selain ASI.</p>
+<p>Cara menyucikannya adalah cukup dengan memercikan air ke benda yang terkena najis meskipun airnya tidak mengalir.</p>
+<p>Adapun kencing anak perempuan walaupun belum memakan makanan selain ASI. Cara menyucikannya hendaklah dibasuh sampai air mengalir di atas benda yang terkena najis, dan hilang zat najis dan sifat-sifatnya, sebagaimana mencuci kencing orang dewasa.</p>
+</li>
+<li data-number="03"><p>Najis mutawassithah (najis sedang), adalah najis yang selain dari kedua najis di atas. Termasuk kencing bayi perempuan walaupun baru meminum ASI.</p>
+<p>Najis mutawassithah terbagi atas dua bagian yaitu:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Najis hukmiyah, yaitu najis yang diyakini adanya, tetapi tidak kelihatan zat, bau, rasa dan warnanya. Seperti kencing yang sudah lama kering, sehingga sifat-sifatnya telah hilang. Cara menyucikan najis ini cukup dengan mengalirkan air diatas benda yang kena najis itu.</p>
+</li>
+<li data-number="b"><p>Najis ‘ainiyah, yaitu najis yang kelihatan zat, warna, rasa dan baunya. Kecuali warna atau bau yang sangat sulit menghilangkannya (sifat ini dimaafkan).</p>
+<p>Cara mencuci najis ini hendaklah dengan menghilangkan zat, rasa, warna dan baunya.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 class="topic-heading">5. Mandi Wajib</h4>
+<h5 class="subtopic-heading">a. Pengertian</h5>
+<p>Mandi menurut bahasa yaitu mengalirkan air secara mutlak, baik di anggota badan atau lainnya.</p>
+<p>Sedangkan menurut istilah syar’i ialah mengalirkan air ke seluruh tubuh dengan niat dan syarat-syarat tertentu untuk menghilangkan hadats besar.</p>
+<h5 class="subtopic-heading">b. Hal-hal yang mewajibkan mandi:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Keluarnya mani (sperma), baik dalam tidur maupun tidak, disengaja maupun tidak disengaja</p>
+</li>
+<li data-number="02"><p>Jima’ (bersetubuh) walaupun tidak mengeluarkan mani (sperma)</p>
+</li>
+<li data-number="03"><p>Masuk Islamnya orang kafir (menurut Madzhab Maliki, Syafi’i dan Hanbali).</p>
+</li>
+<li data-number="04"><p>Meninggal dunia kecuali mati syahid dunia akhirat</p>
+</li>
+<li data-number="05"><p>Terhentinya darah haidh</p>
+</li>
+<li data-number="06"><p>Terhentinya darah nifas</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">c. Rukun-rukun mandi:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat, misalnya:</p>
+<div class="prayer-card" data-source-page="14"><p class="arabic" lang="ar" dir="rtl">نويت الغسل لرفع الحدث الأكبر فرضا لله تعالى</p></div>
+</li>
+<li data-number="02"><p>Meratakan air ke seluruh tubuh.</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">d. Sunnah-sunnah Mandi:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Menurut Imam Syafi’i dan Imam Malik: Sunnah memulai siraman dari bagian atas tubuh selain farji (kemaluan). Untuk farji disunahkan agar membersihkannya lebih dahulu sebelum semua anggota badan yang lain.</p>
+</li>
+<li data-number="02"><p>Menurut Imam Hanafi: Sunnah memulai dengan menyiramkan air dari kepala, anggota badan sebelah kanan, kemudian anggota badan sebelah kiri.</p>
+</li>
+<li data-number="03"><p>Menurut Imam Hanbali: Disunahkan mendahulukan anggota badan yang kanan.</p>
+</li>
+</ol>
+<h4 class="topic-heading">6. Darah-darah Yang Keluar Dari Rahim Wanita</h4>
+<h5 class="subtopic-heading">1) Haid</h5>
+<p>Haid adalah darah yang keluar dari rahim wanita apabila telah menginjak masa baligh.</p>
+<p>Masa haid paling cepat satu hari satu malam dan paling lama 15 hari, normalnya antara enam sampai tujuh hari.</p>
+<h5 class="subtopic-heading">2) Nifas</h5>
+<p>Nifas adalah darah yang keluar dari rahim wanita karena melahirkan.</p>
+<p>Masa minimal nifas adalah satu tetes dan batas maksimalnya adalah 60 hari sedangkan normalnya adalah 40 hari.</p>
+<p>Hukum yang berlaku pada nifas adalah sama seperti hukum haid.</p>
+<h5 class="subtopic-heading">3) Istihadhah</h5>
+<p>Istihadhah adalah darah yang keluar dari rahim wanita di luar waktu-waktu haid dan nifas.</p>
+<h4 class="topic-heading">7. Wudhu</h4>
+<h5 class="subtopic-heading">a. Pengertian wudhu</h5>
+<p>Wudhu secara bahasa berarti keindahan dan kebersihan.</p>
+<p>Wudhu menurut istilah syar’i, adalah menggunakan air pada anggota badan tertentu dengan cara tertentu yang disertai dengan niat untuk menghilangkan hadats kecil.</p>
+<h5 class="subtopic-heading">b. Syarat sah wudhu:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Islam</p>
+</li>
+<li data-number="02"><p>Baligh</p>
+</li>
+<li data-number="03"><p>Tidak sedang berhadats besar</p>
+</li>
+<li data-number="04"><p>Menggunakan air yang suci dan menyucikan.</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">c. Rukun-rukun wudhu:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat (bersamaan dengan membasuh wajah). Sunnah dilafadzkan</p>
+</li>
+<li data-number="02"><p>Membasuh wajah (mulai dari tempat tumbuhnya rambut kepala bagian atas sampai dagu, dan dari telinga kanan sampai telinga kiri)</p>
+</li>
+<li data-number="03"><p>Membasuh kedua tangan sampai siku</p>
+</li>
+<li data-number="04"><p>Mengusap sebagian kepala atau rambut kepala</p>
+</li>
+<li data-number="05"><p>Membasuh kedua kaki sampai mata kaki</p>
+</li>
+<li data-number="06"><p>Tartib (sesuai dengan urutan di atas)</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">d. Sunnah-sunnah wudhu:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Membaca bismillah ketika hendak memulai wudhu</p>
+</li>
+<li data-number="02"><p>Mendahulukan membasuh bagian anggota wudhu yang kanan mengakhirkan anggota wudhu yang kiri</p>
+</li>
+<li data-number="03"><p>Mencuci telapak tangan sampai pergelangan</p>
+</li>
+<li data-number="04"><p>Berkumur-kumur</p>
+</li>
+<li data-number="05"><p>Membasuh lubang hidung dengan cara memasukkan atau menghirup air ke hidung kemudian dibuang lagi</p>
+</li>
+<li data-number="06"><p>Mengusap seluruh rambut kepala dengan air</p>
+</li>
+<li data-number="07"><p>Mengusap kedua telinga baik bagian luar maupun bagian dalam</p>
+</li>
+<li data-number="08"><p>Menyela-nyelai jari tangan dan kaki</p>
+</li>
+<li data-number="09"><p>Menyela-nyelai jenggot yang lebat</p>
+</li>
+<li data-number="10"><p>Menggosok anggota wudhu agar lebih bersih</p>
+</li>
+<li data-number="11"><p>Membasuh setiap anggota wudhu sebanyak 3 kali basuhan</p>
+</li>
+<li data-number="12"><p>Tidak mengeringkan bekas basuhan dengan handuk atau yang lain</p>
+</li>
+<li data-number="13"><p>Membaca doa, di antaranya sebagai berikut:</p>
+<div class="prayer-card" data-source-page="17"><p class="arabic" lang="ar" dir="rtl">أشهد أن لا إله إلا الله وحده لا شريك له. وأشهد أن محمدا عبده ورسوله. اللهم اجعلني من التوابين واجعلني من المتطهرين واجعلني من عبادك الصالحين</p></div>
+</li>
+<li data-number="14"><p>Kemudian dilanjutkan dengan shalat sunnat wudhu sebanyak 2 (dua) rakaat</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">e. Hal-hal yang membatalkan wudhu:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Keluar sesuatu dari qubul atau dubur baik kotoran, air kencing, angin, atau yang lainnya, kecuali air mani (sperma)</p>
+</li>
+<li data-number="02"><p>Tidur nyenyak, hingga hilang kesadaran tanpa tetapnya pantat di tempat duduk. Sedang tidur dengan tetap duduk dengan menetapkan pantat di tempat duduk tidak membatalkan wudhu jika tidak bergeser dari tempat duduknya</p>
+</li>
+<li data-number="03"><p>Hilang akal dan perasaan baik karena gila, pingsan, mabuk, obat, pengaruh bius, atau sebab-sebab yang lain</p>
+</li>
+<li data-number="04"><p>Menyentuh atau bersentuhan secara langsung (tanpa penghalang) dengan lawan jenis yang bukan mahramnya</p>
+</li>
+<li data-number="05"><p>Menyentuh kemaluan sendiri atau orang lain dengan telapak tangan atau jari-jari, tanpa menggunakan penghalang/alas.</p>
+</li>
+</ol>
+<h4 class="topic-heading">8. Wanita yang sedang haid atau nifas diharamkan melakukan hal-hal sebagai berikut:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Shalat</p>
+</li>
+<li data-number="02"><p>Puasa (baik wajib maupun sunnah)</p>
+</li>
+<li data-number="03"><p>Membaca Al Qur’an</p>
+</li>
+<li data-number="04"><p>Memegang Al Qur’an</p>
+</li>
+<li data-number="05"><p>Masuk masjid</p>
+</li>
+<li data-number="06"><p>Thawaf</p>
+</li>
+<li data-number="07"><p>Bersetubuh (jima’)</p>
+</li>
+<li data-number="08"><p>Istimta’ (mencari kenikmatan dengan suami) pada bagian tubuh antara pusar dan lutut</p>
+</li>
+</ol>
+<h4 class="topic-heading">9. Orang yang sedang junub (berhadats besar) diharamkan melakukan hal-hal sebagai berikut:</h4>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Shalat</p>
+</li>
+<li data-number="b"><p>Membaca Al Qur’an</p>
+</li>
+<li data-number="c"><p>Memegang Al Qur’an</p>
+</li>
+<li data-number="d"><p>Thawaf</p>
+</li>
+<li data-number="e"><p>Berdiam di dalam masjid</p>
+</li>
+</ol>
+<h4 class="topic-heading">10. Orang yang berhadats kecil diharamkan melakukan hal-hal sebagai berikut:</h4>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Shalat</p>
+</li>
+<li data-number="b"><p>Thawaf</p>
+</li>
+<li data-number="c"><p>Memegang Al Qur’an.</p>
+</li>
+</ol>
+<h4 class="topic-heading">11. Istinjak (bersuci setelah buang air besar atau kecil)</h4>
+<h5 class="subtopic-heading">a. Pengertian Istinjak</h5>
+<p>Istinja’ menurut bahasa artinya terlepas atau selamat, dari bahasa Arab <span class="inline-arabic" lang="ar" dir="rtl">الاستنجاء.</span> Sedangkan istinja menurut istilah syar’i adalah bersuci sesudah buang air besar atau buang air kecil.</p>
+<p>Beristinja hukumnya wajib bagi orang yang baru saja buang air besar maupun buang air kecil, baik dengan air ataupun dengan benda selain air.</p>
+<p>Benda selain air yang dapat digunakan untuk beristinja ialah benda yang keras dan kesat seperti batu, kertas atau daun-daun yang sudah kering. Dengan catatan benda-benda tersebut tidak muhtaram (dimuliakan).</p>
+<h5 class="subtopic-heading">b. Cara Beristinjak</h5>
+<p>Cara beristinja dapat dilakukan dengan salah satu tiga cara, sebagai berikut:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Membasuh atau membersihkan tempat keluarnya kotoran buang air besar atau buang air kecil dengan batu, kemudian dibasuh dan dibersihkan dengan air. Cara ini adalah yang paling utama.</p>
+</li>
+<li data-number="02"><p>Membasuh atau membersihkan tempat keluarnya kotoran buang air besar atau buang air kecil dengan air sampai bersih. Ukuran bersih ini ditentukan oleh keyakinan masing-masing.</p>
+</li>
+<li data-number="03"><p>Membasuh dan membersihkan tempat keluar kotoran buang air besar atau buang air kecil dengan batu atau benda-benda kesat atau benda-benda padat yang dapat menyerap kotoran sampai bersih. Membersihkan tempat keluar kotoran buang air besar atau buang air kecil dengan batu ini sekurang-kurangnya dengan tiga buah batu atau sebuah batu yang memiliki tiga permukaan/sudut sampai bersih.</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">c. Syarat-syarat Istinja’ Dengan Menggunakan Batu atau Benda Keras (kesat)</h5>
+<p>Syarat istinja’ dengan menggunakan batu atau benda keras (kesat):</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Batu atau benda itu keras (kesat) dan harus suci serta dapat dipakai untuk membersihkan najis</p>
+</li>
+<li data-number="02"><p>Batu atau benda itu tidak termasuk yang dihormati misalnya bahan makanan, atau batu masjid.</p>
+</li>
+<li data-number="03"><p>Sekurang-kurangnya dengan tiga kali usapan dan sampai bersih.</p>
+</li>
+<li data-number="04"><p>Najis yang akan dibersihkan belum sampai kering.</p>
+</li>
+<li data-number="05"><p>Najis itu tidak pindah dari tempat keluarnya.</p>
+</li>
+<li data-number="06"><p>Najis itu tidak bercampur dengan benda lain, meskipun benda itu suci dan tidak terpercik oleh air.</p>
 </li>
 </ol>
 </section>
-<div class="continuation-note"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><strong>Materi bab ini akan dilanjutkan</strong>Bagian awal Thaharah sudah tersedia. Pembahasan lanjutan dan bagian Shalat belum dimuat dalam scan awal.</div></div>
+<section class="reading-section" id="shalat" data-label="B" data-pages="20,21,22,23,24,25,26"><h3>Shalat</h3>
+<h4 class="topic-heading">1. Pengertian Shalat</h4>
+<p>Menurut bahasa shalat berarti doa, sedangkan menurut istilah syar’i adalah suatu ibadah yang dimulai dengan takbiratul ihram dan diakhiri dengan salam menggunakan syarat dan rukun tertentu</p>
+<h4 class="topic-heading">2. Syarat Wajib Shalat:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Islam</p>
+</li>
+<li data-number="02"><p>Berakal</p>
+</li>
+<li data-number="03"><p>Baligh</p>
+</li>
+</ol>
+<h4 class="topic-heading">3. Syarat sebelum shalat:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Suci dari najis dan hadats (kecil maupun besar)</p>
+</li>
+<li data-number="02"><p>Menutup aurat dengan pakaian yang suci</p>
+</li>
+<li data-number="03"><p>Berdiri di tempat yang suci</p>
+</li>
+<li data-number="04"><p>Mengetahui masuknya waktu shalat</p>
+</li>
+<li data-number="05"><p>Menghadap kiblat (kecuali shalat ketika keadaan takut dari ancaman musuh dan shalat di atas kendaraan)</p>
+</li>
+</ol>
+<h4 class="topic-heading">4. Rukun-rukun sholat:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat (bersamaan dengan takbiratul ihram)</p>
+</li>
+<li data-number="02"><p>Berdiri bagi yang mampu</p>
+</li>
+<li data-number="03"><p>Mengucapkan takbiratul ihram</p>
+</li>
+<li data-number="04"><p>Membaca surat alfatihah (ingat bismillah termasuk ayat dari surat fatihah)</p>
+</li>
+<li data-number="05"><p>Melakukan ruku’</p>
+</li>
+<li data-number="06"><p>Thuma’ninah (tenang) dalam ruku’</p>
+</li>
+<li data-number="07"><p>Bangun dari ruku’ (i’tidal)</p>
+</li>
+<li data-number="08"><p>Thuma’ninah (tenang) selama i’tidal</p>
+</li>
+<li data-number="09"><p>Melakukan sujud</p>
+</li>
+<li data-number="10"><p>Thuma’ninah (tenang) dalam sujud</p>
+</li>
+<li data-number="11"><p>Duduk di antara dua sujud</p>
+</li>
+<li data-number="12"><p>Thuma’ninah (tenang) ketika duduk antara dua sujud</p>
+</li>
+<li data-number="13"><p>Duduk terakhir</p>
+</li>
+<li data-number="14"><p>Membaca tasyahud dalam duduk terakhir</p>
+</li>
+<li data-number="15"><p>Membaca shalawat atas Nabi SAW dalam duduk terakhir</p>
+</li>
+<li data-number="16"><p>Mengucapkan salam yang pertama</p>
+</li>
+<li data-number="17"><p>Berniat keluar dari shalat</p>
+</li>
+<li data-number="18"><p>Tertib (mengerjakan rukun-rukun sesuai urutan tersebut di atas)</p>
+</li>
+</ol>
+<h4 class="topic-heading">5. Sunnah-sunnah sebelum shalat:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Adzan</p>
+</li>
+<li data-number="02"><p>Iqamat</p>
+</li>
+</ol>
+<h4 class="topic-heading">6. Sunnah-sunnah ketika melakukan shalat:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Sunnah ab’adh, yaitu perkara yang disunahkan dalam shalat, dan apabila ditinggalkan (baik disengaja maupun tidak), maka disunnahkan melakukan sujud sahwi, untuk mengganti kekurangan tersebut, yaitu:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Tasyahud awwal</p>
+</li>
+<li data-number="b"><p>Duduk untuk tasyahud awal</p>
+</li>
+<li data-number="c"><p>Membaca shalawat Nabi sesudah tasyahud awal</p>
+</li>
+<li data-number="d"><p>Membaca shalawat untuk keluarga Nabi SAW sesudah tasyahud akhir</p>
+</li>
+<li data-number="e"><p>Doa qunut ketika i’tidal pada rakaat kedua shalat shubuh, rakaat terakhir shalat witir pada pertengahan kedua bulan Ramadhan, dan rakaat terakhir dari shalat apapun bagi qunut nazilah</p>
+</li>
+</ol>
+</li>
+<li data-number="02"><p>Sunnah haiat, yaitu perkara yang disunahkan dalam shalat, akan tetapi apabila ditinggalkan (baik disengaja maupun tidak), maka tidak disunnahkan melakukan sujud sahwi, yaitu:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Mengangkat kedua tangan ketika takbiratul ihram</p>
+</li>
+<li data-number="b"><p>Meletakkan tangan kanan di atas tangan kiri dalam bersedekap dan diletakkan di atas pusar.</p>
+</li>
+<li data-number="c"><p>Membaca doa iftitah</p>
+</li>
+<li data-number="d"><p>Membaca ta’awudz setelah membaca do’a iftitah.</p>
+</li>
+<li data-number="e"><p>Mengeraskan suara pada shalat jahar, (shalat shubuh, dua rakaat pertama dalam shalat maghrib dan isya’, jum’at dan shalat hari raya). Dalam shalat sirri (dzuhur, ashar) bacaannya dilakukan secara pelan</p>
+</li>
+<li data-number="f"><p>Membaca aamiin setelah membaca al fatihah</p>
+</li>
+<li data-number="g"><p>Membaca surat lain dari Al Qur’an setelah selesai membaca surat al fatihah</p>
+</li>
+<li data-number="h"><p>Bertakbir sambil mengangkat kedua tangan sewaktu akan ruku’ dan bangun dari ruku’</p>
+</li>
+<li data-number="i"><p>Membaca sami’allahu liman hamidah sewaktu bangun dari ruku’ dan membaca Rabbana lakal hamdu ketika sudah tegak berdiri.</p>
+</li>
+<li data-number="j"><p>Membaca tasbih dalam ruku’ dan sujud</p>
+</li>
+<li data-number="k"><p>Meletakkan kedua tangan di atas paha sewaktu duduk pada saat duduk tasyahud awal dan akhir, serta membentangkan tangan kiri dan mengenggam tangan kanan, kecuali jari telunjuk dibuat isyarah ketika membaca: Illallah</p>
+</li>
+<li data-number="l"><p>Duduk iftirasy (duduk dengan cara meletakkan pantat di atas telapak kaki kiri, sedangkan telapak kaki kanan ditegakkan di atas jari-jarinya dan kedua tangan diluruskan sampai ke ujung lutut) dalam semua duduk kecuali ketika tasyahud akhir</p>
+</li>
+<li data-number="m"><p>Duduk tawarruk (duduk dengan cara meletakkan pantat langsung di lantai, kaki kiri dimasukkan ke bawah kaki kanan, telapak kaki kanan ditegakkan di atas jari-jarinya, telapak tangan kiri di atas paha kiri dengan ujung-ujung jarinya menyentuh lutut, dan telapak kanan digenggam kecuali jari telunjuk yang menunjuk ke arah kiblat) pada saat duduk terakhir ketika tasyahud akhir</p>
+</li>
+<li data-number="n"><p>Melakukan salam yang kedua dengan menoleh ke kiri</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 class="topic-heading">7. Hal-hal yang membatalkan shalat:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Berbicara dengan sengaja</p>
+</li>
+<li data-number="02"><p>Bergerak secara berlebihan (tiga kali berturut-turut)</p>
+</li>
+<li data-number="03"><p>Hadats</p>
+</li>
+<li data-number="04"><p>Terbuka aurat</p>
+</li>
+<li data-number="05"><p>Berubah niatnya</p>
+</li>
+<li data-number="06"><p>Membelakangi kiblat (bergesernya dada dari arah kiblat)</p>
+</li>
+<li data-number="07"><p>Makan (walaupun sisa makanan yang ada di mulut yang dilakukan dengan sengaja)</p>
+</li>
+<li data-number="08"><p>Minum</p>
+</li>
+<li data-number="09"><p>Tertawa terbahak-bahak</p>
+</li>
+<li data-number="10"><p>Murtad (keluar dari Islam)</p>
+</li>
+</ol>
+<h4 class="topic-heading">8. Jenis-jenis shalat:</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Shalat fardhu (wajib) yaitu:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Shalat maktubah (lima waktu), yaitu: shubuh, dzuhur, ashar, maghrib, dan isya</p>
+<p>Waktu shalat maktubah:</p>
+<ul class="bullet-list">
+<li>Shalat subuh, yaitu mulai terbit fajar kedua sampai dengan terbitnya matahari</li>
+<li>Shalat dzuhur, yaitu mulai tergelincirnya matahari sampai dengan bayang-bayang suatu benda telah sama ukuran panjangnya dengan barang tersebut.</li>
+<li>Shalat ashar, yaitu mulai sejak panjang bayang-bayang suatu benda lebih panjang dari bendanya sampai dengan terbenamnya matahari</li>
+<li>Shalat maghrib, yaitu mulai terbenamnya matahari sampai dengan hilangnya mega yang berwarna kemerahan</li>
+<li>Shalat isya’, yaitu mulai dari hilangnya mega yang berwarna kemerahan sampai dengan terbitnya fajar yang kedua.</li>
+</ul>
+</li>
+<li data-number="b"><p>Shalat jum’at bagi laki-laki yang merdeka dan berdomisili tetap serta tidak ada udzur yang memperkenankan untuk meninggalkan shalat jum’at</p>
+</li>
+<li data-number="c"><p>Shalat qadha, yaitu shalat yang dikerjakan tidak pada waktunya karena lupa atau tertinggal</p>
+</li>
+</ol>
+</li>
+<li data-number="02"><p>Shalat sunnah, yaitu:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Shalat gerhana (bulan dan matahari)</p>
+</li>
+<li data-number="b"><p>Shalat istisqa’ (shalat memohon diturunkan hujan)</p>
+</li>
+</ol>
+</li>
+<li data-number="03"><p>Shalat sunnah yang mengikuti shalat-shalat fardhu, yaitu:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Shalat dua rakaat sebelum shalat shubuh</p>
+</li>
+<li data-number="b"><p>Empat rakaat sebelum shalat dzuhur dan dua rakaat sesudahnya</p>
+</li>
+<li data-number="c"><p>Empat rakaat sebelum shalat ashar</p>
+</li>
+<li data-number="d"><p>Dua rakaat setelah shalat maghrib</p>
+</li>
+<li data-number="e"><p>Dua rakaat ditambah satu rakaat sebagai shalat witir setelah shalat isya’</p>
+</li>
+</ol>
+</li>
+<li data-number="04"><p>Shalat sunnah muakkad, yaitu:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Shalat idul fitri dan idul adha</p>
+</li>
+<li data-number="b"><p>Shalat tahajjud</p>
+</li>
+<li data-number="c"><p>Shalat dhuha</p>
+</li>
+<li data-number="d"><p>Shalat tarawih</p>
+</li>
+<li data-number="e"><p>Shalat witir</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 class="topic-heading">9. Shalat berjamaah</h4>
+<p>Shalat berjamaah adalah shalat yang dilakukan oleh minimal dua orang, satu sebagai imam dan yang satu sebagai makmum).</p>
+<p>Hukum shalat berjamaah adalah sunnah muakkad (sunnah yang sangat dianjurkan)</p>
+<h4 class="topic-heading">10. Hal-hal yang berbeda antara laki-laki dan wanita dalam shalat</h4>
+<h5 class="subtopic-heading">Bagi laki-laki:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Merenggangkan kedua siku dari lambung dalam ruku’ dan sujud</p>
+</li>
+<li data-number="02"><p>Mengangkat sedikit perut dari paha sehingga merenggang dalam ruku’, dan sujud</p>
+</li>
+<li data-number="03"><p>Membaca bacaan-bacaan surat secara keras dalam shalat jahr</p>
+</li>
+<li data-number="04"><p>Apabila menjumpai kesalahan dalam shalat (umumnya jika berjamaah) maka cara mengingatkannya dengan membaca tasbih.</p>
+</li>
+<li data-number="05"><p>Batas minimal aurat laki-laki antara pusat dan lutut</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">Bagi wanita:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Merapatkan kedua siku ke lambung dan perut dalam ruku’ dan sujud</p>
+</li>
+<li data-number="02"><p>Merendahkan suaranya jika shalat di hadapan lelaki lain</p>
+</li>
+<li data-number="03"><p>Apabila terjadi sesuatu hal pada imam (ada yang terlupa) maka cara mengingatkannya dengan bertepuk secara terbalik (telapak tangan kanan bagian luar dipukulkan ke telapak tangan kiri bagian dalam)</p>
+</li>
+<li data-number="04"><p>Aurat wanita meliputi semua bagian tubuh, kecuali muka dan telapak tangan.</p>
+</li>
+</ol>
+</section>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-4" class="chapter" data-roman="IV" data-nav-title="Ibadah terkait haji &amp; umrah" hidden aria-labelledby="bab-4-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB IV · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-4-title">Ibadah-ibadah yang berhubungan dengan ibadah haji dan umrah</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum dimuat dalam unggahan awal.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
-<p class="pending-message">Materi bab ini belum diunggah. Halaman berikutnya dapat ditambahkan sebagai subbagian di dalam bab ini.</p>
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB IV · HALAMAN 27–36</span><span class="chapter-indicator">7 bagian</span></div><h2 id="bab-4-title">Ibadah-ibadah yang berhubungan dengan ibadah haji dan umrah</h2><p class="chapter-blurb">Pelajari shalat di pesawat, tayamum, jama’ dan qashar, shalat janazah, wudlu menurut mazhab Hanafi, serta tahiyyatul masjid.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<div class="source-strip"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Alih teks buku KBIHU IPHI Pati<span class="source-long"> · Ejaan mengikuti sumber, Arab tanpa harakat.</span></span><button class="text-button requires-js" type="button" data-dialog="sourceDialog">Catatan sumber ↗</button></div>
+<section class="reading-section" id="shalat-dalam-pesawat" data-label="A" data-pages="27"><h3>Shalat Dalam Pesawat</h3>
+<p>Shalat dalam pesawat dilakukan dengan cara duduk di jok pesawat tanpa wudlu atau tayamum tetapi harus mengulangi sholatnya (i’adah) setelah keadaan normal ketika sampai di darat.</p>
+<p>Shalat semacam ini disebut shalat lihurmatil waqti (hormat waktu).</p>
+<h5 class="subtopic-heading">Keterangan:</h5>
+<p>Tidak sah bertayamum di pesawat dengan cara menempelkan kedua telapak tangan di dinding atau jok pesawat.</p>
+<p>Hal ini disebabkan karena tidak adanya debu secara ‘aini (kasat mata) sebagai alat tayamum di pesawat. Mengingat begitu bersih dan tertutupnya.</p>
+</section>
+<section class="reading-section" id="tayamum" data-label="B" data-pages="27,28"><h3>Tayamum</h3>
+<h5 class="subtopic-heading">Pengertian Tayamum</h5>
+<p>Tayamum adalah bersuci dengan menggunakan debu yang suci sebagai pengganti wudlu atau mandi karena hadats besar, karena adanya rukhshah (keringanan) bagi orang yang udzur (berhalangan) menggunakan air.</p>
+<h5 class="subtopic-heading">Syarat Diperbolehkannya Tayamum:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Tidak adanya air yang suci dan menyucikan</p>
+</li>
+<li data-number="02"><p>Ada air tetapi sangat terbatas, seperti dalam pesawat</p>
+</li>
+<li data-number="03"><p>Sulit menggunakan air</p>
+</li>
+<li data-number="04"><p>Membahayakan diri bila dipaksakan menggunakan air</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">Syarat Sahnya Tayamum:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Berhalangan menggunakan air</p>
+</li>
+<li data-number="02"><p>Sudah masuk waktu shalat</p>
+</li>
+<li data-number="03"><p>Menggunakan debu yang suci</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">Rukun Tayamum:</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat bertayamum sewaktu menyapu wajah</p>
+<div class="prayer-card" data-source-page="28"><p class="arabic" lang="ar" dir="rtl">نويت التيمم بدلا عن الوضوء فرضا لله تعالى</p></div>
+</li>
+<li data-number="02"><p>Menyapu wajah dengan debu yang suci</p>
+</li>
+<li data-number="03"><p>Menyapu kedua tangan sampai siku dengan debu yang suci</p>
+</li>
+<li data-number="04"><p>Tartib (sesuai urutan yaitu mendahulukan mengusap wajah baru mengusap kedua tangan sampai siku)</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">Yang Membatalkan Tayamum</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Semua yang membatalkan wudlu</p>
+</li>
+<li data-number="02"><p>Mengetahui ada air sebelum shalat, bagi yang udzur karena tidak ada air</p>
+</li>
+<li data-number="03"><p>Hilangnya udzur</p>
+</li>
+<li data-number="04"><p>Murtad</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="tata-cara-shalat-pesawat" data-label="C" data-pages="28,29"><h3>Tata Cara Shalat di Pesawat</h3>
+<p>Tata cara shalat di pesawat adalah sebagai berikut:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Duduk dengan tenang menghadap kearah depan pesawat, karena jama’ah haji di dalam pesawat, maka kiblatnya adalah arah depan pesawat</p>
+</li>
+<li data-number="02"><p>Niat, bersamaan dengan takbiratul ihram</p>
+</li>
+<li data-number="03"><p>Tangan bersedekap, membaca do’a iftitah, surat al-fatihah dan dilanjutkan surat yang dikehendaki</p>
+</li>
+<li data-number="04"><p>Ruku’ dengan membungkuk sedikit sambil membaca dzikir ruku’</p>
+</li>
+<li data-number="05"><p>I’tidal (bangun dari ruku’) dengan punggung lurus dalam posisi duduk di kursi sambil mengangkat kedua tangan, mengucapkan “Samiallahu liman hamidah” dilanjutkan dzikir seperti biasa</p>
+</li>
+<li data-number="06"><p>Sujud dengan membungkukkan badan lebih rendah dari ketika ruku’.</p>
+</li>
+<li data-number="07"><p>Duduk di antara dua sujud, dengan posisi duduk sempurna di kursi, seperti ketika i’tidal hanya saja tanpa mengangkat tangan, kemudian membaca doa seperti biasa</p>
+</li>
+<li data-number="08"><p>Sujud kembali dengan cara seperti no. 6</p>
+</li>
+<li data-number="09"><p>Duduk kembali dengan sempurna, tangan bersedekap untuk melakukan raka’at yang ke dua, membaca surat al-fatihah dilanjutkan dengan surat yang dikehendaki</p>
+</li>
+<li data-number="10"><p>Dan seterusnya................. (sama)</p>
+</li>
+<li data-number="11"><p>Bertasyahud dengan cara duduk di kursi, kedua tangan diletakkan di atas lutut dan telunjuk jari kanan dikeluarkan dari genggaman, sambil membaca kalimat tasyahud/tahiyyat sebagaimana biasa</p>
+</li>
+<li data-number="12"><p>Mengucapkan salam, sambil menoleh ke kanan dan ke kiri.</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="shalat-jamak-qashar" data-label="D" data-pages="29,30,31,32"><h3>Shalat Jamak dan Qashar</h3>
+<h4 class="topic-heading">1. Shalat Qashar</h4>
+<h5 class="subtopic-heading">a. Pengertian</h5>
+<p>Qashar adalah memperpendek shalat fardlu yang 4 (empat) rakaat menjadi 2 (dua) rakaat.</p>
+<h5 class="subtopic-heading">b. Syarat Shalat Qashar</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Tujuan bepergian tidak untuk maksiat.</p>
+</li>
+<li data-number="02"><p>Jarak yang ditempuh 81 km atau lebih</p>
+</li>
+<li data-number="03"><p>Di tempat tujuan tidak lebih dari 4 hari</p>
+</li>
+<li data-number="04"><p>Niat qashar sewaktu takbiratul ihram</p>
+</li>
+<li data-number="05"><p>Tidak bermakmum kepada imam yang tidak mengashar shalatnya.</p>
+</li>
+</ol>
+<h4 class="topic-heading">2. Shalat Jama’</h4>
+<h5 class="subtopic-heading">a. Pengertian</h5>
+<p>Shalat jama’ adalah menggabungkan dua shalat fardlu di dalam satu waktu.</p>
+<p>Yang boleh dijama’ hanyalah Dzuhur dengan Ashar atau Maghrib dengan Isya’. Bila dikerjakan dalam waktu shalat yang pertama dinamakan jama’ taqdim, dan bila dikerjakan dalam waktu shalat yang kedua dinamakan jama’ ta’khir.</p>
+<h5 class="subtopic-heading">b. Syarat Shalat Jama’ Taqdim</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Mendahulukan shalat yang sesuai dengan waktunya, seperti mendahulukan dzuhur ketika melakukan jama’ taqdim antara dzuhur dan ashar</p>
+</li>
+<li data-number="02"><p>Niat jama’ pada shalat yang pertama</p>
+</li>
+<li data-number="03"><p>Muwwalat (terus menerus)</p>
+</li>
+<li data-number="04"><p>Tetapnya udzur bepergian minimal sampai takbiratul ihram shalat yang kedua</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">c. Syarat Shalat Jama’ Ta’khir</h5>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat jama’ ta’khir pada waktu shalat yang pertama</p>
+</li>
+<li data-number="02"><p>Berlangsungnya udzur hingga sempurnanya shalat yang ke-dua.</p>
+</li>
+</ol>
+<h5 class="subtopic-heading">Keterangan:</h5>
+<p>1. (untuk jama’ ta’khir, tidak disyaratkan sesuai urutan shalat, hukumnya hanya sunnah)</p>
+<h4 class="topic-heading">2. Contoh niat shalat jama’ sekaligus qashar:</h4>
+<h5 class="subtopic-heading">a. Niat sholat Dzuhur Jama’ Taqdim Qoshor</h5>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض الظهر مجموعا بالعصر جمع تقديم قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<h5 class="subtopic-heading">b. Niat sholat Ashar Jama’ Taqdim Qoshor</h5>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العصر مجموعا بالظهر جمع تقديم قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<h5 class="subtopic-heading">c. Niat sholat Dzuhur Jama’ Ta’khir Qoshor</h5>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض الظهر مجموعا بالعصر جمع تأخير قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<h5 class="subtopic-heading">d. Niat sholat ‘Ashar jama’ Ta’khir Qoshor</h5>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العصر مجموعا بالظهر جمع تأخير قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<h5 class="subtopic-heading">e. Niat sholat Maghrib jama’ Taqdim</h5>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض المغرب ثلاث ركعات مجموعا بالعشاء جمع تقديم إماما/مأموما لله تعالى</p></div>
+<h5 class="subtopic-heading">f. Niat sholat ‘Isya Jama’ Taqdim Qoshor</h5>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العشاء مجموعا بالمغرب جمع تقديم قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<h5 class="subtopic-heading">g. Niat sholat Maghrib jama’ Ta’khir</h5>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي فرض المغرب ثلاث ركعات مجموعا بالعشاء جمع تأخير أداء إماما/مأموما لله تعالى</p></div>
+<h5 class="subtopic-heading">h. Niat sholat ‘Isya jama’ ta’khir dan Qoshor</h5>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العشاء مجموعا بالمغرب جمع تأخير قصرا ركعتين أداء إماما/مأموما لله تعالى</p></div>
+</section>
+<section class="reading-section" id="shalat-janazah" data-label="E" data-pages="32,33"><h3>Shalat Janazah</h3>
+<p>Hampir setiap waktu (khususnya setelah selesai jama’ah shalat maktubah) di Masjidil Haram maupun di Masjid Nabawi, selalu dilaksanakan shalat janazah dengan berjama’ah.</p>
+<p>Hukum shalat janazah bagi janazah muslim adalah fardlu kifayah.</p>
+<p>Shalat Janazah terdiri dari empat takbir, yaitu:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Takbiratul ihram yang disertai niat,</p>
+<p>Misalnya sebagai berikut:</p>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي على هذا الميت أربع تكبيرات إماما/مأموما فرض كفاية لله تعالى</p></div>
+<p>apabila janazahnya banyak</p>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي على هؤلاء الأموات أربع تكبيرات إماما/مأموما فرض كفاية لله تعالى</p></div>
+<p>Selesai takbiratul ihram, dilanjutkan membaca surat al-Fatihah</p>
+</li>
+<li data-number="02"><p>Takbir kedua</p>
+<p>Dilanjutkan membaca shalawat kepada Nabi Muhammad SAW.</p>
+</li>
+<li data-number="03"><p>Takbir ketiga</p>
+<p>Dilanjutkan membaca doa untuk orang yang wafat, yang janazahnya kita shalatkan, sebagai berikut:</p>
+<div class="prayer-card" data-source-page="33"><p class="arabic" lang="ar" dir="rtl">اللهم اغفر له/لها/لهم، وارحمه/ها/هم، وعافه/ها/هم، واعف عنه/عنها/عنهم .......</p></div>
+</li>
+<li data-number="04"><p>Takbir keempat</p>
+<p>Dilanjutkan dengan doa pendek, sbb:</p>
+<div class="prayer-card" data-source-page="33"><p class="arabic" lang="ar" dir="rtl">اللهم لا تحرمنا أجره/ها/هم، ولا تفتنا بعده/ها/هم، واغفر لنا وله/ولها/ولهم</p></div>
+</li>
+</ol>
+<p>atau boleh juga langsung salam.</p>
+<p>Salam dalam shalat janazah disunnahkan untuk menyempurnakan, menjadi:</p>
+<p>“Assalamu’alaikum warahmatullahi wa barakatuh”</p>
+</section>
+<section class="reading-section" id="berwudlu-mazhab-hanafi" data-label="F" data-pages="33,34,35"><h3>Berwudlu Menurut Mazhab Hanafi</h3>
+<p>Selama di tanah suci Makkah, kita sulit menghindar dari bersentuhan kulit secara langsung antara laki-laki dan perempuan yang bukan mahram, mengingat padat dan sesaknya jama’ah. Terutama ketika kita melakukan thawaf.</p>
+<p>Padahal menurut pendapat yang paling kuat dan masyhur di kalangan ulama’ mazhab Syafi’i sebagaimana yang kita kenal, bahwa hal tersebut adalah membatalkan wudlu, maka diperbolehkan untuk intiqal al madzhab (berpindah madzhab), misalnya dengan melakukan wudlu menurut mazhab Hanafi. Dengan demikian sentuhan antara laki-laki dan perempuan secara langsung tidaklah membatalkan wudlu.</p>
+<p>Akan tetapi dalam intiqal al madzhab (berpindah madzhab) ini harus dilakukan dalam satu qadliyah (satu paket). Artinya harus mengikuti mulai dari syarat, rukun, hingga batalnya wudlu, tidak boleh setengah-setengah.</p>
+<h4 class="topic-heading">1. Cara bewudlu menurut madzhab Hanafi adalah berwudlu seperti biasa (mazhab syafi’i) hanya saja dengan mengusap minimal seperempat kepala, atau menurut riwayat yang lain minimal seukuran tiga jari.</h4>
+<h4 class="topic-heading">2. Yang Membatalkan Wudlu Menurut Mazhab Hanafi adalah:</h4>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Keluarnya sesuatu dari qubul atau dubur, kecuali mani (sperma)</p>
+</li>
+<li data-number="b"><p>Tidur yang berubah posisi, kecuali tidurnya orang yang pantatnya tetap menempel di tempat duduknya.</p>
+</li>
+<li data-number="c"><p>Hilangnya kesadaran, sebab gila, mabuk atau ayan (epilepsi)</p>
+</li>
+<li data-number="d"><p>Bersetubuh</p>
+</li>
+<li data-number="e"><p>Mengalirnya najis dari tubuh, seperti darah atau nanah</p>
+</li>
+<li data-number="f"><p>Muntah yang banyak (memenuhi mulut) atau sedikit tapi berupa darah atau nanah</p>
+</li>
+<li data-number="g"><p>Tertawa terbahak-bahak dalam shalat.</p>
+</li>
+</ol>
+<p>Apabila mengalami kesulitan/kerumitan dalam melakukan intiqal al madzhab (berpindah madzhab), sebaiknya tetap menggunakan cara berwudlu madzhab Syafi’i tetapi mengikuti pendapat yang kedua (qaul tsani) dari sebagian ulama’ Syafi’iyah, yang berpendapat bahwa orang yang tidak menyengaja menyentuh lain jenis yang bukan mahram (malmus) hukumnya tidak batal wudlunya. Walaupun pendapat ini dinilai sebagai pendapat yang lemah.</p>
+<h5 class="subtopic-heading">Penjelasan Tambahan:</h5>
+<p>Menurut Sayid Abdurrahman Ba’alawi yang bersumber dari Al Kurdi dalam Fawaidul Madaniyyah, lebih baik mengikuti pendapat yang lemah dari suatu madzhab (lihat Bughyah al Mustarsyidin, daar al fikr, hal. 16).</p>
+<p>Imam Nawawi mengatakan, bahwa sentuhan dengan lain jenis yang bukan mahram dalam thawaf merupakan cobaan yang bersifat umum dan sulit untuk dihindari.</p>
+<p>Ada sebagian pendapat dalam madzhab Syafi’i bahwa bersentuhan dengan lain jenis mempunyai hukum dua sisi, yaitu orang yang menyentuh (al-lamis), ulama’ Syafi’iyah sepakat bahwa orang yang menyengaja menyentuh hukumnya batal. Adapun sisi yang kedua adalah orang yang disentuh (al-malmus). Bagi orang yang disentuh (tidak sengaja menyentuh) terdapat dua pendapat di kalangan ulama’ Syafi’iyah. Menurut pendapat yang shahih adalah batal, sedangkan menurut pendapat sebagian ulama’ tidak batal (pendapat ini dianggap sebagai pendapat yang lemah).</p>
+<p>Imam Nawawi memberi arahan bagi orang yang thawaf untuk menggunakan pendapat minoritas walaupun dianggap lemah sebab keadaannya memang sangat sulit dihindari.</p>
+</section>
+<section class="reading-section" id="shalat-tahiyyatul-masjid" data-label="G" data-pages="35,36"><h3>Shalat Tahiyyatul Masjid</h3>
+<p>Shalat tahiyyatul masjid adalah shalat sunnah 2 (dua) rakaat, disunnahkan setiap masuk masjid, sebagai penghormatan kepada masjid.</p>
+<p>Ketika masuk Masjidil Haram hendaknya melakukan thawaf sebagai penghormatan bagi Masjidil Haram. Apabila tidak ada niat untuk melakukan thawaf atau tidak memungkinkan untuk melakukannya maka disunnahkan untuk melakukan shalat tahiyyatul masjid.</p>
+<p>Cara shalat tahiyyatul masjid adalah seperti shalat biasa, sebanyak 2 (rakaat), hanya saja dengan niat tahiyyatul masjid.</p>
+<p>Lafadz niat shalat tahiyyatal masjid:</p>
+<div class="prayer-card" data-source-page="36"><p class="arabic" lang="ar" dir="rtl">أصلي سنة تحية المسجد ركعتين لله تعالى</p></div>
+</section>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-5" class="chapter" data-roman="V" data-nav-title="Haji dan umrah" hidden aria-labelledby="bab-5-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB V · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-5-title">Haji dan umrah</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum dimuat dalam unggahan awal.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB V · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-5-title">Haji dan umrah</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum tersedia dalam dokumen scan yang telah diunggah.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
 <p class="pending-message">Materi bab ini belum diunggah. Halaman berikutnya dapat ditambahkan sebagai subbagian di dalam bab ini.</p>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-6" class="chapter" data-roman="VI" data-nav-title="Haji wanita" hidden aria-labelledby="bab-6-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB VI · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-6-title">Haji wanita</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum dimuat dalam unggahan awal.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB VI · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-6-title">Haji wanita</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum tersedia dalam dokumen scan yang telah diunggah.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
 <p class="pending-message">Materi bab ini belum diunggah. Halaman berikutnya dapat ditambahkan sebagai subbagian di dalam bab ini.</p>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-7" class="chapter" data-roman="VII" data-nav-title="Haji tamattu’ · Gelombang I" hidden aria-labelledby="bab-7-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB VII · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-7-title">Perjalanan haji tamattu’ gelombang I</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum dimuat dalam unggahan awal.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB VII · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-7-title">Perjalanan haji tamattu’ gelombang I</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum tersedia dalam dokumen scan yang telah diunggah.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
 <p class="pending-message">Materi bab ini belum diunggah. Halaman berikutnya dapat ditambahkan sebagai subbagian di dalam bab ini.</p>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-8" class="chapter" data-roman="VIII" data-nav-title="Haji tamattu’ · Gelombang II" hidden aria-labelledby="bab-8-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB VIII · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-8-title">Perjalanan haji tamattu’ gelombang II</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum dimuat dalam unggahan awal.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB VIII · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-8-title">Perjalanan haji tamattu’ gelombang II</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum tersedia dalam dokumen scan yang telah diunggah.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
 <p class="pending-message">Materi bab ini belum diunggah. Halaman berikutnya dapat ditambahkan sebagai subbagian di dalam bab ini.</p>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-9" class="chapter" data-roman="IX" data-nav-title="Kesehatan haji" hidden aria-labelledby="bab-9-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB IX · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-9-title">Kesehatan haji</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum dimuat dalam unggahan awal.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB IX · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-9-title">Kesehatan haji</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum tersedia dalam dokumen scan yang telah diunggah.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
 <p class="pending-message">Materi bab ini belum diunggah. Halaman berikutnya dapat ditambahkan sebagai subbagian di dalam bab ini.</p>
 <div class="chapter-pager requires-js"></div></article>
 <!-- AKHIR MATERI BUKU -->
@@ -591,7 +1243,8 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <tr class="toc-minor"><td>F. Obat penunda haid</td><td>82</td></tr></tbody></table></details><div class="footer-links" style="margin-top:23px"><a href="index.html">← Beranda</a><a href="umroh.html">Doa Umrah ↗</a></div></div></dialog>
 <dialog class="dialog" id="sourceDialog" aria-labelledby="sourceTitle"><div class="dialog-header"><div><span class="eyebrow">TRANSPARANSI MATERI</span><h2 id="sourceTitle">Tentang sumber</h2></div><button type="button" class="icon-button" data-close="sourceDialog" aria-label="Tutup catatan sumber"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body source-notes">
 <div class="source-note"><svg class="icon"><use href="#i-file"/></svg><div><h3>Buku KBIHU IPHI Pati</h3><p>Materi awal diketik ulang dari <code>CamScanner 02-10-2026 08.16.pdf</code>, terdiri atas 15 halaman scan. Unggahan awal memuat daftar isi (v–vii), Bab I–II, dan bagian awal Bab III (halaman buku 1–12).</p></div></div>
-<div class="source-note"><svg class="icon"><use href="#i-book"/></svg><div><h3>Cakupan materi saat ini</h3><p id="sourceCoverage">3 bab dengan isi halaman buku 1–12. Bab III masih sebagian. Isi bab lain pada daftar isi belum diunggah; tidak dilengkapi dengan materi buatan.</p></div></div>
+<div class="source-note"><svg class="icon"><use href="#i-file"/></svg><div><h3>Dokumen kelanjutan</h3><p><code>14-36.pdf</code> terdiri atas 24 halaman scan dan memuat halaman buku <strong>13–36</strong>, meskipun nama berkasnya dimulai dengan 14. Dokumen ini melengkapi Bab III dan seluruh bagian A–G Bab IV. Nomor halaman 26 tidak terlihat pada scan; penomoran mengikuti urutan antara halaman 25 dan 27 serta sambungan isinya.</p></div></div>
+<div class="source-note"><svg class="icon"><use href="#i-book"/></svg><div><h3>Cakupan materi saat ini</h3><p id="sourceCoverage">4 bab dengan 36 halaman sumber (halaman buku 1–36). Bab I–IV tersedia lengkap sesuai daftar isi. 5 bab lainnya belum diunggah; tidak dilengkapi dengan materi buatan.</p></div></div>
 <div class="source-note"><svg class="icon"><use href="#i-info"/></svg><div><h3>Alih teks, bukan suntingan isi</h3><p>Ejaan, nama, istilah, dan bentuk tidak baku pada scan dipertahankan. Tata letak dan pemenggalan halaman dirapikan. Halaman buku vii, 1, 3, dan 12 yang berulang pada scan awal ditampilkan sekali. <strong>Teks Arab materi ditulis tanpa harakat.</strong> Basmala pada sampul merupakan elemen tampilan, bukan tambahan materi buku.</p></div></div>
 <div class="source-note"><svg class="icon"><use href="#i-heart"/></svg><div><h3>Belajar bersama pembimbing</h3><p>Halaman ini menampilkan materi sesuai sumber, bukan hasil verifikasi dalil atau penetapan hukum terbaru. Untuk memahami dan menerapkan isinya, mintalah penjelasan pembimbing manasik.</p></div></div>
 <div class="source-note"><svg class="icon"><use href="#i-bookmark"/></svg><div><h3>Penanda pribadi, tanpa akun</h3><p>Penanda, ukuran teks, tema, dan jejak belajar disimpan hanya di browser perangkat ini, bila penyimpanan lokal diizinkan. Tidak dikirim ke server. Jika penyimpanan tidak tersedia, pengaturan berlaku selama halaman terbuka.</p></div></div>
@@ -636,12 +1289,13 @@ function sourceText(section){
  clone.querySelectorAll('.ui-only').forEach(n=>n.remove());
  clone.querySelectorAll('ol').forEach(list=>{
   let n=Number(list.getAttribute('start'))||1;
+  const lettered=list.getAttribute('type')?.toLowerCase()==='a';
   [...list.children].filter(li=>li.tagName==='LI').forEach(li=>{
-   const num=Number(li.dataset.number)||n;
-   li.insertBefore(document.createTextNode(`${num}. `),li.firstChild);n++;
+   const marker=lettered?(li.dataset.number||String.fromCharCode(96+n)):(Number(li.dataset.number)||n);
+   li.insertBefore(document.createTextNode(`${marker}. `),li.firstChild);n++;
   });
  });
- clone.querySelectorAll('h3,h4,p,li,.hadith-top').forEach(n=>n.appendChild(document.createTextNode('\n')));
+ clone.querySelectorAll('h3,h4,h5,p,li,.hadith-top').forEach(n=>n.appendChild(document.createTextNode('\n')));
  const text=clone.textContent.replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').replace(/\n{3,}/g,'\n\n').trim();
  return (section.dataset.label?section.dataset.label+'. ':'')+text;
 }
@@ -651,7 +1305,7 @@ const chapters=[...document.querySelectorAll('#chapterViews > .chapter')].map(el
   const h=s.querySelector('h3');
   const obj={id:s.id,el:s,chapter:c,title:h?.textContent.trim()||'Materi',label:s.dataset.label||'',pages:pageNumbers(s.dataset.pages),text:sourceText(s)};
   obj.search=normalize(c.title+' '+obj.title+' '+obj.text);
-  obj.pieces=[...s.querySelectorAll('p,h4')].map(p=>p.textContent.trim()).filter(Boolean);
+  obj.pieces=[...s.querySelectorAll('p,h4,h5')].map(p=>p.textContent.trim()).filter(Boolean);
   return obj;
  });
  c.available=!!c.sections.length;c.pages=[...new Set(c.sections.flatMap(s=>s.pages))].sort((a,b)=>a-b);return c;
@@ -854,15 +1508,16 @@ if(sectionById.has(initialHash)){const s=sectionById.get(initialHash);active=s.c
 else if(chapterById.get(initialHash)?.available){active=chapterById.get(initialHash);activeSection=active.sections[0].id;}
 if(active)navigate(active.id,activeSection,{scroll:false,hash:false,save:false});
 if(initialHash&&(sectionById.has(initialHash)||chapterById.get(initialHash)?.available))setTimeout(restoreHash,100);
+// Ambang nol tetap melacak bagian panjang pada layar kecil / teks besar.
 if('IntersectionObserver' in window){
  const observer=new IntersectionObserver(entries=>{
   if(view!=='chapter')return;
   const visible=entries.filter(e=>e.isIntersecting&&!e.target.closest('.chapter').hidden).sort((a,b)=>Math.abs(a.boundingClientRect.top-155)-Math.abs(b.boundingClientRect.top-155));
   if(!visible.length)return;
   const id=visible[0].target.id;if(activeSection===id)return;
-  activeSection=id;lastSection=id;persist();
+  activeSection=id;lastSection=id;$('startLabel').textContent='Lanjutkan membaca';persist();
   document.querySelectorAll('.chapter-sublinks [data-jump]').forEach(button=>{const current=button.dataset.jump===id;button.classList.toggle('active',current);if(current)button.setAttribute('aria-current','true');else button.removeAttribute('aria-current');});
- },{rootMargin:'-135px 0px -48% 0px',threshold:0.02});
+ },{rootMargin:'-135px 0px -48% 0px',threshold:0});
  sections.forEach(s=>observer.observe(s.el));
 }
 })();
@@ -964,5 +1619,5 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 -->
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a44c5744ccb8b772',t:'MTc5MTAzNDY0MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
