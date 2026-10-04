@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#214e3b">
 <meta name="description" content="Bimbingan Manasik Haji: adab, fadhilah, hikmah haji, tempat istimewa dan bersejarah, fiqih shalat, serta ibadah terkait haji dan umrah. Materi buku KBIHU IPHI Pati dalam ruang baca yang nyaman.">
-<title>Bimbingan Manasik Haji</title>
+<title>Bimbingan Manasik Haji — Arab Berharakat, Latin &amp; Terjemah</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='13' fill='%23214e3b'/%3E%3Cpath d='M24 8l5 8 9 1-1 9-8 5-5 9-5-9-8-5-1-9 9-1z' fill='none' stroke='%23dfc497' stroke-width='1.8'/%3E%3C/svg%3E">
 <script>
 /* Pengaturan lokal boleh tidak tersedia saat HTML dipratinjau dalam iframe. */
@@ -46,6 +46,24 @@ document.documentElement.classList.add('js');
 @media(max-width:600px){.prayer-card{padding:12px 14px;margin:13px 0 17px;border-radius:10px}.letter-list>li{padding-left:29px}.letter-list>li::before{font-size:9px;top:13px}.letter-list>li:first-child::before{top:4px}.subtopic-heading{margin-top:18px}}
 @media print{.prayer-card{background:none;border-color:#ddd;break-inside:avoid;padding:12px 15px}.subtopic-heading{color:#000}.letter-list>li::before{color:#333}.inline-arabic{color:#000}}
 
+
+/* ====== TAMBAHAN: harakat, tanda baca, latin, dan arti ====== */
+.latin-block{margin:14px 0 0;padding:12px 15px;border:1px dashed var(--line);border-radius:10px;background:var(--paper);break-inside:avoid}
+.latin-block .translation-label{margin-bottom:5px;color:var(--gold)}
+.latin{margin:0;font-size:.94em;line-height:2;font-style:italic;color:var(--ink);overflow-wrap:break-word}
+.hadith-card .latin-block{background:none;margin:15px 0 14px}
+.prayer-card .latin-block{background:var(--paper);border-style:solid;border-color:var(--line);margin-top:15px}
+.meaning-block{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.meaning-block .translation-label{margin-bottom:6px}
+.meaning-block p{margin:0;font-size:.96em;line-height:1.9}
+.basmala-latin{margin-top:10px;font-size:12px;letter-spacing:.04em;color:var(--muted);text-align:center;line-height:1.8}
+.basmala-latin strong{display:block;font-style:italic;color:var(--ink);font-size:13px;letter-spacing:0;font-weight:600}
+.notation-note{max-width:980px;margin:0 auto 20px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--paper-soft);font-size:12px;line-height:1.9;color:var(--muted)}
+.notation-note .notation-title{display:block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.notation-note b{color:var(--ink)}
+.notation-note code{font-family:Amiri,'Traditional Arabic','Times New Roman',serif;font-size:1.35em;color:var(--ink);line-height:1}
+.ar-mark{font-family:Amiri,'Traditional Arabic','Times New Roman',serif;font-size:1.5em;line-height:0;vertical-align:middle;color:var(--gold)}
+@media print{.latin-block,.notation-note,.basmala-latin{break-inside:avoid;color:#000}.latin{color:#000}.notation-note{border-color:#ddd}}
 </style>
 <!--
 BIMBINGAN MANASIK HAJI — SATU FILE, TANPA CDN / BACKEND / PROSES BUILD.
@@ -55,7 +73,7 @@ Semua font, ikon, ilustrasi, CSS, dan JavaScript sudah ada di dalam file ini.
 CARA MENAMBAH MATERI / HALAMAN BERIKUTNYA:
 1. Cari komentar "MULAI MATERI BUKU" di bagian <main>.
 2. Tambahkan isi pada <article id="bab-5"> atau bab yang sesuai.
-   Versi ini sudah memuat Bab I–IV (halaman buku 1–36).
+   Versi ini sudah memuat Bab I–V (halaman buku 1–60).
 3. Setiap subbagian harus mempunyai ID unik, class="reading-section",
    data-label (huruf bagian), dan data-pages (nomor halaman buku, dipisah koma).
 4. Contoh struktur — tambahkan di dalam artikel bab, sebelum chapter-pager:
@@ -119,7 +137,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <span><span class="brand-name">IPHI</span><small>PANDUAN IBADAH</small></span>
 </a>
 <nav class="top-nav" aria-label="Menu situs">
-<a href="index.html">Beranda</a><a href="umroh.html">Doa Umrah</a><a href="bimbingan-manasik-haji.html" class="active" aria-current="page">Manasik Haji</a>
+<a href="index.html">Beranda</a><a href="umroh.html">Doa Umrah</a><a href="bimbingan-haji.html" class="active" aria-current="page">Manasik Haji</a>
 </nav>
 <div class="header-actions requires-js">
 <button class="icon-button" id="themeToggle" type="button" aria-label="Beralih ke mode gelap" title="Mode gelap"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg></button>
@@ -130,17 +148,17 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <main>
 <section class="hero shell" aria-labelledby="pageTitle">
 <div class="hero-copy">
-<div class="hero-tag"><svg class="icon star" aria-hidden="true"><use href="#i-star"/></svg>BEKAL ILMU MENUJU TANAH SUCI</div>
-<div class="basmala" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+<div class="hero-tag"><svg class="icon star" aria-hidden="true"><use href="#i-star"/></svg>BEKAL ILMU MENUJU TANAH SUCI · ARAB BERHARAKAT · LATIN &amp; ARTI</div>
+<div class="basmala" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><div class="basmala-latin"><strong>Bismillahir rahmanir rahim</strong>Dengan nama Allah Yang Maha Pengasih, Maha Penyayang</div>
 <h1 id="pageTitle">Bimbingan<br><em>Manasik Haji</em></h1>
-<p class="hero-description">Menata niat, memperdalam ilmu, dan mempersiapkan ibadah. Temani perjalanan ke Baitullah dengan bekal yang bermakna.</p>
+<p class="hero-description">Menata niat, memperdalam ilmu, dan mempersiapkan ibadah. Seluruh teks Arab dilengkapi harakat dan tanda baca, cara baca latin, serta artinya. Temani perjalanan ke Baitullah dengan bekal yang bermakna.</p>
 <div class="hero-buttons">
 <a class="primary-button" href="#ruang-baca" id="startReading"><span id="startLabel">Mulai membaca</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
 <button class="outline-button requires-js" type="button" data-dialog="contentsDialog"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Jelajahi bab</button>
 </div>
 <div class="hero-meta">
-<span><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><b id="availableCount">4 bab</b> tersedia</span>
-<span><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><b id="sourcePageCount">36 halaman</b> sumber</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><b id="availableCount">5 bab</b> tersedia</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><b id="sourcePageCount">60 halaman</b> sumber</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Nyaman di setiap layar</span>
 </div>
 </div>
@@ -211,12 +229,16 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 </div>
 </div>
 <noscript><style>.requires-js,.reading-toolbar,.sidebar,.chapter-pager{display:none!important}#chapterViews .chapter[hidden]{display:block!important}.reader-grid{display:block}</style><p class="pending-message">JavaScript dinonaktifkan. Semua materi yang tersedia tetap dapat dibaca di bawah. Aktifkan JavaScript untuk pencarian, penanda, dan navigasi bab.</p></noscript>
+<div class="notation-note" role="note">
+<span class="notation-title">Cara membaca halaman ini</span>
+Seluruh teks Arab pada edisi ini sudah diberi <b>harakat lengkap</b> dan <b>tanda baca Arab</b>: <span class="ar-mark">،</span> (koma), <span class="ar-mark">.</span> (berhenti), <span class="ar-mark">؟</span> (pertanyaan), serta lambang <span class="ar-mark">ﷺ</span> sebagai singkatan <i>shallallahu ‘alaihi wa sallam</i>. Di bawah setiap teks Arab tersedia <b>cara baca (latin)</b> dan <b>artinya</b>; khusus kutipan hadis, arti memakai terjemahan yang sudah tersedia pada label <b>ARTINYA</b>. Tulisan <i>miring</i> adalah transliterasi latin, bukan ejaan asli Arab. Tanda <b>/</b> pada bacaan niat berarti <b>pilih salah satu</b> — misalnya <i>imaman/ma’muman</i> (imam atau makmum) dan <i>lahu/laha/lahum</i> (untuk laki-laki, perempuan, atau banyak). Bila tulisan Arab terasa kecil, gunakan tombol ukuran teks pada bilah baca.
+</div>
 <div class="reader-grid">
 <aside class="sidebar requires-js" aria-label="Navigasi buku">
 <div class="sidebar-card">
-<div class="sidebar-title"><span>Daftar bab</span><small id="chapterCounter">4 / 9</small></div>
+<div class="sidebar-title"><span>Daftar bab</span><small id="chapterCounter">5 / 9</small></div>
 <nav id="chapterNav" aria-label="Bab dan subbagian"></nav>
-<div class="sidebar-source"><div class="source-label"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><div><strong>KBIHU IPHI Pati</strong><span id="sidebarPageRange">Halaman buku 1–36</span></div></div><button class="text-button" type="button" data-dialog="sourceDialog">Tentang materi <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button></div>
+<div class="sidebar-source"><div class="source-label"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><div><strong>KBIHU IPHI Pati</strong><span id="sidebarPageRange">Halaman buku 1–60</span></div></div><button class="text-button" type="button" data-dialog="sourceDialog">Tentang materi <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button></div>
 </div>
 <div class="learning-progress"><div class="learning-progress-head"><span>Jejak belajar</span><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></div><div class="progress-track" role="progressbar" id="learningProgress" aria-label="Bagian yang sudah ditandai selesai" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="learningFill"></div></div><p id="learningLabel">0 dari 16 bagian sudah dibaca</p></div>
 </aside>
@@ -234,7 +256,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <!-- MULAI MATERI BUKU: tambahkan halaman dan subbagian di artikel bab berikut. -->
 <article id="bab-1" class="chapter" data-roman="I" data-nav-title="Adab, fadhilah &amp; hikmah haji" aria-labelledby="bab-1-title">
 <header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB I · HALAMAN 1–5</span><span class="chapter-indicator">3 bagian</span></div><h2 id="bab-1-title">Adab, fadhilah dan hikmah haji</h2><p class="chapter-blurb">Pelajari adab sebelum berangkat, fadhilah ibadah haji, serta hikmah yang dapat menjadi bekal perjalanan.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
-<div class="source-strip"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Alih teks buku KBIHU IPHI Pati<span class="source-long"> · Ejaan mengikuti sumber, Arab tanpa harakat.</span></span><button class="text-button requires-js" type="button" data-dialog="sourceDialog">Catatan sumber ↗</button></div>
+<div class="source-strip"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Alih teks buku KBIHU IPHI Pati<span class="source-long"> · Ejaan mengikuti sumber.</span></span><button class="text-button requires-js" type="button" data-dialog="sourceDialog">Catatan sumber ↗</button></div>
 <section class="reading-section" id="adab-haji" data-label="A" data-pages="1"><h3>Adab (Tata Krama) Haji</h3>
 <ol class="lesson-list" start="1">
 <li data-number="01"><p>Hanya semata karena Allah SWT</p>
@@ -273,15 +295,15 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <p class="source-reference">Imam Nawawi, Arruknul khomis al-hajj, hal. 502</p>
 </section>
 <section class="reading-section" id="fadhilah-haji" data-label="B" data-pages="2,3,4,5"><h3>Fadhilah Haji</h3>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 01</span><small>Halaman 2</small></div><p class="arabic" lang="ar" dir="rtl">عن أبي هريرة رضي الله عنه قال: سئل رسول الله صلى الله عليه وسلم: أي الأعمال أفضل؟ قال: إيمان بالله ورسوله. قيل: ثم ماذا؟ قال: جهاد في سبيل الله. ثم ماذا؟ قال: حج مبرور (متفق عليه)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw ditanya: Amal apa yang paling utama? Beliau menjawab: Iman kepada Allah dan RasulNya. Beliau ditanya lagi, kemudian amal apa? Beliau menjawab: Jihad fi sabilillah. Kemudian apa lagi? Beliau menjawab lagi: Haji yang mabrur</p><p class="citation">(HR Bukhari dan Muslim dari Abi Hurairah)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 02</span><small>Halaman 2</small></div><p class="arabic" lang="ar" dir="rtl">عن عائشة رضي الله عنها أنها قالت: يا رسول الله، نرى الجهاد أفضل العمل، أفلا نجاهد؟ قال: لكن أفضل الجهاد حج مبرور (رواه البخاري)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>A’isyah bertanya: Ya Rasulullah, kami memandang jihad sebagai amal yang paling utama, tidakkah kami ikut berjihad? Rasulullah menjawab: Bagi kalian ada jihad yang paling utama yakni haji yang mabrur.</p><p class="citation">(HR Bukhari dari A’isyah)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 03</span><small>Halaman 2–3</small></div><p class="arabic" lang="ar" dir="rtl">عن أبي هريرة، أن رسول الله صلى الله عليه وسلم قال: العمرة إلى العمرة كفارة لما بينهما، والحج المبرور ليس له جزاء إلا الجنة (متفق عليه)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Sesungguhnya Rasulullah saw bersabda: Umrah yang satu ke umrah yang lainnya adalah pelebur dosa diantara masa keduanya, dan haji yang mabrur tiada balasan kecuali syurga.</p><p class="citation">(HR Bukhari dan Muslim dari Abi Hurairah)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 04</span><small>Halaman 3</small></div><p class="arabic" lang="ar" dir="rtl">حدثنا آدم حدثنا شعبة حدثنا سيار أبو الحكم قال سمعت أبا حازم قال سمعت أبا هريرة رضي الله عنه قال سمعت النبي صلى الله عليه وسلم يقول: من حج لله فلم يرفث ولم يفسق رجع كيوم ولدته أمه (رواه الشيخان وابن ماجه والدارى وابن خزيمة وابن حبان)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw bersabda: Barangsiapa menunaikan ibadah haji dengan tidak berbuat rafats (bersetubuh atau nafsu birahi), dan tidak pula berbuat fasiq, maka ia akan kembali seperti waktu sang ibu melahirkannya.</p><p class="citation">(HR Bukhari, Muslim, Ibnu Majah, ad Darimy, Ibnu Khuzaimah, dan Ibnu Hibban, dari Abi Hurairah)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 05</span><small>Halaman 3</small></div><p class="arabic" lang="ar" dir="rtl">عن أبي هريرة، عن رسول الله أنه قال: الحجاج والعمار وفد الله، إن دعوه أجابهم، وإن استغفروه غفر لهم (رواه إبن ماجه)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw bersabda: Jama’ah haji dan jama’ah umrah adalah tamu-tamu Allah, apabila mereka berdoa akan dikabulkan dan apabila memohon ampunan akan diampuni.</p><p class="citation">(HR Ibn Majah, dari Abi Hurairah)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 06</span><small>Halaman 4</small></div><p class="arabic" lang="ar" dir="rtl">عن ابن عمر، عن النبي قال: الغازي في سبيل الله عز وجل والحاج والمعتمر وفد الله دعاهم فأجابوه وسألوه فأعطاهم (رواه إبن ماجه)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Nabi Muhammad saw bersabda: Orang yang berperang di jalan Allah ‘Azza wa Jalla, orang yang menunaikan haji, dan orang yang menunaikan umrah adalah tamu-tamu Allah. Allah menyeru, mereka memenuhinya, dan sebaliknya mereka memohon, maka Allah memenuhinya.</p><p class="citation">(HR Ibnu Majah dari Ibnu Umar)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 07</span><small>Halaman 4</small></div><p class="arabic" lang="ar" dir="rtl">عن عبد الله بريدة عن أبيه قال: قال رسول الله صلى الله عليه وسلم: النفقة في الحج، كالنفقة في سبيل الله بسبعمائة ضعف (رواه أحمد)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw bersabda: Menafkahkan harta untuk haji itu seperti halnya menafkahkan untuk sabilillah dengan pahala tujuh ratus kali lipat.</p><p class="citation">(HR Ahmad)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 08</span><small>Halaman 4–5</small></div><p class="arabic" lang="ar" dir="rtl">عن الحارث عن علي، قال: قال رسول الله صلى الله عليه وسلم: من ملك زادا أو راحلة تبلغه إلى بيت الله، ولم يحج فلا عليه أن يموت يهوديا أو نصرانيا (رواه الترمذي)</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah bersabda: Barang siapa memiliki bekal dan transportasi yang dapat mengantarkannya ke Baitullah akan tetapi tidak juga menunaikan haji, maka jangan menyalahkan selain dirinya sendiri bila nantinya ia mati sebagai Yahudi atau Nasrani</p><p class="citation">(HR Tirmidzi dari Aly)</p></div></div>
-<div class="hadith-card"><div class="hadith-top"><span>Hadis 09</span><small>Halaman 5</small></div><p class="arabic" lang="ar" dir="rtl">من ابن عباس، عن الفضل، أو أحدهما عن الآخر قال: قال رسول الله صلى الله عليه وسلم: من أراد الحج فليتعجل، فإنه قد يمرض المريض، وتضل الضالة، وتعرض الحاجة.</p><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw, bersabda: Barang siapa berkehendak haji, bersegeralah, karena sungguh bisa jadi ia sakit, mengalami kesesatan, dan muncul kebutuhan yang baru.</p><p class="citation">(HR. Ibn Majah)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 01</span><small>Halaman 2</small></div><p class="arabic" lang="ar" dir="rtl">عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: سُئِلَ رَسُولُ اللَّهِ ﷺ: أَيُّ الْأَعْمَالِ أَفْضَلُ؟ قَالَ: إِيمَانٌ بِاللَّهِ وَرَسُولِهِ. قِيلَ: ثُمَّ مَاذَا؟ قَالَ: جِهَادٌ فِي سَبِيلِ اللَّهِ. ثُمَّ مَاذَا؟ قَالَ: حَجٌّ مَبْرُورٌ (مُتَّفَقٌ عَلَيْهِ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">An Abi Hurairah radhiyallahu ‘anhu qala: su’ila Rasulullah shallallahu ‘alaihi wa sallam: ayyul a‘mali afdhal? Qala: imanun billahi wa rasulih. Qila: tsumma madza? Qala: jihadun fi sabilillah. Tsumma madza? Qala: hajjun mabrur. (Muttafaqun ‘alaih)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw ditanya: Amal apa yang paling utama? Beliau menjawab: Iman kepada Allah dan RasulNya. Beliau ditanya lagi, kemudian amal apa? Beliau menjawab: Jihad fi sabilillah. Kemudian apa lagi? Beliau menjawab lagi: Haji yang mabrur</p><p class="citation">(HR Bukhari dan Muslim dari Abi Hurairah)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 02</span><small>Halaman 2</small></div><p class="arabic" lang="ar" dir="rtl">عَنْ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا أَنَّهَا قَالَتْ: يَا رَسُولَ اللَّهِ، نَرَى الْجِهَادَ أَفْضَلَ الْعَمَلِ، أَفَلَا نُجَاهِدُ؟ قَالَ: لَكِنَّ أَفْضَلَ الْجِهَادِ حَجٌّ مَبْرُورٌ (رَوَاهُ الْبُخَارِيُّ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">‘An ‘Aisyah radhiyallahu ‘anha annaha qalat: ya Rasulallah, nara jihada afdhalal ‘amal, afala nujahid? Qala: lakinna afdhalal jihadi hajjun mabrur. (Rawahu al-Bukhari)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>A’isyah bertanya: Ya Rasulullah, kami memandang jihad sebagai amal yang paling utama, tidakkah kami ikut berjihad? Rasulullah menjawab: Bagi kalian ada jihad yang paling utama yakni haji yang mabrur.</p><p class="citation">(HR Bukhari dari A’isyah)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 03</span><small>Halaman 2–3</small></div><p class="arabic" lang="ar" dir="rtl">عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ: الْعُمْرَةُ إِلَى الْعُمْرَةِ كَفَّارَةٌ لِمَا بَيْنَهُمَا، وَالْحَجُّ الْمَبْرُورُ لَيْسَ لَهُ جَزَاءٌ إِلَّا الْجَنَّةَ (مُتَّفَقٌ عَلَيْهِ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">‘An Abi Hurairah, anna Rasulullah shallallahu ‘alaihi wa sallam qala: al-‘umratu ilal ‘umrati kaffaratun lima bainahuma, wal hajjul mabruru laisa lahu jaza’un illal jannah. (Muttafaqun ‘alaih)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Sesungguhnya Rasulullah saw bersabda: Umrah yang satu ke umrah yang lainnya adalah pelebur dosa diantara masa keduanya, dan haji yang mabrur tiada balasan kecuali syurga.</p><p class="citation">(HR Bukhari dan Muslim dari Abi Hurairah)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 04</span><small>Halaman 3</small></div><p class="arabic" lang="ar" dir="rtl">حَدَّثَنَا آدَمُ، حَدَّثَنَا شُعْبَةُ، حَدَّثَنَا سَيَّارٌ أَبُو الْحَكَمِ قَالَ: سَمِعْتُ أَبَا حَازِمٍ قَالَ: سَمِعْتُ أَبَا هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: سَمِعْتُ النَّبِيَّ ﷺ يَقُولُ: مَنْ حَجَّ لِلَّهِ فَلَمْ يَرْفُثْ وَلَمْ يَفْسُقْ رَجَعَ كَيَوْمِ وَلَدَتْهُ أُمُّهُ (رَوَاهُ الشَّيْخَانِ وَابْنُ مَاجَهْ وَالدَّارِيُّ وَابْنُ خُزَيْمَةَ وَابْنُ حِبَّانَ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Haddatsana Adam, haddatsana Syu‘bah, haddatsana Sayyar Abul Hakam qala: sami‘tu Aba Hazim qala: sami‘tu Aba Hurairah radhiyallahu ‘anhu qala: sami‘tun Nabiyya shallallahu ‘alaihi wa sallam yaqulu: man hajja lillahi falam yarfuts wa lam yafsuq raja‘a kayawmi waladathu ummuh. (Rawahu asy-Syaikhani wabnu Majah wad-Dari wabnu Khuzaimah wabnu Hibban)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw bersabda: Barangsiapa menunaikan ibadah haji dengan tidak berbuat rafats (bersetubuh atau nafsu birahi), dan tidak pula berbuat fasiq, maka ia akan kembali seperti waktu sang ibu melahirkannya.</p><p class="citation">(HR Bukhari, Muslim, Ibnu Majah, ad Darimy, Ibnu Khuzaimah, dan Ibnu Hibban, dari Abi Hurairah)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 05</span><small>Halaman 3</small></div><p class="arabic" lang="ar" dir="rtl">عَنْ أَبِي هُرَيْرَةَ، عَنْ رَسُولِ اللَّهِ ﷺ أَنَّهُ قَالَ: الْحُجَّاجُ وَالْعُمَّارُ وَفْدُ اللَّهِ، إِنْ دَعَوْهُ أَجَابَهُمْ، وَإِنِ اسْتَغْفَرُوهُ غَفَرَ لَهُمْ (رَوَاهُ ابْنُ مَاجَهْ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">‘An Abi Hurairah, ‘an Rasulillahi annahu qala: al-hujjaju wal ‘ummaru wafdullah, in da‘awhu ajabahum, wa in istaghfaruhu ghafara lahum. (Rawahu Ibnu Majah)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw bersabda: Jama’ah haji dan jama’ah umrah adalah tamu-tamu Allah, apabila mereka berdoa akan dikabulkan dan apabila memohon ampunan akan diampuni.</p><p class="citation">(HR Ibn Majah, dari Abi Hurairah)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 06</span><small>Halaman 4</small></div><p class="arabic" lang="ar" dir="rtl">عَنِ ابْنِ عُمَرَ، عَنِ النَّبِيِّ ﷺ قَالَ: الْغَازِي فِي سَبِيلِ اللَّهِ عَزَّ وَجَلَّ وَالْحَاجُّ وَالْمُعْتَمِرُ وَفْدُ اللَّهِ، دَعَاهُمْ فَأَجَابُوهُ، وَسَأَلُوهُ فَأَعْطَاهُمْ (رَوَاهُ ابْنُ مَاجَهْ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">‘Anibni ‘Umar, ‘anin Nabiyyi shallallahu ‘alaihi wa sallam qala: al-ghazi fi sabilillahi ‘azza wa jalla wal hajju wal mu‘tamiru wafdullah, da‘ahum fa ajabuhu, wa sa’aluhu fa a‘thahum. (Rawahu Ibnu Majah)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Nabi Muhammad saw bersabda: Orang yang berperang di jalan Allah ‘Azza wa Jalla, orang yang menunaikan haji, dan orang yang menunaikan umrah adalah tamu-tamu Allah. Allah menyeru, mereka memenuhinya, dan sebaliknya mereka memohon, maka Allah memenuhinya.</p><p class="citation">(HR Ibnu Majah dari Ibnu Umar)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 07</span><small>Halaman 4</small></div><p class="arabic" lang="ar" dir="rtl">عَنْ عَبْدِ اللَّهِ بُرَيْدَةَ عَنْ أَبِيهِ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: النَّفَقَةُ فِي الْحَجِّ، كَالنَّفَقَةِ فِي سَبِيلِ اللَّهِ بِسَبْعِمِائَةِ ضِعْفٍ (رَوَاهُ أَحْمَدُ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">‘An ‘Abdillah Buraidah ‘an abihi qala: qala Rasulullah shallallahu ‘alaihi wa sallam: an-nafaqatu fil hajji, kan-nafaqati fi sabilillahi bisab‘imiati dhi‘f. (Rawahu Ahmad)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw bersabda: Menafkahkan harta untuk haji itu seperti halnya menafkahkan untuk sabilillah dengan pahala tujuh ratus kali lipat.</p><p class="citation">(HR Ahmad)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 08</span><small>Halaman 4–5</small></div><p class="arabic" lang="ar" dir="rtl">عَنِ الْحَارِثِ عَنْ عَلِيٍّ، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: مَنْ مَلَكَ زَادًا أَوْ رَاحِلَةً تُبَلِّغُهُ إِلَى بَيْتِ اللَّهِ، وَلَمْ يَحُجَّ فَلَا عَلَيْهِ أَنْ يَمُوتَ يَهُودِيًّا أَوْ نَصْرَانِيًّا (رَوَاهُ التِّرْمِذِيُّ)</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">‘Anil Haritsi ‘an ‘Aliyyin, qala: qala Rasulullah shallallahu ‘alaihi wa sallam: man malaka zadan au rahilatan tuballighuhu ila baitillah, wa lam yahujja fala ‘alaihi an yamuta yahudiyyan au nashraniyya. (Rawahu at-Tirmidzi)</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah bersabda: Barang siapa memiliki bekal dan transportasi yang dapat mengantarkannya ke Baitullah akan tetapi tidak juga menunaikan haji, maka jangan menyalahkan selain dirinya sendiri bila nantinya ia mati sebagai Yahudi atau Nasrani</p><p class="citation">(HR Tirmidzi dari Aly)</p></div></div>
+<div class="hadith-card"><div class="hadith-top"><span>Hadis 09</span><small>Halaman 5</small></div><p class="arabic" lang="ar" dir="rtl">مِنَ ابْنِ عَبَّاسٍ، عَنِ الْفَضْلِ، أَوْ أَحَدِهِمَا عَنِ الْآخَرِ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: مَنْ أَرَادَ الْحَجَّ فَلْيَتَعَجَّلْ، فَإِنَّهُ قَدْ يَمْرَضُ الْمَرِيضُ، وَتَضِلُّ الضَّالَّةُ، وَتَعْرِضُ الْحَاجَةُ.</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Min ibni ‘Abbas, ‘anil Fadhli, au ahadihima ‘anil akhari qala: qala Rasulullah shallallahu ‘alaihi wa sallam: man aradal hajja falyata‘ajjal, fa innahu qad yamradhul maridh, wa tadhiludh dhallah, wa ta‘ridhul hajah.</p></div><div class="translation-block"><span class="translation-label">ARTINYA</span><p>Rasulullah saw, bersabda: Barang siapa berkehendak haji, bersegeralah, karena sungguh bisa jadi ia sakit, mengalami kesesatan, dan muncul kebutuhan yang baru.</p><p class="citation">(HR. Ibn Majah)</p></div></div>
 </section>
 <section class="reading-section" id="hikmah-haji" data-label="C" data-pages="5"><h3>Hikmah dan Faidah Haji</h3>
 <ol class="lesson-list" start="1">
@@ -538,7 +560,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <h5 class="subtopic-heading">c. Rukun-rukun mandi:</h5>
 <ol class="lesson-list" start="1">
 <li data-number="01"><p>Niat, misalnya:</p>
-<div class="prayer-card" data-source-page="14"><p class="arabic" lang="ar" dir="rtl">نويت الغسل لرفع الحدث الأكبر فرضا لله تعالى</p></div>
+<div class="prayer-card" data-source-page="14"><p class="arabic" lang="ar" dir="rtl">نَوَيْتُ الْغُسْلَ لِرَفْعِ الْحَدَثِ الْأَكْبَرِ فَرْضًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Nawaitul ghusla liraf‘il hadatsil akbari fardhan lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku berniat mandi untuk menghilangkan hadas besar, fardhu karena Allah Ta‘ala.</p></div></div>
 </li>
 <li data-number="02"><p>Meratakan air ke seluruh tubuh.</p>
 </li>
@@ -619,7 +641,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <li data-number="12"><p>Tidak mengeringkan bekas basuhan dengan handuk atau yang lain</p>
 </li>
 <li data-number="13"><p>Membaca doa, di antaranya sebagai berikut:</p>
-<div class="prayer-card" data-source-page="17"><p class="arabic" lang="ar" dir="rtl">أشهد أن لا إله إلا الله وحده لا شريك له. وأشهد أن محمدا عبده ورسوله. اللهم اجعلني من التوابين واجعلني من المتطهرين واجعلني من عبادك الصالحين</p></div>
+<div class="prayer-card" data-source-page="17"><p class="arabic" lang="ar" dir="rtl">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ، اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ وَاجْعَلْنِي مِنْ عِبَادِكَ الصَّالِحِينَ</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Asyhadu an la ilaha illallah wahdahu la syarika lah, wa asyhadu anna Muhammadan ‘abduhu wa rasuluh. Allahummaj‘alni minat-tawwabin waj‘alni minal-mutathahhirin waj‘alni min ‘ibadikash shalihin.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku bersaksi bahwa tiada tuhan selain Allah, Yang Maha Tunggal, tiada sekutu bagi-Nya; dan aku bersaksi bahwa Muhammad adalah hamba dan Rasul-Nya. Ya Allah, jadikanlah aku termasuk orang-orang yang bertaubat, jadikanlah aku termasuk orang-orang yang bersuci, dan jadikanlah aku termasuk hamba-hamba-Mu yang saleh.</p></div></div>
 </li>
 <li data-number="14"><p>Kemudian dilanjutkan dengan shalat sunnat wudhu sebanyak 2 (dua) rakaat</p>
 </li>
@@ -680,7 +702,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 </ol>
 <h4 class="topic-heading">11. Istinjak (bersuci setelah buang air besar atau kecil)</h4>
 <h5 class="subtopic-heading">a. Pengertian Istinjak</h5>
-<p>Istinja’ menurut bahasa artinya terlepas atau selamat, dari bahasa Arab <span class="inline-arabic" lang="ar" dir="rtl">الاستنجاء.</span> Sedangkan istinja menurut istilah syar’i adalah bersuci sesudah buang air besar atau buang air kecil.</p>
+<p>Istinja’ menurut bahasa artinya terlepas atau selamat, dari bahasa Arab <span class="inline-arabic" lang="ar" dir="rtl">الاستنجاء</span> <span class="inline-latin" title="bersuci/terlepas dari kotoran">(<i>al-istinja‘</i>)</span> Sedangkan istinja menurut istilah syar’i adalah bersuci sesudah buang air besar atau buang air kecil.</p>
 <p>Beristinja hukumnya wajib bagi orang yang baru saja buang air besar maupun buang air kecil, baik dengan air ataupun dengan benda selain air.</p>
 <p>Benda selain air yang dapat digunakan untuk beristinja ialah benda yang keras dan kesat seperti batu, kertas atau daun-daun yang sudah kering. Dengan catatan benda-benda tersebut tidak muhtaram (dimuliakan).</p>
 <h5 class="subtopic-heading">b. Cara Beristinjak</h5>
@@ -977,7 +999,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <h5 class="subtopic-heading">Rukun Tayamum:</h5>
 <ol class="lesson-list" start="1">
 <li data-number="01"><p>Niat bertayamum sewaktu menyapu wajah</p>
-<div class="prayer-card" data-source-page="28"><p class="arabic" lang="ar" dir="rtl">نويت التيمم بدلا عن الوضوء فرضا لله تعالى</p></div>
+<div class="prayer-card" data-source-page="28"><p class="arabic" lang="ar" dir="rtl">نَوَيْتُ التَّيَمُّمَ بَدَلًا عَنِ الْوُضُوءِ فَرْضًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Nawaitut tayammuma badalan ‘anil wudhu’i fardhan lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku berniat tayamum sebagai ganti wudhu, fardhu karena Allah Ta‘ala.</p></div></div>
 </li>
 <li data-number="02"><p>Menyapu wajah dengan debu yang suci</p>
 </li>
@@ -1070,21 +1092,21 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <p>1. (untuk jama’ ta’khir, tidak disyaratkan sesuai urutan shalat, hukumnya hanya sunnah)</p>
 <h4 class="topic-heading">2. Contoh niat shalat jama’ sekaligus qashar:</h4>
 <h5 class="subtopic-heading">a. Niat sholat Dzuhur Jama’ Taqdim Qoshor</h5>
-<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض الظهر مجموعا بالعصر جمع تقديم قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الظُّهْرِ مَجْمُوعًا بِالْعَصْرِ جَمْعَ تَقْدِيمٍ قَصْرًا رَكْعَتَيْنِ إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhadh-dhuhri majmu‘an bil-‘ashri jam‘a taqdimin qashran rak‘ataini imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Dzuhur, dijamak dengan Ashar, jama‘ taqdim, diqashar dua rakaat, sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 <h5 class="subtopic-heading">b. Niat sholat Ashar Jama’ Taqdim Qoshor</h5>
-<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العصر مجموعا بالظهر جمع تقديم قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الْعَصْرِ مَجْمُوعًا بِالظُّهْرِ جَمْعَ تَقْدِيمٍ قَصْرًا رَكْعَتَيْنِ إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhal-‘ashri majmu‘an bidh-dhuhri jam‘a taqdimin qashran rak‘ataini imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Ashar, dijamak dengan Dzuhur, jama‘ taqdim, diqashar dua rakaat, sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 <h5 class="subtopic-heading">c. Niat sholat Dzuhur Jama’ Ta’khir Qoshor</h5>
-<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض الظهر مجموعا بالعصر جمع تأخير قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الظُّهْرِ مَجْمُوعًا بِالْعَصْرِ جَمْعَ تَأْخِيرٍ قَصْرًا رَكْعَتَيْنِ إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhadh-dhuhri majmu‘an bil-‘ashri jam‘a ta’khirin qashran rak‘ataini imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Dzuhur, dijamak dengan Ashar, jama‘ ta’khir, diqashar dua rakaat, sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 <h5 class="subtopic-heading">d. Niat sholat ‘Ashar jama’ Ta’khir Qoshor</h5>
-<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العصر مجموعا بالظهر جمع تأخير قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الْعَصْرِ مَجْمُوعًا بِالظُّهْرِ جَمْعَ تَأْخِيرٍ قَصْرًا رَكْعَتَيْنِ إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhal-‘ashri majmu‘an bidh-dhuhri jam‘a ta’khirin qashran rak‘ataini imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Ashar, dijamak dengan Dzuhur, jama‘ ta’khir, diqashar dua rakaat, sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 <h5 class="subtopic-heading">e. Niat sholat Maghrib jama’ Taqdim</h5>
-<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض المغرب ثلاث ركعات مجموعا بالعشاء جمع تقديم إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الْمَغْرِبِ ثَلَاثَ رَكَعَاتٍ مَجْمُوعًا بِالْعِشَاءِ جَمْعَ تَقْدِيمٍ إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhal-maghribi tsalatsa raka‘atin majmu‘an bil-‘isya’i jam‘a taqdimin imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Maghrib tiga rakaat, dijamak dengan Isya, jama‘ taqdim, sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 <h5 class="subtopic-heading">f. Niat sholat ‘Isya Jama’ Taqdim Qoshor</h5>
-<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العشاء مجموعا بالمغرب جمع تقديم قصرا ركعتين إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="31"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الْعِشَاءِ مَجْمُوعًا بِالْمَغْرِبِ جَمْعَ تَقْدِيمٍ قَصْرًا رَكْعَتَيْنِ إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhal-‘isya’i majmu‘an bil-maghribi jam‘a taqdimin qashran rak‘ataini imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Isya, dijamak dengan Maghrib, jama‘ taqdim, diqashar dua rakaat, sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 <h5 class="subtopic-heading">g. Niat sholat Maghrib jama’ Ta’khir</h5>
-<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي فرض المغرب ثلاث ركعات مجموعا بالعشاء جمع تأخير أداء إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الْمَغْرِبِ ثَلَاثَ رَكَعَاتٍ مَجْمُوعًا بِالْعِشَاءِ جَمْعَ تَأْخِيرٍ أَدَاءً إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhal-maghribi tsalatsa raka‘atin majmu‘an bil-‘isya’i jam‘a ta’khirin ada’an imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Maghrib tiga rakaat, dijamak dengan Isya, jama‘ ta’khir, ditunaikan pada waktunya (ada’), sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 <h5 class="subtopic-heading">h. Niat sholat ‘Isya jama’ ta’khir dan Qoshor</h5>
-<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي فرض العشاء مجموعا بالمغرب جمع تأخير قصرا ركعتين أداء إماما/مأموما لله تعالى</p></div>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي فَرْضَ الْعِشَاءِ مَجْمُوعًا بِالْمَغْرِبِ جَمْعَ تَأْخِيرٍ قَصْرًا رَكْعَتَيْنِ أَدَاءً إِمَامًا/مَأْمُومًا لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli fardhal-‘isya’i majmu‘an bil-maghribi jam‘a ta’khirin qashran rak‘ataini ada’an imaman/ma’muman lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat fardhu Isya, dijamak dengan Maghrib, jama‘ ta’khir, diqashar dua rakaat, ditunaikan pada waktunya (ada’), sebagai imam/makmum, karena Allah Ta‘ala.</p></div></div>
 </section>
 <section class="reading-section" id="shalat-janazah" data-label="E" data-pages="32,33"><h3>Shalat Janazah</h3>
 <p>Hampir setiap waktu (khususnya setelah selesai jama’ah shalat maktubah) di Masjidil Haram maupun di Masjid Nabawi, selalu dilaksanakan shalat janazah dengan berjama’ah.</p>
@@ -1093,9 +1115,9 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <ol class="lesson-list" start="1">
 <li data-number="01"><p>Takbiratul ihram yang disertai niat,</p>
 <p>Misalnya sebagai berikut:</p>
-<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي على هذا الميت أربع تكبيرات إماما/مأموما فرض كفاية لله تعالى</p></div>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي عَلَى هَذَا الْمَيِّتِ أَرْبَعَ تَكْبِيرَاتٍ إِمَامًا/مَأْمُومًا فَرْضَ كِفَايَةٍ لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli ‘ala hadzal mayyiti arba‘a takbiratin imaman/ma’muman fardha kifayatin lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat atas jenazah ini, empat takbir, sebagai imam/makmum, fardhu kifayah, karena Allah Ta‘ala.</p></div></div>
 <p>apabila janazahnya banyak</p>
-<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أصلي على هؤلاء الأموات أربع تكبيرات إماما/مأموما فرض كفاية لله تعالى</p></div>
+<div class="prayer-card" data-source-page="32"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي عَلَى هَؤُلَاءِ الْأَمْوَاتِ أَرْبَعَ تَكْبِيرَاتٍ إِمَامًا/مَأْمُومًا فَرْضَ كِفَايَةٍ لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli ‘ala ha’ula’il amwati arba‘a takbiratin imaman/ma’muman fardha kifayatin lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat atas jenazah-jenazah ini, empat takbir, sebagai imam/makmum, fardhu kifayah, karena Allah Ta‘ala.</p></div></div>
 <p>Selesai takbiratul ihram, dilanjutkan membaca surat al-Fatihah</p>
 </li>
 <li data-number="02"><p>Takbir kedua</p>
@@ -1103,11 +1125,11 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 </li>
 <li data-number="03"><p>Takbir ketiga</p>
 <p>Dilanjutkan membaca doa untuk orang yang wafat, yang janazahnya kita shalatkan, sebagai berikut:</p>
-<div class="prayer-card" data-source-page="33"><p class="arabic" lang="ar" dir="rtl">اللهم اغفر له/لها/لهم، وارحمه/ها/هم، وعافه/ها/هم، واعف عنه/عنها/عنهم .......</p></div>
+<div class="prayer-card" data-source-page="33"><p class="arabic" lang="ar" dir="rtl">اللَّهُمَّ اغْفِرْ لَهُ/لَهَا/لَهُمْ، وَارْحَمْهُ/هَا/هُمْ، وَعَافِهِ/هَا/هُمْ، وَاعْفُ عَنْهُ/عَنْهَا/عَنْهُمْ .......</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Allahummaghfir lahu/laha/lahum, warhamhu/ha/hum, wa ‘afihi/ha/hum, wa‘fu ‘anhu/‘anha/‘anhum .......</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Ya Allah, ampunilah dia (laki-laki/perempuan/mereka), rahmatilah dia, sehatkanlah dia, dan maafkanlah dia .......</p></div></div>
 </li>
 <li data-number="04"><p>Takbir keempat</p>
 <p>Dilanjutkan dengan doa pendek, sbb:</p>
-<div class="prayer-card" data-source-page="33"><p class="arabic" lang="ar" dir="rtl">اللهم لا تحرمنا أجره/ها/هم، ولا تفتنا بعده/ها/هم، واغفر لنا وله/ولها/ولهم</p></div>
+<div class="prayer-card" data-source-page="33"><p class="arabic" lang="ar" dir="rtl">اللَّهُمَّ لَا تَحْرِمْنَا أَجْرَهُ/هَا/هُمْ، وَلَا تَفْتِنَّا بَعْدَهُ/هَا/هُمْ، وَاغْفِرْ لَنَا وَلَهُ/وَلَهَا/وَلَهُمْ</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Allahumma la tahrimna ajrahu/ha/hum, wa la taftinna ba‘dahu/ha/hum, waghfir lana wa lahu/walaha/walahum.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Ya Allah, janganlah Engkau haramkan kami dari pahala(nya), janganlah Engkau fitnah (uji) kami sepeninggalnya, dan ampunilah kami serta dia.</p></div></div>
 </li>
 </ol>
 <p>atau boleh juga langsung salam.</p>
@@ -1148,13 +1170,684 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <p>Ketika masuk Masjidil Haram hendaknya melakukan thawaf sebagai penghormatan bagi Masjidil Haram. Apabila tidak ada niat untuk melakukan thawaf atau tidak memungkinkan untuk melakukannya maka disunnahkan untuk melakukan shalat tahiyyatul masjid.</p>
 <p>Cara shalat tahiyyatul masjid adalah seperti shalat biasa, sebanyak 2 (rakaat), hanya saja dengan niat tahiyyatul masjid.</p>
 <p>Lafadz niat shalat tahiyyatal masjid:</p>
-<div class="prayer-card" data-source-page="36"><p class="arabic" lang="ar" dir="rtl">أصلي سنة تحية المسجد ركعتين لله تعالى</p></div>
+<div class="prayer-card" data-source-page="36"><p class="arabic" lang="ar" dir="rtl">أُصَلِّي سُنَّةَ تَحِيَّةِ الْمَسْجِدِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Ushalli sunnata tahiyyatil masjidi rak‘ataini lillahi ta‘ala.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku shalat sunnah tahiyatul masjid dua rakaat, karena Allah Ta‘ala.</p></div></div>
 </section>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-5" class="chapter" data-roman="V" data-nav-title="Haji dan umrah" hidden aria-labelledby="bab-5-title">
-<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB V · HALAMAN —</span><span class="chapter-indicator">Belum diunggah</span></div><h2 id="bab-5-title">Haji dan umrah</h2><p class="chapter-blurb">Bagian ini tercantum dalam daftar isi buku. Isi babnya belum tersedia dalam dokumen scan yang telah diunggah.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
-<p class="pending-message">Materi bab ini belum diunggah. Halaman berikutnya dapat ditambahkan sebagai subbagian di dalam bab ini.</p>
+<header class="chapter-intro"><div class="chapter-intro-top"><span class="chapter-kicker">BAB V · HALAMAN 37–60</span><span class="chapter-indicator">15 bagian</span></div><h2 id="bab-5-title">Haji dan umrah</h2><p class="chapter-blurb">Pengertian dan hukum, syarat serta istitho’ah, rukun dan wajib haji, tiga cara pelaksanaan haji (tamattu’, ifrad, qiran), miqat, thawaf, sa’i, wukuf, mabit di Muzdalifah dan Mina, melontar jamrah, tahallul, nafar, larangan ihram, serta dam.</p><nav class="section-links requires-js" aria-label="Bagian di dalam bab"></nav></header>
+<div class="source-strip"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Alih teks buku KBIHU IPHI Pati<span class="source-long"> · Ejaan mengikuti sumber, Arab tanpa harakat pada aslinya; edisi ini ditambah harakat, cara baca latin, dan arti.</span></span><button class="text-button requires-js" type="button" data-dialog="sourceDialog">Catatan sumber ↗</button></div>
+<section class="reading-section" id="pengertian-dan-hukum" data-label="A" data-pages="37,38"><h3>Pengertian dan Hukum</h3>
+<h4 class="topic-heading">1. Pengertian</h4>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Haji ialah berkunjung ke Baitullah (Ka’bah) untuk melakukan amalan wukuf, thawaf, sa’i, dan amalan lainnya sesuai dengan ketentuan pada masa tertentu, untuk memenuhi panggilan Allah dan mengharapkan keridlaan-Nya.</p>
+</li>
+<li data-number="b"><p>Umrah ialah berkunjung ke Baitullah (Ka’bah) untuk melakukan amalan thawaf, sa’i dan bercukur sesuai dengan ketentuan untuk mengharapkan ridla Allah SWT.</p>
+</li>
+</ol>
+<h4 class="topic-heading">2. Landasan</h4>
+<p class="arabic" lang="ar" dir="rtl">وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Wa lillahi ‘alan-nasi hijjul baiti manistatha‘a ilaihi sabila.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>“Dan kewajiban manusia terhadap Allah adalah melaksanakan ibadah haji ke Baitullah, yaitu bagi orang yang mampu mengadakan perjalanan ke sana.” (QS. Ali Imran: 97)</p></div>
+<p class="arabic" lang="ar" dir="rtl">وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Wa atimmul hajja wal ‘umrata lillah.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>“Dan sempurnakanlah ibadah haji dan ‘umrah karena Allah.” (QS. Al-Baqarah: 196)</p></div>
+<h4 class="topic-heading">3. Hukum</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Haji dan umrah hukumnya wajib ‘ain bagi yang mampu sekali dalam seumur hidup.</p>
+</li>
+<li data-number="02"><p>Haji dan umrah yang kedua dan seterusnya hukumnya sunnah, kecuali bila dinadzarkan maka menjadi wajib.</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="syarat-haji" data-label="B" data-pages="38,39"><h3>Syarat</h3>
+<h4 class="topic-heading">1. Pengertian</h4>
+<p>Syarat ialah sesuatu yang harus dipenuhi sebelum melaksanakan Haji atau Umrah.</p>
+<h4 class="topic-heading">2. Syarat-syarat Wajib Haji</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Islam</p>
+</li>
+<li data-number="02"><p>Baligh</p>
+</li>
+<li data-number="03"><p>Berakal sehat</p>
+</li>
+<li data-number="04"><p>Merdeka</p>
+</li>
+<li data-number="05"><p>Istitho’ah (mampu)</p>
+</li>
+</ol>
+<h4 class="topic-heading">3. Pengertian Istitho’ah (mampu)</h4>
+<p>a. Mampu oleh dirinya sendiri, yaitu yang berkaitan dengan lima hal, yaitu:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Adanya kendaraan bagi yang berjarak masafatil qashri (jarak diperbolehkannya qashar shalat, sekitar 81 km atau lebih).</p>
+</li>
+<li data-number="02"><p>Adanya bekal untuk dirinya sendiri maupun untuk keluarga yang ditinggalkan yang menjadi tanggungan nafkahnya.</p>
+</li>
+<li data-number="03"><p>Adanya jaminan keamanan yang menyangkut nyawa, harta dan kehormatan dalam menempuh perjalanan (bagi perempuan harus ada suami, mahram atau perempuan lain yang dapat dipercaya).</p>
+</li>
+<li data-number="04"><p>Sehat jasmani. Sehat jasmani merupakan syarat utama bagi jamaah haji yang dinyatakan dengan keterangan istitho’ah kesehatan sebelum pelunasan dari Dinas Kesehatan.</p>
+</li>
+</ol>
+<p class="note-label">Keterangan:</p>
+<p>Istitho’ah ada empat kriteria:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Istitho’ah yaitu jamaah haji yang tanpa pendampingan.</p>
+</li>
+<li data-number="b"><p>Istitho’ah dengan pendampingan orang.</p>
+</li>
+<li data-number="c"><p>Istitho’ah dengan pendampingan obat.</p>
+</li>
+<li data-number="d"><p>Tidak istitho’ah.</p>
+</li>
+</ol>
+<ol class="lesson-list" start="1">
+<li data-number="05"><p>Ada kemungkinan dilaksanakan dalam tempo yang normal.</p>
+</li>
+</ol>
+<p>b. Mampu oleh orang lain, yaitu pelaksanaannya digantikan oleh orang lain, karena telah meninggal atau masih hidup tetapi secara fisik sudah tidak mampu lagi, tetapi disyaratkan adanya persetujuan dari orang yang bersangkutan.</p>
+<p class="source-reference">Al-Muhadzab, Imam Abu Ishaq asy-Syairazi, juz 1 halaman 196.</p>
+</section>
+<section class="reading-section" id="rukun-dan-wajib" data-label="C" data-pages="39,40,41"><h3>Rukun dan Wajib</h3>
+<h4 class="topic-heading">1. Pengertian</h4>
+<p>Rukun adalah amalan yang harus dikerjakan sendiri, tidak dapat digantikan orang lain walaupun dalam keadaan darurat dan juga tidak dapat diganti dengan dam. (Tanpa rukun, haji dan umrah tidak sah).</p>
+<p>Wajib adalah amalan yang harus dikerjakan, namun dalam keadaan tertentu dapat digantikan orang lain atau dapat diganti dengan dam.</p>
+<h4 class="topic-heading">2. Rukun dan Wajib Umrah</h4>
+<p>a. Rukun Umrah</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat ihram umrah. Contoh niat ihram umrah:</p>
+</li>
+<li data-number="02"><p>Thawaf</p>
+</li>
+<li data-number="03"><p>Sa’i</p>
+</li>
+<li data-number="04"><p>Tahallul</p>
+</li>
+<li data-number="05"><p>Tartib (melaksanakan urutan manasik sesuai aturan syar’i)</p>
+</li>
+</ol>
+<div class="prayer-card" data-source-page="40"><p class="arabic" lang="ar" dir="rtl">نَوَيْتُ الْعُمْرَةَ وَأَحْرَمْتُ بِهَا لِلَّهِ تَعَالَى atau لَبَّيْكَ اللَّهُمَّ عُمْرَةً</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Nawaitul ‘umrata wa ahramtu biha lillahi ta‘ala. Atau: Labbaika Allahumma ‘umratan.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku berniat umrah dan berihram dengannya karena Allah Ta‘ala. Atau: Aku datang memenuhi panggilan-Mu ya Allah untuk menunaikan umrah.</p></div></div>
+<p>b. Wajib Umrah</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Ihram dari miqat makany (batas tempat untuk memulai ihram)</p>
+</li>
+<li data-number="02"><p>Menjauhi larangan ihram sampai dengan tahallul.</p>
+</li>
+</ol>
+<h4 class="topic-heading">3. Rukun dan Wajib Haji</h4>
+<p>a. Rukun Haji</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat Ihram. Contoh niat:</p>
+</li>
+<li data-number="02"><p>Wukuf di Arafah</p>
+</li>
+<li data-number="03"><p>Thawaf Ifadlah</p>
+</li>
+<li data-number="04"><p>Sa’i</p>
+</li>
+<li data-number="05"><p>Tahallul</p>
+</li>
+<li data-number="06"><p>Tartib, pada sebagian rukun (misalnya sa’i harus dilakukan setelah thawaf, tidak boleh sebaliknya).</p>
+</li>
+</ol>
+<div class="prayer-card" data-source-page="40"><p class="arabic" lang="ar" dir="rtl">نَوَيْتُ الْحَجَّ وَأَحْرَمْتُ بِهِ لِلَّهِ تَعَالَى atau لَبَّيْكَ اللَّهُمَّ حَجًّا</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Nawaitul hajja wa ahramtu bihi lillahi ta‘ala. Atau: Labbaika Allahumma hajjan.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>Aku berniat haji dan berihram dengannya karena Allah Ta‘ala. Atau: Aku datang memenuhi panggilan-Mu ya Allah untuk menunaikan haji.</p></div></div>
+<p>b. Wajib Haji</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p><i>Ihram</i>, yaitu berniat haji dari <i>miqat makany</i></p>
+</li>
+<li data-number="02"><p>Menjauhi larangan <i>ihram</i> hingga <i>tahallul</i></p>
+</li>
+<li data-number="03"><p>Mabit di Muzdalifah</p>
+</li>
+<li data-number="04"><p>Mabit di Mina</p>
+</li>
+<li data-number="05"><p>Melontar jamrah Aqabah/Kubra pada tanggal 10 Dzulhijjah dan melontar tiga jamrah (‘Ula, Wustha dan Aqabah/Kubra) pada hari-hari Tasyriq (11, 12 dan 13 Dzulhijjah).</p>
+</li>
+<li data-number="06"><p>Thawaf wada’ (perpisahan) sebelum meninggalkan kota suci Makkah.</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="pelaksanaan-haji" data-label="D" data-pages="41,42,43"><h3>Pelaksanaan Haji</h3>
+<h4 class="topic-heading">1. Tamattu’</h4>
+<p>Pelaksanaan haji tamattu’ adalah mengerjakan umrah terlebih dahulu, kemudian mengerjakan haji. Haji tamattu’ ini wajib membayar dam.</p>
+<p>Urutan Tamattu’ adalah sebagai berikut:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat ihram umrah dari miqat</p>
+</li>
+<li data-number="02"><p>Thawaf</p>
+</li>
+<li data-number="03"><p>Sa’i</p>
+</li>
+<li data-number="04"><p>Potong atau cukur rambut (tahallul umrah)</p>
+</li>
+<li data-number="05"><p>Niat ihram haji dari pondokan (maktab Makkah)</p>
+</li>
+<li data-number="06"><p>Wukuf di Arafah</p>
+</li>
+<li data-number="07"><p>Mabit di Muzdalifah</p>
+</li>
+<li data-number="08"><p>Melontar jamrah Aqabah/Kubra</p>
+</li>
+<li data-number="09"><p>Potong atau cukur rambut (tahallul awwal)</p>
+</li>
+<li data-number="10"><p>Mabit di Mina pada hari-hari tasyriq</p>
+</li>
+<li data-number="11"><p>Melontar jamrah ‘Ula, Wustha dan Aqabah/Kubra pada hari-hari tasyriq</p>
+</li>
+<li data-number="12"><p>Thawaf Ifadlah</p>
+</li>
+<li data-number="13"><p>Sa’i (tahallul tsani)</p>
+</li>
+</ol>
+<p class="note-label">Keterangan:</p>
+<p>Jama’ah haji Indonesia lebih sering memilih cara haji tamattu’.</p>
+<h4 class="topic-heading">2. Ifrad</h4>
+<p>Pelaksanaan haji ifrad adalah mengerjakan haji terlebih dahulu, baru kemudian mengerjakan umrah. Haji ifrad ini tidak wajib membayar dam, tetapi dianjurkan untuk menyembelih hewan qurban.</p>
+<p>Urutan Ifrad adalah sebagai berikut:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat ihram haji dari miqat</p>
+</li>
+<li data-number="02"><p>Thawaf Qudum (thawaf yang dikerjakan ketika pertama kali datang di kota suci Makkah)</p>
+</li>
+<li data-number="03"><p>Sa’i (atau bisa dilakukan setelah thawaf ifadlah)</p>
+</li>
+<li data-number="04"><p>Wukuf di Arafah</p>
+</li>
+<li data-number="05"><p>Mabit di Muzdalifah</p>
+</li>
+<li data-number="06"><p>Melontar jamrah Aqabah/Kubra</p>
+</li>
+<li data-number="07"><p>Potong atau cukur rambut (tahallul awwal)</p>
+</li>
+<li data-number="08"><p>Mabit di Mina pada hari-hari tasyriq</p>
+</li>
+<li data-number="09"><p>Melontar jamrah ‘Ula, Wustha dan Aqabah/Kubra pada hari-hari tasyriq</p>
+</li>
+<li data-number="10"><p>Thawaf ifadlah</p>
+</li>
+<li data-number="11"><p>Sa’i (bagi yang belum tahallul tsani)</p>
+</li>
+<li data-number="12"><p>Niat ihram umrah dari miqat</p>
+</li>
+<li data-number="13"><p>Thawaf</p>
+</li>
+<li data-number="14"><p>Sa’i</p>
+</li>
+<li data-number="15"><p>Potong atau cukur rambut (tahallul umrah)</p>
+</li>
+</ol>
+<h4 class="topic-heading">3. Qiran</h4>
+<p>Pelaksanaan haji qiran adalah mengerjakan haji dan umrah sekaligus. Haji qiran ini wajib membayar dam.</p>
+<p class="note-label">Keterangan:</p>
+<p>Cara ini sering dilakukan bagi jama’ah yang karena sesuatu hal tidak dapat melanjutkan haji tamattu’ atau ifrad, termasuk bagi orang yang sakit atau wanita yang sedang haid/nifas sedangkan waktunya sangat terbatas.</p>
+<p>Urutan Qiran adalah sebagai berikut:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Niat ihram haji sekaligus umrah dari miqat</p>
+</li>
+<li data-number="02"><p>Thawaf qudum</p>
+</li>
+<li data-number="03"><p>Sa’i (atau bisa dilakukan setelah thawaf ifadhah)</p>
+</li>
+<li data-number="04"><p>Wukuf di Arafah</p>
+</li>
+<li data-number="05"><p>Mabit di Muzdalifah</p>
+</li>
+<li data-number="06"><p>Melontar jamrah Aqabah/Kubra</p>
+</li>
+<li data-number="07"><p>Potong atau cukur rambut (tahallul awwal)</p>
+</li>
+<li data-number="08"><p>Mabit di Mina pada hari-hari tasyriq</p>
+</li>
+<li data-number="09"><p>Melontar jamrah ‘Ula, Wustha dan Aqabah/Kubra pada hari-hari tasyriq</p>
+</li>
+<li data-number="10"><p>Thawaf ifadhah</p>
+</li>
+<li data-number="11"><p>Sa’i (bagi yang belum tahallul tsani)</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="miqat" data-label="E" data-pages="43,44,45"><h3>Miqat</h3>
+<h4 class="topic-heading">1. Miqat Haji</h4>
+<p>a. Miqat Zamany Haji</p>
+<p>Miqat zamany haji adalah batas waktu diperbolehkannya ihram haji, yaitu mulai tanggal 1 Syawwal sampai dengan terbitnya fajar tanggal 10 Dzulhijjah.</p>
+<p>b. Miqat Makany Haji</p>
+<p>Miqat makany haji adalah batas tempat tertentu untuk memulai ihram:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Bagi penduduk (muqimin) Makkah, miqat makaninya langsung dari kota suci Makkah.</p>
+</li>
+<li data-number="02"><p>Bagi penduduk luar kota Makkah, miqat makaninya adalah sebagai berikut:</p>
+</li>
+</ol>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Dzul Hulaifah/Bir Ali (sekitar 12 km selatan Madinah/sekitar 400 km utara Makkah). Miqat makany ini untuk jama’ah yang datang dari arah Madinah (pemberangkatan gelombang I Jama’ah Haji Indonesia).</p>
+</li>
+<li data-number="b"><p>Qarnul Manazil/As-Sailul Kabir (dari Indonesia sekitar 1 jam sebelum pesawat mendarat di Bandara King Abdul Aziz Jeddah). Miqat makany ini untuk jama’ah yang datang dari arah Nejd, Yaman, Hijaz dan dari Indonesia via Bandara King Abdul Aziz — Jeddah (pemberangkatan gelombang II Jama’ah Haji Indonesia).</p>
+</li>
+<li data-number="c"><p>Yalamlam/As-Sa’diyyah (sekitar 100 km selatan Makkah). Miqat makany ini untuk jama’ah dari arah Tihamah dan Yaman.</p>
+</li>
+<li data-number="d"><p>Juhfah/Robigh (sekitar 187 km barat laut Makkah). Miqat makany ini untuk jama’ah yang datang dari arah Syam, Mesir dan Maroko.</p>
+</li>
+<li data-number="e"><p>Dzatu ‘Irqin (sekitar 90 km barat laut Makkah). Miqat makany ini untuk jama’ah yang datang dari arah timur seperti Iraq.</p>
+</li>
+</ol>
+<h4 class="topic-heading">2. Miqat Umrah</h4>
+<p>a. Miqat Zamany Umrah</p>
+<p>Miqat zamany umrah adalah batas waktu diperbolehkannya ihram umrah. Miqat zamany umrah adalah sepanjang tahun.</p>
+<p>b. Miqat Makany Umrah</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Bagi penduduk (muqimin) Makkah, miqat makaninya adalah Ji’ranah, Tan’im atau Hudaibiyyah.</p>
+</li>
+<li data-number="02"><p>Bagi penduduk dari luar kota Makkah, miqat makaninya sebagaimana miqat makani haji.</p>
+</li>
+</ol>
+<p class="note-label">Keterangan:</p>
+<p>Bagi Jama’ah Haji Indonesia yang sudah bertempat di pondokan Makkah bila hendak melakukan umrah sunnah juga menggunakan miqat makany ini (Ji’ranah, Tan’im atau Hudaibiyyah).</p>
+</section>
+<section class="reading-section" id="thawaf" data-label="F" data-pages="45,46,47"><h3>Thawaf</h3>
+<h4 class="topic-heading">1. Pengertian Thawaf</h4>
+<p>Thawaf adalah mengelilingi ka’bah 7 (tujuh) kali putaran, berawal dan berakhir pada arah sejajar dengan rukun hajar aswad.</p>
+<h4 class="topic-heading">2. Macam-macam Thawaf</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Thawaf Ifadlah atau Thawaf Rukun. Harus dilakukan sendiri, tidak dapat diwakilkan dan juga tidak dapat diganti dengan dam.</p>
+</li>
+<li data-number="02"><p>Thawaf Qudum. Thawaf qudum adalah thawaf penghormatan kepada baitullah. Hukum thawaf qudum adalah sunnah bagi setiap orang yang datang ke Makkah. Bagi jamaah yang melaksanakan haji tamattu’, thawaf umrahnya sekaligus sebagai thawaf qudum.</p>
+</li>
+<li data-number="03"><p>Thawaf Wada’. Thawaf wada’ adalah thawaf perpisahan, dilakukan ketika jamaah haji akan meninggalkan Makkah (pulang ke tanah air bagi jamaah haji gelombang I dan menuju ke Madinah bagi jamaah haji gelombang II), sebagai penghormatan terakhir sekaligus berpamitan kepada baitullah. Thawaf wada’ hukumnya wajib. Apabila tidak melakukan thawaf wada’ tanpa ada udzur syar’i, maka wajib membayar dam.</p>
+</li>
+<li data-number="04"><p>Thawaf Sunnah. Thawaf sunnah dapat dilaksanakan setiap saat, setiap kali masuk Masjidil Haram. Kecuali apabila dinadzarkan maka hukumnya menjadi wajib.</p>
+</li>
+</ol>
+<p>Wanita yang sedang haid/nifas, thawaf wada’nya cukup berdoa di depan salah satu pintu Masjidil Haram.</p>
+<h4 class="topic-heading">3. Syarat Wajib Thawaf</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Suci dari hadats dan najis</p>
+</li>
+<li data-number="02"><p>Menutup aurat</p>
+</li>
+<li data-number="03"><p>Dilakukan di dalam Masjidil Haram</p>
+</li>
+<li data-number="04"><p>Berjalan ke depan (tidak mundur)</p>
+</li>
+<li data-number="05"><p>Yakin tujuh kali putaran</p>
+</li>
+<li data-number="06"><p>Berawal dan berakhir di arah sejajar dengan sudut hajar aswad (ditandai dengan lampu warna hijau di seberang ka’bah)</p>
+</li>
+<li data-number="07"><p>Ka’bah selalu di sebelah kiri</p>
+</li>
+<li data-number="08"><p>Niat thawaf, hanya untuk jama’ah yang mengerjakan thawaf sunnah dan thawaf wada’, sedangkan untuk thawaf haji dan thawaf umrah tidak disyaratkan niat.</p>
+</li>
+<li data-number="09"><p>Badan harus selalu berada di luar batasan ka’bah</p>
+</li>
+<li data-number="10"><p>Menjaga niat thawaf selama pelaksanaan thawaf.</p>
+</li>
+<li data-number="11"><p>Bertujuan hanya untuk thawaf, tidak untuk mencari teman yang hilang atau hanya untuk tujuan melihat-lihat, misalnya.</p>
+</li>
+</ol>
+<h4 class="topic-heading">4. Sunnah Thawaf</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Berjalan kaki</p>
+</li>
+<li data-number="02"><p>Menyelendangkan kain ihram, dengan membuka bahu sebelah kanan dan menutup bahu sebelah kiri (<i>idtiba’</i>)</p>
+</li>
+<li data-number="03"><p>Mencium atau mengusap hajar aswad, bila memungkinkan, atau memberi isyarat dengan mengangkat telapak tangan kanan (<i>istilam</i>) lalu mengecupnya setiap kali sampai ke arah hajar aswad sambil mengucapkan “Bismillahi Allahu Akbar”. (Bagi jama’ah yang sedang ihram harap hati-hati terkena minyak wangi yang ada di ka’bah karena ini merupakan salah satu larangan ihram).</p>
+</li>
+<li data-number="04"><p>Lari-lari kecil pada tiga putaran pertama (<i>raml</i>) bagi laki-laki</p>
+</li>
+<li data-number="05"><p>Membaca do’a thawaf setiap kali putaran.</p>
+</li>
+<li data-number="06"><p>Bila sampai antara rukun yamani dan rukun hajar aswad berdoa:</p>
+</li>
+</ol>
+<p class="arabic" lang="ar" dir="rtl">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p><div class="latin-block"><span class="translation-label">CARA BACA (LATIN)</span><p class="latin">Rabbana atina fid dunya hasanah wa fil akhirati hasanah wa qina ‘adzaban nar.</p></div><div class="meaning-block"><span class="translation-label">ARTINYA</span><p>“Wahai Tuhan kami, berilah kami kebaikan di dunia dan kebaikan di akhirat, serta lindungilah kami dari azab neraka.”</p></div>
+<ol class="lesson-list" start="1">
+<li data-number="07"><p>Mengusap rukun yamani (sudut sebelum sudut hajar aswad), bila memungkinkan; bila tidak memungkinkan cukup mengangkat tangan (<i>istilam</i>) tanpa mengecup sambil mengucapkan: “Bismillahi Allahu Akbar”</p>
+</li>
+<li data-number="08"><p>Shalat dua rakaat di belakang <i>maqam</i> ibrahim atau sekitarnya</p>
+</li>
+<li data-number="09"><p>Dilakukan dengan khusu’</p>
+</li>
+<li data-number="10"><p>Minum air zam-zam</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="sai" data-label="G" data-pages="48,49"><h3>Sa’i</h3>
+<h4 class="topic-heading">1. Pengertian Sa’i</h4>
+<p>Sa’i adalah berjalan dari Shafa ke Marwah sebanyak tujuh kali perjalanan, berawal dari Shafa dan berakhir di Marwah. Dari Shafa ke Marwah dihitung satu kali perjalanan dan sebaliknya dari Marwah ke Shafa dihitung sudah dua kali perjalanan dan seterusnya.</p>
+<h4 class="topic-heading">2. Syarat Wajib Sa’i</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Didahului dengan thawaf yang sah</p>
+</li>
+<li data-number="02"><p>Menempuh jarak mulai dari Shafa dan Marwah dan sebaliknya dengan sempurna</p>
+</li>
+<li data-number="03"><p>Yakin menyempurnakan tujuh kali perjalanan</p>
+</li>
+<li data-number="04"><p>Berjalan dengan menghadap ke depan</p>
+</li>
+<li data-number="05"><p>Dikerjakan di <i>mas’a</i> (tempat sa’i)</p>
+</li>
+<li data-number="06"><p>Tertib, artinya harus dimulai dari Shafa menuju Marwah dan sebaliknya.</p>
+</li>
+</ol>
+<h4 class="topic-heading">3. Sunnah Sa’i</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Dilakukan dengan tanpa memakai alas kaki (sepatu atau sandal)</p>
+</li>
+<li data-number="02"><p>Suci hadats</p>
+</li>
+<li data-number="03"><p>Lari-lari kecil di antara 2 (dua) pilar hijau, khusus jama’ah laki-laki</p>
+</li>
+<li data-number="04"><p>Memperbanyak berdoa dan berdzikir</p>
+</li>
+<li data-number="05"><p>Naik ke bukit Shafa bagi laki-laki</p>
+</li>
+<li data-number="06"><p>Berdoa di bukit Shafa dan Marwa</p>
+</li>
+<li data-number="07"><p>Muwalat (terus menerus)</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="wukuf" data-label="H" data-pages="49,50,51"><h3>Wukuf</h3>
+<h4 class="topic-heading">1. Pengertian Wukuf</h4>
+<p>Wukuf adalah diam sejenak di padang Arafah, waktu mulai tergelincirnya matahari (waktu dzuhur) tanggal 9 Dzulhijjah sampai terbit fajar tanggal 10 Dzulhijjah.</p>
+<h4 class="topic-heading">2. Syarat Wajib Wukuf</h4>
+<p>Diam sejenak di padang Arafah pada waktu wukuf, meskipun hanya sebentar.</p>
+<h4 class="topic-heading">3. Sunnah Wukuf</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Berada di padang Arafah mulai siang tanggal 9 Dzulhijjah hingga malam tanggal 10 Dzulhijjah (menggabungkan antara siang dan malam)</p>
+</li>
+<li data-number="02"><p>Suci dari hadats</p>
+</li>
+<li data-number="03"><p>Selalu menutup aurat</p>
+</li>
+<li data-number="04"><p>Menghadap ke arah qiblat</p>
+</li>
+<li data-number="05"><p>Tidak dalam keadaan berpuasa</p>
+</li>
+<li data-number="06"><p>Dilakukan dengan khusu’ dan tadarru’</p>
+</li>
+<li data-number="07"><p>Memperbanyak do’a dan dzikir</p>
+</li>
+<li data-number="08"><p>Berada di tempat terbuka (di luar tenda). Sekitar pukul 5 sore berdoa karena waktu tersebut termasuk waktu mustajabah.</p>
+</li>
+</ol>
+<h4 class="topic-heading">4. Pelaksanaan Prosesi Wukuf</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Setelah sampai di Arafah, jamaah bertempat tinggal di tenda yang diisi puluhan orang tiap tenda, untuk melaksanakan prosesi wukuf.</p>
+</li>
+</ol>
+<p class="note-label">Ingat!</p>
+<p>Wukuf tidak boleh ditinggalkan dan tidak boleh diwakilkan serta tidak bisa diganti dengan dam, bahkan oleh jamaah yang sakit sekalipun. Bagi jamaah yang sakit akan dilakukan safari wukuf. Pelaksanaannya akan dikoordinasikan oleh ketua kloter beserta ketua rombongan.</p>
+<ol class="lesson-list" start="1">
+<li data-number="02"><p>Tepat tanggal 9 Dzulhijjah, setelah masuk waktu wukuf, yang ditandai dengan masuknya waktu dzuhur maka jamaah melakukan shalat dzuhur dan ashar dengan jamak taqdim, sebaiknya tidak dilakukan dengan qashar (mengumpulkan sholat dzuhur dan ashar dikerjakan di waktu dzuhur yang masing-masing tetap dikerjakan 4 rakaat – 4 rakaat).</p>
+</li>
+<li data-number="03"><p>Selesai shalat, dilanjutkan dengan mendengarkan khuthbah wukuf dan doa bersama, selanjutnya berdoa sendiri-sendiri dan memperbanyak istighfar, dzikir, shalawat dan membaca surat al-Ikhlash dengan penuh tadarru’ dan khusu’.</p>
+</li>
+<li data-number="04"><p>Setelah tiba waktu maghrib tanggal 10 Dzulhijjah, jamaah melakukan shalat maghrib dan isya’ dengan jamak taqdim sebaiknya tanpa qashar, maghrib tetap dilakukan tiga rakaat sedangkan isya’ dilakukan 4 rakaat. Atau shalat ini bisa dilakukan nanti di Muzdalifah dengan jamak ta’khir (menurut para ulama, ini yang lebih baik).</p>
+</li>
+<li data-number="05"><p>Selanjutnya jamaah diberangkatkan dengan bus menuju ke Muzdalifah. Jarak Arafah – Muzdalifah kurang lebih 9 km.</p>
+</li>
+</ol>
+<p class="source-reference">Imam Nawawi, Al-Idhah, hal. 279.</p>
+<p class="note-label">Keterangan:</p>
+<p>Khutbah wukuf ada 2 pendapat:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Prosesi khutbah pertama dilanjutkan khutbah yang kedua kemudian adzan (Menurut Imam Hanafi)</p>
+</li>
+<li data-number="b"><p>Adzan terlebih dahulu kemudian khutbah wukuf, seperti pelaksanaan sholat jum’at.</p>
+</li>
+</ol>
+<p class="source-reference">Imam Abu Zakariya An-Nawawi, Majmu’ Syarah Muhadzab, Juz 8, hal. 95, bab Sifatul hajj.</p>
+<p>Setelah selesai khutbah wukuf dianjurkan untuk keluar tenda. Tentunya tetap memperhatikan kondisi cuaca dan kesehatan jamaah.</p>
+<p class="source-reference">Imam Abu Zakariya An-Nawawi, Majmu’ Syarah Muhadzab, Juz 8, hal. 111.</p>
+<p class="note-label">Keterangan:</p>
+<p>Jika wukuf di Arafah bertepatan hari jum’at, maka tidak melaksanakan shalat jum’at.</p>
+<p class="source-reference">Imam Nawawi, Al-Idhah, hal. 275.</p>
+</section>
+<section class="reading-section" id="mabit-di-muzdalifah" data-label="I" data-pages="51,52"><h3>Mabit di Muzdalifah</h3>
+<h4 class="topic-heading">1. Pengertian Mabit di Muzdalifah</h4>
+<p>Mabit di Muzdalifah adalah diam sejenak di Muzdalifah setelah tengah malam tanggal 10 Dzulhijjah menurut waktu Arab Saudi.</p>
+<h4 class="topic-heading">2. Sunnah Mabit di Muzdalifah</h4>
+<p>Bermalam hingga fajar sambil menerima kerikil untuk melontar Jamarat dan memperbanyak doa.</p>
+<h4 class="topic-heading">3. Prosesi Mabit di Muzdalifah</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Di Muzdalifah jama’ah melakukan mabit, artinya jamaah harus berhenti di Muzdalifah minimal sampai tengah malam (kira-kira jam satu – dua malam).</p>
+</li>
+<li data-number="02"><p>Kegiatan yang dilakukan selama di Muzdalifah:</p>
+</li>
+</ol>
+<ul class="bullet-list"><li>Berniat mabit di Muzdalifah</li><li>Berdoa</li><li>Menerima kerikil, sebanyak 1 paket yang berisi kurang lebih 70 kerikil.</li></ul>
+<ol class="lesson-list" start="1">
+<li data-number="03"><p>Setelah lewat tengah malam, jamaah menunggu bus yang akan memberangkatkan menuju Mina.</p>
+</li>
+</ol>
+<p class="note-label">Keterangan:</p>
+<p>Bagi jamaah yang berisiko tinggi diperbolehkan mengikuti program <i>murur</i> (tanpa turun dari bus di Muzdalifah) yang difasilitasi oleh pemerintah.</p>
+<p class="source-reference">Imam Nawawi, Al-Idhah, hal. 306.</p>
+</section>
+<section class="reading-section" id="mabit-di-mina" data-label="J" data-pages="52,53"><h3>Mabit di Mina</h3>
+<h4 class="topic-heading">1. Pengertian Mabit di Mina</h4>
+<p>Mabit di Mina adalah diam di Mina lebih dari setengah malam pada malam hari-hari Tasyriq (tanggal 11, 12, dan 13 Dzulhijjah).</p>
+<p class="note-label">Keterangan:</p>
+<p>Mabit di Mina ada 2 pendapat:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Wajib mabit di Mina</p>
+</li>
+<li data-number="b"><p>Cukup hadir di Mina sewaktu terbitnya fajar (pendapat kedua/qaul tsani dari kalangan ulama’ Syafi’iyah).</p>
+</li>
+</ol>
+<h4 class="topic-heading">2. Batasan Mina</h4>
+<p>Batasan Mina yang asli, sesuai ketentuan nash adalah daerah yang panjangnya antara Wadi Muhassir dan Jamrah Aqabah/Kubra (sekitar 2 km), sedang lebarnya jarak antara dua gunung.</p>
+<p>Perkemahan Mu’aishim tempat kemah jama’ah haji Indonesia adalah di luar batas Mina. Menurut pendapat yang mendekati kebenaran tidak sah melakukan mabit di tenda Mu’aishim.</p>
+<p class="note-label">Catatan:</p>
+<p>Kenyataannya jama’ah haji Indonesia yang melakukan mabit di Mina yang asli, sering dilarang atau bahkan diusir oleh petugas, sehingga tidak dapat melaksanakan mabit di Mina yang asli lebih dari setengah malam.</p>
+<p>Maka bila keadaan seperti tersebut, maka solusinya adalah mengikuti <i>qaul tsani</i> (pendapat kedua) dari kalangan ulama’ Syafi’iyah, yaitu cukup hadir di Mina sewaktu terbitnya fajar.</p>
+<p>Diperbolehkan bagi jamaah, bila memungkinkan untuk melakukan <i>tanazul</i>.</p>
+</section>
+<section class="reading-section" id="melontar-jamrah" data-label="K" data-pages="53,54,55"><h3>Melontar Jamrah</h3>
+<h4 class="topic-heading">1. Syarat Melontar Jamrah</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Dilakukan dengan tangan</p>
+</li>
+<li data-number="02"><p>Melontar menggunakan kerikil</p>
+</li>
+<li data-number="03"><p>Dilakukan dengan cara melontar (tidak sekedar meletakkan atau menaruh)</p>
+</li>
+<li data-number="04"><p>Bertujuan melontar jamrah</p>
+</li>
+<li data-number="05"><p>Yakin masuk di dalam marma (sumur sasaran melontar)</p>
+</li>
+<li data-number="06"><p>Yakin tujuh kali lontaran</p>
+</li>
+<li data-number="07"><p>Untuk melontar tiga jamrah (‘Ula, Wustha dan Aqabah/Kubra) harus tartib/urut, yaitu dimulai dari ‘Ula, Wustha kemudian Aqabah/Kubra.</p>
+</li>
+<li data-number="08"><p>Sesuai ketentuan waktu melontar.</p>
+</li>
+</ol>
+<h4 class="topic-heading">2. Sunnah Melontar Jamrah secara umum</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Melontar dengan menggunakan tangan kanan</p>
+</li>
+<li data-number="02"><p>Laki-laki melakukan lontaran dengan mengangkat tangan hingga ketiaknya kelihatan.</p>
+</li>
+<li data-number="03"><p>Menghadap ke arah kiblat saat melontar jamrah ‘Ula dan Wustha</p>
+</li>
+<li data-number="04"><p>Mendekat ke marma (sumur sasaran melontar)</p>
+</li>
+<li data-number="05"><p>Melontar dengan batu kerikil yang berukuran sedang</p>
+</li>
+<li data-number="06"><p>Membaca takbir pada setiap lontaran</p>
+</li>
+<li data-number="07"><p>Muwalat (dilakukan secara langsung atau tidak diselingi dengan perbuatan lain)</p>
+</li>
+</ol>
+<h4 class="topic-heading">3. Waktu Melontar Jamrah</h4>
+<p>a. Jamrah Aqabah/Kubra, yaitu:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Setelah tengah malam tanggal 10 Dzulhijjah hingga terbit fajar tanggal 11 Dzulhijjah.</p>
+</li>
+<li data-number="02"><p>Waktu yang afdhal (utama) adalah waktu dhuha (pagi) tanggal 10 Dzulhijjah.</p>
+</li>
+<li data-number="03"><p>Bagi yang belum dapat melontar di waktu tersebut, masih boleh melakukan lontaran sampai dengan terbenamnya matahari tanggal 13 Dzulhijjah dengan niat qadla.</p>
+</li>
+</ol>
+<p>b. Jamrah ‘Ula, Wustha, dan Aqabah/Kubra</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Waktu Jawaz (diperbolehkan) yaitu mulai dari terbit fajar hari tasyriq tersebut sampai dengan terbitnya fajar hari tasyriq berikutnya. (Menurut pendapat Imam Rofi’i dan Imam Nawawi, sebagian ulama menilainya sebagai pendapat yang dhaif/lemah, akan tetapi pendapat tersebut dapat diamalkan, sesuai dengan Keputusan Muktamar NU ke-29 tanggal 4 Desember 1994).</p>
+</li>
+<li data-number="02"><p>Waktu ikhtiyar (memilih), yaitu setelah tergelincirnya matahari (ba’da zawal) sampai dengan terbitnya fajar hari tasyriq berikutnya.</p>
+</li>
+<li data-number="03"><p>Waktu Afdhal (utama), adalah setelah tergelincirnya matahari sampai dengan terbenamnya matahari (Maghrib).</p>
+</li>
+</ol>
+<p class="note-label">Keterangan:</p>
+<p>Melontar Jamarat dapat diwakilkan kepada orang lain, dengan syarat:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Diperkirakan adanya udzur sampai dengan akhirnya hari tasyriq</p>
+</li>
+<li data-number="02"><p>Mewakilkan kepada wakil (ijab qabul) setelah tergelincirnya matahari</p>
+</li>
+<li data-number="03"><p>Wakil sudah melakukan lontaran untuk dirinya sendiri.</p>
+</li>
+</ol>
+<p>Tidak ada batasan bagi wakil mewakili lebih dari satu orang.</p>
+<p class="note-label">Catatan:</p>
+<p>Hasil lontaran wakil tidak disyaratkan masuk ke dalam marma, sedangkan hasil lontaran orang yang melontar sendiri disyaratkan harus masuk ke dalam marma.</p>
+</section>
+<section class="reading-section" id="tahallul" data-label="L" data-pages="55"><h3>Tahallul</h3>
+<h4 class="topic-heading">1. Tahallul Umrah</h4>
+<p>Tahallul umrah yaitu keadaan bebas dari larangan ihram, setelah menyelesaikan rukun umrah dengan sempurna.</p>
+<h4 class="topic-heading">2. Tahallul Haji</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Tahallul awwal, yaitu keadaan bebas dari larangan ihram, kecuali hubungan suami istri (bersetubuh) setelah melaksanakan dua dari tiga amalan, yakni melontar jamrah Aqabah/Kubra, memotong atau mencukur rambut dan thawaf ifadlah (berikut sa’inya apabila belum dilaksanakan).</p>
+</li>
+<li data-number="02"><p>Tahallul tsani, yaitu keadaan bebas dari semua larangan ihram (termasuk bersetubuh) setelah melaksanakan amalan yang ketiga.</p>
+</li>
+</ol>
+</section>
+<section class="reading-section" id="nafar" data-label="M" data-pages="55,56"><h3>Nafar</h3>
+<h4 class="topic-heading">1. Nafar Awwal</h4>
+<p>Nafar awwal ialah keberangkatan jama’ah haji meninggalkan Mina pada hari kedua tasyriq, tgl. 12 Dzulhijjah, dengan syarat-syarat sbb:</p>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Dilakukan setelah tergelincirnya matahari (ba’da dzuhur) dan sebelum terbenamnya matahari.</p>
+</li>
+<li data-number="02"><p>Dilakukan setelah selesai melontar jamrah ‘Ula, Wustha dan Aqabah/Kubra, pada tanggal 11, 12 Dzulhijjah.</p>
+</li>
+<li data-number="03"><p>Dilakukan setelah mabit di Mina tanggal 11 dan 12 Dzulhijjah.</p>
+</li>
+<li data-number="04"><p>Berniat meninggalkan Mina tanpa ada niat kembali lagi.</p>
+</li>
+<li data-number="05"><p>Apabila jamaah berniat melakukan nafar awal, tetapi karena sesuatu hal sampai terbenamnya matahari masih berada di Mina, maka harus menyempurnakan nafar tsani.</p>
+</li>
+</ol>
+<h4 class="topic-heading">2. Nafar Tsani/Akhir</h4>
+<p>Nafar tsani/akhir ialah keberangkatan kedua atau terakhir jama’ah haji meninggalkan Mina setelah melontar Jamrah ‘Ula, Wustha dan Aqabah/Kubra pada hari terakhir tasyriq yaitu tanggal 13 Dzulhijjah.</p>
+</section>
+<section class="reading-section" id="larangan-ihram" data-label="N" data-pages="56,57"><h3>Larangan Ihram</h3>
+<h4 class="topic-heading">1. Larangan bagi laki-laki dan perempuan</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Bagi laki-laki: memakai pakaian yang berjahit, memakai sepatu yang menutup tumit, dan menutup kepala dengan sesuatu yang menempel di kepala, seperti kopyah atau topi dan lain sebagainya.</p>
+</li>
+<li data-number="02"><p>Bagi perempuan: menutup wajah dan berkaos tangan.</p>
+</li>
+</ol>
+<h4 class="topic-heading">2. Larangan bagi laki-laki dan perempuan</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Memakai wangi-wangian/parfum</p>
+</li>
+<li data-number="02"><p>Memakai minyak rambut kepala atau jenggot</p>
+</li>
+<li data-number="03"><p>Memotong, mencukur atau mencabut rambut/bulu badan dan memotong kuku</p>
+</li>
+<li data-number="04"><p>Melaksanakan akad nikah dan menikahkan</p>
+</li>
+<li data-number="05"><p>Bersetubuh</p>
+</li>
+<li data-number="06"><p>Membunuh binatang buruan</p>
+</li>
+<li data-number="07"><p>Memotong/mencabut rumput/pepohonan Tanah Haram.</p>
+</li>
+</ol>
+<p class="note-label">Catatan:</p>
+<p>a. Larangan yang berhubungan dengan pakaian, wangi-wangian dan minyak rambut disebut <i>taraffuh</i>. Yakni tetap dikenakan dam meski ada udzur semisal sakit, kecuali udzur karena tidak sengaja, karena tidak mengetahui hukumnya atau tidak menemukan pakaian ihram.</p>
+<p>b. Larangan memotong/mencukur rambut dan kuku, membunuh binatang buruan, dan memotong/mencabut rumput/pepohonan disebut <i>itlaf</i>. Yakni tetap dikenakan dam meski ada udzur termasuk walaupun karena tidak sengaja, karena tidak mengetahui hukumnya atau karena lupa.</p>
+</section>
+<section class="reading-section" id="dam" data-label="O" data-pages="57,58,59,60"><h3>Dam</h3>
+<h4 class="topic-heading">1. Pengertian Dam</h4>
+<p>Dam adalah denda yang wajib dipenuhi karena melakukan haji tamattu’ atau haji qiran, karena meninggalkan kewajiban atau melanggar larangan ihram.</p>
+<h4 class="topic-heading">2. Macam Dam</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Dam yang disebabkan karena melakukan haji tamattu’ atau haji qiran, yaitu dam tartib (harus urut sesuai kemampuan):</p>
+</li>
+</ol>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Seekor kambing (disembelih dan dibagikan kepada fakir miskin di tanah haram Makkah), dan jika tidak mampu baru boleh digantikan dengan:</p>
+</li>
+<li data-number="b"><p>10 hari puasa (tiga hari pada waktu ihram haji/di tanah haram Makkah dan tujuh hari ketika sampai di rumah).</p>
+</li>
+</ol>
+<ol class="lesson-list" start="1">
+<li data-number="02"><p>Dam yang disebabkan karena meninggalkan wajib haji, yaitu dengan dam tartib sebagaimana angka 1) di atas.</p>
+</li>
+<li data-number="03"><p>Dam yang disebabkan karena melanggar larangan ihram, ada dua kategori:</p>
+</li>
+</ol>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Bersifat <i>taraffuh</i>, meskipun ada udzur misalnya sakit (kecuali udzur karena tidak sengaja, tidak mengetahui hukumnya atau tidak menemukan pakaian ihram).</p>
+</li>
+<li data-number="b"><p>Bersifat <i>itlaf</i>, minimal 3 helai rambut atau kuku sekaligus, meski ada udzur.</p>
+</li>
+</ol>
+<p>Maka dam jenis ini bersifat takhyir (boleh memilih) antara:</p>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Seekor kambing (disembelih dan dibagikan kepada fakir miskin di tanah haram Makkah), atau:</p>
+</li>
+<li data-number="b"><p>Bersedekah kepada 6 fakir miskin di tanah haram Makkah masing-masing 0,5 sha’ (sekitar 1 kg) bahan makanan pokok, atau:</p>
+</li>
+<li data-number="c"><p>Puasa tiga hari, bisa dilaksanakan di tanah haram atau tanah air.</p>
+</li>
+</ol>
+<p class="note-label">Catatan:</p>
+<p>Memotong atau mencukur rambut dan memotong kuku (<i>itlaf</i>) yang kurang dari 3 helai sekaligus, maka setiap helainya berupa bersedekah 1 mud (sekitar 0,6 kg) bahan makanan pokok.</p>
+<p>Semua pembayaran dam tidak dapat digantikan dengan uang tunai.</p>
+<ol class="lesson-list" start="1">
+<li data-number="04"><p>Dam yang disebabkan karena bersetubuh (melakukan hubungan suami istri) sewaktu ihram, yaitu dam tartib (harus urut sesuai kemampuan), berupa:</p>
+</li>
+</ol>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Seekor unta (disembelih dan dibagikan kepada fakir miskin di tanah haram Makkah), atau jika tidak mampu:</p>
+</li>
+<li data-number="b"><p>Bersedekah bahan makanan pokok senilai harga seekor unta kepada fakir miskin di tanah haram Makkah.</p>
+</li>
+<li data-number="c"><p>Puasa setiap 1 mud (sekitar 0,5/setengah kg) dari bahan makanan pokok tersebut 1 (satu) hari puasa.</p>
+</li>
+</ol>
+<ol class="lesson-list" start="1">
+<li data-number="05"><p>Dam yang disebabkan karena membunuh hewan buruan, adalah berupa mengganti semisal hewan yang dibunuh.</p>
+</li>
+<li data-number="06"><p>Dam yang disebabkan karena melakukan thawaf ifadlah bagi perempuan yang sedang haidl/nifas yang mengikuti madzhab Hanafi, berupa: seekor unta (disembelih dan dibagikan kepada fakir miskin di tanah haram Makkah).</p>
+</li>
+</ol>
+<p class="note-label">Keterangan:</p>
+<p>Menurut pendapat Imam Hanafi, bahwa perempuan yang sedang haidl/nifas boleh melakukan thawaf ifadlah (rukun) tapi wajib membayar dam berupa menyembelih seekor unta.</p>
+<p class="source-reference">Imam Nawawi, Majmu’ syarah Muhadzab, Juz 7 hal. 403.</p>
+<p>Ada tiga pelanggaran yang tidak dikenakan dam, tetapi mengurangi kemabruran haji/umrah yaitu: rofas, fusuk dan jidal. Jika pelanggaran tersebut dilakukan maka hajinya tetap sah tetapi gugur pahala haji dan umrahnya.</p>
+<h4 class="topic-heading">3. Waktu Pelaksanaan Dam</h4>
+<ol class="lesson-list" start="1">
+<li data-number="01"><p>Waktu pelaksanaan dam bagi haji tamattu’ bisa dimulai sejak selesai umrah.</p>
+</li>
+<li data-number="02"><p>Penyembelihan dam wajib dilakukan hanya di tanah haram Mekkah dan dibagikan kepada fakir miskin yang berada di Mekkah. Dam tidak boleh disembelih di luar tanah haram Mekkah.</p>
+</li>
+</ol>
+<h4 class="topic-heading">4. Syarat Dam Tamattu’</h4>
+<ol class="lesson-list letter-list" type="a" start="1">
+<li data-number="a"><p>Bukan penduduk Mekkah</p>
+</li>
+<li data-number="b"><p>Mendahulukan umrah daripada haji</p>
+</li>
+<li data-number="c"><p>Umrah dilaksanakan dalam bulan haji</p>
+</li>
+<li data-number="d"><p>Tidak kembali ke miqat lagi</p>
+</li>
+<li data-number="e"><p>Haji dan umrahnya untuk satu orang</p>
+</li>
+</ol>
+<p class="source-reference">Abu Ishaq Ibrahim Assyairozi, Muhadzab, Juz 1 hal. 201–202.</p>
+</section>
 <div class="chapter-pager requires-js"></div></article>
 
 <article id="bab-6" class="chapter" data-roman="VI" data-nav-title="Haji wanita" hidden aria-labelledby="bab-6-title">
@@ -1244,7 +1937,7 @@ Ketiga font menggunakan SIL Open Font License 1.1. Lisensi lengkap di akhir file
 <dialog class="dialog" id="sourceDialog" aria-labelledby="sourceTitle"><div class="dialog-header"><div><span class="eyebrow">TRANSPARANSI MATERI</span><h2 id="sourceTitle">Tentang sumber</h2></div><button type="button" class="icon-button" data-close="sourceDialog" aria-label="Tutup catatan sumber"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-body source-notes">
 <div class="source-note"><svg class="icon"><use href="#i-file"/></svg><div><h3>Buku KBIHU IPHI Pati</h3><p>Materi awal diketik ulang dari <code>CamScanner 02-10-2026 08.16.pdf</code>, terdiri atas 15 halaman scan. Unggahan awal memuat daftar isi (v–vii), Bab I–II, dan bagian awal Bab III (halaman buku 1–12).</p></div></div>
 <div class="source-note"><svg class="icon"><use href="#i-file"/></svg><div><h3>Dokumen kelanjutan</h3><p><code>14-36.pdf</code> terdiri atas 24 halaman scan dan memuat halaman buku <strong>13–36</strong>, meskipun nama berkasnya dimulai dengan 14. Dokumen ini melengkapi Bab III dan seluruh bagian A–G Bab IV. Nomor halaman 26 tidak terlihat pada scan; penomoran mengikuti urutan antara halaman 25 dan 27 serta sambungan isinya.</p></div></div>
-<div class="source-note"><svg class="icon"><use href="#i-book"/></svg><div><h3>Cakupan materi saat ini</h3><p id="sourceCoverage">4 bab dengan 36 halaman sumber (halaman buku 1–36). Bab I–IV tersedia lengkap sesuai daftar isi. 5 bab lainnya belum diunggah; tidak dilengkapi dengan materi buatan.</p></div></div>
+<div class="source-note"><svg class="icon"><use href="#i-book"/></svg><div><h3>Cakupan materi saat ini</h3><p id="sourceCoverage">5 bab dengan 60 halaman sumber (halaman buku 1–60). Bab I–V tersedia lengkap sesuai daftar isi. 4 bab lainnya belum diunggah; tidak dilengkapi dengan materi buatan.</p></div></div>
 <div class="source-note"><svg class="icon"><use href="#i-info"/></svg><div><h3>Alih teks, bukan suntingan isi</h3><p>Ejaan, nama, istilah, dan bentuk tidak baku pada scan dipertahankan. Tata letak dan pemenggalan halaman dirapikan. Halaman buku vii, 1, 3, dan 12 yang berulang pada scan awal ditampilkan sekali. <strong>Teks Arab materi ditulis tanpa harakat.</strong> Basmala pada sampul merupakan elemen tampilan, bukan tambahan materi buku.</p></div></div>
 <div class="source-note"><svg class="icon"><use href="#i-heart"/></svg><div><h3>Belajar bersama pembimbing</h3><p>Halaman ini menampilkan materi sesuai sumber, bukan hasil verifikasi dalil atau penetapan hukum terbaru. Untuk memahami dan menerapkan isinya, mintalah penjelasan pembimbing manasik.</p></div></div>
 <div class="source-note"><svg class="icon"><use href="#i-bookmark"/></svg><div><h3>Penanda pribadi, tanpa akun</h3><p>Penanda, ukuran teks, tema, dan jejak belajar disimpan hanya di browser perangkat ini, bila penyimpanan lokal diizinkan. Tidak dikirim ke server. Jika penyimpanan tidak tersedia, pengaturan berlaku selama halaman terbuka.</p></div></div>
